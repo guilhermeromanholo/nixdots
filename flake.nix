@@ -8,6 +8,7 @@
       imports = [
         ./parts
         ./hosts
+        ./modules
       ];
     };
 
