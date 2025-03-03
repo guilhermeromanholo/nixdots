@@ -44,16 +44,17 @@ in {
 
       # User config
       users = lib.listToAttrs (map (user: {
-        name = user;
-        value = {
-          home = {
-            username = user;
-            homeDirectory = "/home/${user}";
-            stateVersion = config.system.stateVersion;
+          name = user;
+          value = {
+            home = {
+              username = user;
+              homeDirectory = "/home/${user}";
+              stateVersion = config.system.stateVersion;
+            };
+            systemd.user.startServices = "sd-switch";
           };
-          systemd.user.startServices = "sd-switch";
-        };
-      }) cfg.users);
+        })
+        cfg.users);
     };
   };
 }
