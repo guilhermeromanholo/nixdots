@@ -30,7 +30,6 @@
       # NixOS module to specified users
       hm = {
         enable = true;
-        # users = ["nixos"];
         modules = [./home.nix];
       };
     };

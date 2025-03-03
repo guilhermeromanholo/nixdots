@@ -15,8 +15,9 @@ in {
     enable = lib.mkEnableOption "Home Manager";
 
     users = lib.mkOption {
+      description = "Home-manager Users";
       type = lib.types.listOf lib.types.str;
-      default = [];
+      default = lib.attrNames (config.modules.system.users);
     };
 
     modules = lib.mkOption {
@@ -43,14 +44,16 @@ in {
 
       # User config
       users = lib.listToAttrs (map (user: {
+        name = user;
+        value = {
           home = {
             username = user;
             homeDirectory = "/home/${user}";
             stateVersion = config.system.stateVersion;
           };
           systemd.user.startServices = "sd-switch";
-        })
-        cfg.users);
+        };
+      }) cfg.users);
     };
   };
 }
