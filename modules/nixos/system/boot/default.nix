@@ -15,7 +15,7 @@ in {
 
     device = lib.mkOption {
       type = lib.types.str;
-      default = "/dev/sda";
+      default = "nodev";
     };
 
     os-prober = lib.mkOption {

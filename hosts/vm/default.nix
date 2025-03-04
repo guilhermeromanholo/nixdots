@@ -1,21 +1,21 @@
 {
+  inputs,
+  ...
+}: {
+  imports = [
+    # Import Disko module
+    ./disko.nix
+    inputs.disko.nixosModules.disko
+
+    # Import hardware config
+    ./hardware.nix
+  ];
+
   modules = {
     system = {
       # Enable boot, localtime, nix
       # and network-manager
       enable = true;
-
-      # Configure bios boot grub
-      # default device
-      boot.device = "nodev";
-
-      # Configure locale and
-      # keymap settings
-      localtime = {
-        locale = "pt_BR.UTF-8";
-        timezone = "America/Sao_Paulo";
-        keymap = "br-abnt2";
-      };
 
       # Configure system users
       # settings
@@ -27,11 +27,37 @@
       };
 
       # Enable Home Manager as
-      # NixOS module to specified users
+      # NixOS module
       hm = {
         enable = true;
         modules = [./home.nix];
       };
+    };
+    
+    hardware = {
+      # Enable pipewire audio
+      # controller
+      audio.enable = true;
+    };
+
+    services = {
+      # Enable openssh service with
+      # password authentication
+      ssh = {
+        enable = true;
+        passwordAuth = true;
+      };
+    };
+
+    sessions = {
+      # Enable base configurations
+      # for graphical sessions like
+      # xserver, opengl and regreet
+      enable = true;
+
+      # Enable gnome desktop environment
+      # without bloatware
+      gnome.enable = true;
     };
   };
 }
