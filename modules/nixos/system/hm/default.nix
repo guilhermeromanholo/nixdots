@@ -32,6 +32,12 @@ in {
       useGlobalPkgs = true;
       useUserPackages = true;
 
+      # Args
+      extraSpecialArgs = {
+        inherit inputs;
+        inherit outputs;
+      };
+
       # Custom Home Manager
       # modules
       sharedModules =
