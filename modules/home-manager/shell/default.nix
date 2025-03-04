@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./git
+    ./zsh
+    ./zellij
+  ];
+}
