@@ -13,7 +13,7 @@ in {
   config = lib.mkIf cfg.enable {
     nix = let
       flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in  {
+    in {
       settings = {
         # Opinionated: disable global registry
         flake-registry = "";

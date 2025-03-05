@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     # Import Disko module
     ./disko.nix
@@ -33,11 +30,21 @@
         modules = [./home.nix];
       };
     };
-    
+
     hardware = {
       # Enable pipewire audio
       # controller
       audio.enable = true;
+    };
+
+    themes = {
+      # Enable features for every
+      # theme like fonts
+      enable = true;
+
+      # Enable gruvbox theme with
+      # stylix
+      gruvbox.enable = true;
     };
 
     services = {
