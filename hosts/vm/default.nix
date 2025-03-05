@@ -31,6 +31,10 @@
       };
     };
 
+    impermanence = {
+      enable = true;
+    };
+
     hardware = {
       # Enable pipewire audio
       # controller

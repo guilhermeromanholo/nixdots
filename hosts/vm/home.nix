@@ -1,5 +1,8 @@
 {
   modules = {
+    impermanence = {
+      enable = true;
+    };
     # Personalized programs in the
     # home-manager modules
     programs = {

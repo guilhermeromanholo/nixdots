@@ -9,11 +9,11 @@
 
   config.flake =
     lib.mapAttrs (
-      _: dir:
-        builtins.listToAttrs (map (module: {
-          name = module;
-          value = import (dir + "/${module}");
-        }) (builtins.attrNames (builtins.readDir dir)))
+      _: module:
+        lib.mapAttrs (
+          _: subModule: import subModule
+        )
+        module
     )
     config.parts.modules;
 }

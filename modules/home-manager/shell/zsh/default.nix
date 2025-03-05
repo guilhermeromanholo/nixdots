@@ -58,7 +58,7 @@ in {
       ];
 
       shellAliases = {
-        dots = "z ~/.dotfiles";
+        dots = "z ~/.nixdots";
         cat = "bat";
         vim = "nvim";
         gs = "git status";
