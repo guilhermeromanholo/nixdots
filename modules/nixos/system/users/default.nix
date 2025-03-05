@@ -32,7 +32,7 @@ in {
 
   config = lib.mkIf (cfg != {}) {
     users.users =
-      lib.mapAttrs (_: value: {
+      lib.mapAttrs (name: value: {
         isNormalUser = true;
         extraGroups = value.groups;
 
@@ -41,6 +41,9 @@ in {
 
         initialPassword = "password";
         openssh.authorizedKeys.keys = value.authKeys;
+
+        home = "/home/${name}";
+        createHome = true;
       })
       cfg;
   };

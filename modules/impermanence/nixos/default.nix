@@ -13,7 +13,9 @@ in {
 
   config = lib.mkIf cfg.enable {
     programs.fuse.userAllowOther = true;
+
     fileSystems.${cfg.persistPath}.neededForBoot = true;
+    fileSystems."/home".neededForBoot = true;
 
     environment.persistence."${cfg.persistPath}/system" = {
       hideMounts = true;

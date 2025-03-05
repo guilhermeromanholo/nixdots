@@ -52,10 +52,6 @@
             extraArgs = ["-f"];
 
             subvolumes = {
-              "/root" = {
-                mountpoint = "/";
-              };
-
               "/persist" = {
                 mountOptions = ["subvol=persist" "noatime"];
                 mountpoint = "/persist";
@@ -68,6 +64,25 @@
             };
           };
         };
+      };
+    };
+
+    nodev = {
+      "/" = {
+        fsType = "tmpfs";
+        mountOptions = [
+          "size=2G"
+          "mode=755"
+        ];
+      };
+
+      "/home" = {
+        fsType = "tmpfs";
+        mountOptions = [
+          "size=2G"
+          "mode=1777"
+          "defaults"
+        ];
       };
     };
   };
