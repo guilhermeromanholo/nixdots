@@ -17,17 +17,10 @@
 
 ### :pencil: TODO:
 
-* [x] *Make flake module for packages*
-* [ ] Add flake custom schemas to outputs
-* [x] Add Nixvim in custom packages
-* [x] Add all modules in the shared branch
-* [ ] Add Shyfox theme in the Firefox module
-* [x] Make optional imports with "?" operator
-* [ ] Create Hyprpanel, Hyprlock, Swayidle and Nixcord modules
-* [ ] Make template with my configuration
-* [x] Move themes to style modules
-* [x] Understand how flakeModules works
-* [ ] Add Nix Helper
+* [ ] Adicionar Nixcord
+* [ ] Adicionar Nix Helper
+* [ ] Juntar modulos de desktop
+* [ ] Fazer um módulo separado do stylix
 
 ### :gear: Nixvim:
 

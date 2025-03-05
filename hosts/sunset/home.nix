@@ -1,0 +1,24 @@
+{
+  modules = {
+    impermanence = {
+      enable = true;
+    };
+
+    # Personalized programs in the
+    # home-manager modules
+    programs = {
+      kitty.enable = true;
+    };
+
+    # Custom code editors
+    editors = {
+      vim.enable = true;
+    };
+
+    # Custom shell modules
+    shell = {
+      git.enable = true;
+      zsh.enable = true;
+    };
+  };
+}
