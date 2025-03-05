@@ -14,11 +14,13 @@ in {
   config = lib.mkIf cfg.enable {
     home.persistence."${cfg.persistPath}/home/${config.home.username}" = {
       allowOther = true;
-      
-      directories = [
-        ".nixdots"
-        ".ssh"
-      ] ++ cfg.directories;
+
+      directories =
+        [
+          ".nixdots"
+          ".ssh"
+        ]
+        ++ cfg.directories;
 
       files = cfg.files;
     };
