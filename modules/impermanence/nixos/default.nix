@@ -38,6 +38,7 @@ in {
 
       files =
         [
+	  "/etc/shadow"
           "/etc/machine-id"
         ]
         ++ cfg.files;

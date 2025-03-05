@@ -14,6 +14,11 @@
       # and network-manager
       enable = true;
 
+      boot = {
+      	uefi = true;
+      	os-prober = true;
+      };
+
       # Configure system users
       # settings
       users = {

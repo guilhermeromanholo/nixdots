@@ -22,7 +22,11 @@ in {
         ]
         ++ cfg.directories;
 
-      files = cfg.files;
+      files = 
+      	[
+	  ".gitconfig"
+	]
+	++ cfg.files;
     };
   };
 }

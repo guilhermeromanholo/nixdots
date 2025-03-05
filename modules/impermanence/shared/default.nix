@@ -8,20 +8,12 @@
     };
 
     directories = lib.mkOption {
-      type = with lib.types;
-        oneOf [
-          (listOf attrs)
-          (listOf str)
-        ];
+      type = lib.types.listOf lib.types.str;
       default = [];
     };
 
     files = lib.mkOption {
-      type = with lib.types;
-        oneOf [
-          (listOf attrs)
-          (listOf str)
-        ];
+      type = lib.types.listOf lib.types.str;
       default = [];
     };
   };
