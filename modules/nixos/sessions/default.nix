@@ -13,13 +13,21 @@ in {
 
   options.modules.sessions = {
     enable = lib.mkEnableOption "Sessions";
+
+    xkbmap = lib.mkOption {
+      type = lib.types.str;
+      default = "br";
+    };
   };
 
   config = lib.mkIf cfg.enable {
     # Enable X11
     services.xserver.enable = true;
+    services.xserver.xkb.layout = cfg.xkbmap;
+
     # Enable OpenGL
     hardware.graphics.enable = true;
+
     # Login Manager
     services.xserver.displayManager.gdm.enable = true;
   };
