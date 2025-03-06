@@ -17,6 +17,8 @@ in {
     fileSystems.${cfg.persistPath}.neededForBoot = true;
     fileSystems."/home".neededForBoot = true;
 
+    environment.etc."shadow".source = "${cfg.persistPath}/system/etc/shadow";
+
     environment.persistence."${cfg.persistPath}/system" = {
       hideMounts = true;
 
