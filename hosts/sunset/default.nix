@@ -15,8 +15,8 @@
       enable = true;
 
       boot = {
-      	uefi = true;
-      	os-prober = true;
+        uefi = true;
+        os-prober = true;
       };
 
       # Configure system users

@@ -40,7 +40,7 @@ in {
 
       files =
         [
-	  "/etc/shadow"
+          "/etc/shadow"
           "/etc/machine-id"
         ]
         ++ cfg.files;
