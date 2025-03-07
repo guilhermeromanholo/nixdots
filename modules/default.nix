@@ -14,11 +14,11 @@
     # My Home Manager custom
     # modules
     homeManagerModules = {
-      shell = ./home-manager/shell;
-      desktop = ./home-manager/desktop;
-      editors = ./home-manager/editors;
-      programs = ./home-manager/programs;
-      impermanence = ./impermanence/home-manager;
+      shell = ./home/shell;
+      desktop = ./home/desktop;
+      editors = ./home/editors;
+      programs = ./home/programs;
+      impermanence = ./impermanence/home;
     };
   };
 }

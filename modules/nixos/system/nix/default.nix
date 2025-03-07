@@ -27,7 +27,6 @@ in {
         experimental-features = "nix-command flakes";
       };
 
-      channel.enable = false;
       optimise.automatic = true;
 
       gc = {

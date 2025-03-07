@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   imports = [
     # Import Disko module
     ./disko.nix
@@ -7,6 +7,8 @@
     # Import hardware config
     ./hardware.nix
   ];
+
+  environment.systemPackages = [ pkgs.vesktop ];
 
   modules = {
     system = {
