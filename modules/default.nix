@@ -3,8 +3,8 @@
     # My system NixOS custom
     # modules
     nixosModules = {
+      stylix = ./stylix/nixos;
       system = ./nixos/system;
-      themes = ./nixos/themes;
       hardware = ./nixos/hardware;
       sessions = ./nixos/sessions;
       services = ./nixos/services;
@@ -15,6 +15,7 @@
     # modules
     homeManagerModules = {
       shell = ./home/shell;
+      stylix = ./stylix/home;
       desktop = ./home/desktop;
       editors = ./home/editors;
       programs = ./home/programs;

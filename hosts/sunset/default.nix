@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     # Import Disko module
     ./disko.nix
@@ -8,7 +12,7 @@
     ./hardware.nix
   ];
 
-  environment.systemPackages = [ pkgs.vesktop ];
+  environment.systemPackages = [pkgs.vesktop];
 
   modules = {
     system = {
@@ -48,14 +52,14 @@
       audio.enable = true;
     };
 
-    themes = {
+    stylix = {
       # Enable features for every
       # theme like fonts
       enable = true;
 
       # Enable gruvbox theme with
       # stylix
-      gruvbox.enable = true;
+      theme = "gruvbox";
     };
 
     services = {
