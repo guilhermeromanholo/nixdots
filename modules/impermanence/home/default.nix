@@ -7,7 +7,7 @@
   cfg = config.modules.impermanence;
 in {
   imports = [
-    ../shared
+    ../shared/options.nix
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 

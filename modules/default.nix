@@ -15,7 +15,6 @@
     # modules
     homeManagerModules = {
       shell = ./home/shell;
-      stylix = ./stylix/home;
       desktop = ./home/desktop;
       editors = ./home/editors;
       programs = ./home/programs;
