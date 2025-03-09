@@ -15,6 +15,7 @@
 
     # Custom shell modules
     shell = {
+      nh.enable = true;
       git.enable = true;
       zsh.enable = true;
     };

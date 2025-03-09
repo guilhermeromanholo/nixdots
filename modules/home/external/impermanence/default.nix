@@ -30,7 +30,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.persistence."${cfg.path}/home/${config.home.username}" = {
+    home.persistence."${cfg.path}${config.home.homeDirectory}" = {
       allowOther = true;
       files = cfg.files;
       directories = cfg.dirs;
