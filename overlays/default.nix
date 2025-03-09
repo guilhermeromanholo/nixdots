@@ -34,5 +34,8 @@
         config.allowUnfree = true;
       };
     };
+
+    # Hyprpanel overlay
+    hyprpanel = inputs.hyprpanel.overlay;
   };
 }

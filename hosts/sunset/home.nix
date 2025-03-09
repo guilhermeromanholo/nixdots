@@ -20,6 +20,11 @@
       zsh.enable = true;
     };
 
+    desktop = {
+      sway.enable = true;
+      hyprland.enable = true;
+    };
+
     external = {
       # Impermanence module
       # persistent files

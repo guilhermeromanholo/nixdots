@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.modules.desktop.wofi;
+  cfg = config.modules.programs.wofi;
 in {
-  options.modules.desktop.wofi = {
+  options.modules.programs.wofi = {
     enable = lib.mkEnableOption "Wofi";
   };
 

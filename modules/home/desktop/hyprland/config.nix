@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.desktop.hyprdots;
+  cfg = config.modules.desktop.hyprland.config;
 in {
-  options.modules.desktop.hyprdots = {
-    enable = lib.mkEnableOption "Hyprdots";
+  options.modules.desktop.hyprland.config = {
+    enable = lib.mkEnableOption "Hyprland config";
 
     modKey = lib.mkOption {
       type = lib.types.str;
@@ -34,7 +34,7 @@ in {
         };
 
         bind = [
-          "Ctrl+Alt, L, exec, ${pkgs.swaylock-effects}/bin/swaylock"
+          "Ctrl+Alt, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
           "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
           "$mainMod, D, exec, ${pkgs.wofi}/bin/wofi"
           "$mainMod+Shift, Space, togglefloating"

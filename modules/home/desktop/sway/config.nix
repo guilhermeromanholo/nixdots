@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.desktop.swaydots;
+  cfg = config.modules.desktop.sway.config;
 in {
-  options.modules.desktop.swaydots = {
-    enable = lib.mkEnableOption "Swaydots";
+  options.modules.desktop.sway.config = {
+    enable = lib.mkEnableOption "Sway config";
 
     modKey = lib.mkOption {
       type = lib.types.str;

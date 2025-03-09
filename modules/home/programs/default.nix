@@ -1,5 +1,6 @@
 {
   imports = [
+    ./wofi
     ./foot
     ./kitty
   ];

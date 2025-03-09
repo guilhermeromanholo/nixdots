@@ -5,13 +5,13 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.desktop.hyprpanel;
+  cfg = config.modules.desktop.hyprland.hyprpanel;
 in {
   imports = [
     inputs.hyprpanel.homeManagerModules.hyprpanel
   ];
 
-  options.modules.desktop.hyprpanel = {
+  options.modules.desktop.hyprland.hyprpanel = {
     enable = lib.mkEnableOption "Hyprpanel";
 
     theme = lib.mkOption {

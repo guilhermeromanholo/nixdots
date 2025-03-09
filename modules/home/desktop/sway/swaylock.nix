@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.desktop.swaylock;
+  cfg = config.modules.desktop.sway.swaylock;
 in {
-  options.modules.desktop.swaylock = {
+  options.modules.desktop.sway.swaylock = {
     enable = lib.mkEnableOption "Swaylock";
   };
 
