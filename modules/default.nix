@@ -3,7 +3,6 @@
     # My system NixOS custom
     # modules
     nixosModules = {
-      stylix = ./stylix/nixos;
       system = ./nixos/system;
       hardware = ./nixos/hardware;
       sessions = ./nixos/sessions;

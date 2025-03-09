@@ -31,9 +31,9 @@
           ".nixdots"
         ];
 
-	files = [
-	  ".gitconfig"
-	];
+        files = [
+          ".gitconfig"
+        ];
       };
     };
   };

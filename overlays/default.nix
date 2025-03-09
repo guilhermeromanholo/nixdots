@@ -6,9 +6,11 @@
 }: {
   flake.overlays = {
     # This one brings our custom packages from the 'pkgs' directory
-    additions = final: _prev: lib.mapAttrs (
-      _: value: final.pkgs.callPackage value {}
-    ) config.parts.packages;
+    additions = final: _prev:
+      lib.mapAttrs (
+        _: value: final.pkgs.callPackage value {}
+      )
+      config.parts.packages;
 
     # This one contains whatever you want to overlay
     # https://nixos.wiki/wiki/Overlays

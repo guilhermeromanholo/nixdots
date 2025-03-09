@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   pkgs,
   ...
 }: {
@@ -42,12 +43,6 @@
       };
     };
 
-    external = {
-      # Enable Impermanence NixOS
-      # module to persistence
-      impermanence.enable = true;
-    };
-
     hardware = {
       # Enable SSD fstrim
       # controller
@@ -56,16 +51,6 @@
       # Enable pipewire audio
       # controller
       audio.enable = true;
-    };
-
-    stylix = {
-      # Enable features for every
-      # theme like fonts
-      enable = true;
-
-      # Enable gruvbox theme with
-      # stylix
-      theme = "gruvbox";
     };
 
     services = {
@@ -88,6 +73,19 @@
       # Enable gnome desktop environment
       # without bloatware
       gnome.enable = true;
+    };
+
+    external = {
+      # Enable features for
+      # theming NixOS
+      stylix = {
+        enable = true;
+        theme = outputs.themes.gruvbox;
+      };
+
+      # Enable Impermanence NixOS
+      # module to persistence
+      impermanence.enable = true;
     };
   };
 }

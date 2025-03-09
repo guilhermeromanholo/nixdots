@@ -8,9 +8,10 @@
       imports = [
         ./parts
         ./hosts
+        ./themes
         ./modules
-	./packages
-	./overlays
+        ./packages
+        ./overlays
       ];
     };
 

@@ -10,7 +10,7 @@ in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  
+
   options.modules.editors.nixvim = {
     enable = lib.mkEnableOption "Vim";
   };
@@ -18,8 +18,8 @@ in {
   config = lib.mkIf cfg.enable {
     programs.  
         nixvim = lib.mkMerge [
-          {enable = true;}
-          outputs.nixvimModules.default
-        ];
+      {enable = true;}
+      outputs.nixvimModules.default
+    ];
   };
 }

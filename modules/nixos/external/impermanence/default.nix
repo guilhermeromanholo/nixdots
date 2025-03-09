@@ -43,8 +43,9 @@ in {
       persistence."${cfg.path}/system" = {
         hideMounts = true;
 
-        directories = cfg.dirs ++
-          [
+        directories =
+          cfg.dirs
+          ++ [
             "/var/log"
             "/var/lib/bluetooth"
             "/var/lib/nixos"
@@ -58,8 +59,9 @@ in {
             }
           ];
 
-        files = cfg.files ++
-          [
+        files =
+          cfg.files
+          ++ [
             "/etc/shadow"
             "/etc/machine-id"
           ];
