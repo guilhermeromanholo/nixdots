@@ -69,9 +69,6 @@
       # Enable gnome desktop environment
       # without bloatware
       gnome.enable = true;
-
-      sway.enable = true;
-      hyprland.enable = true;
     };
 
     external = {
