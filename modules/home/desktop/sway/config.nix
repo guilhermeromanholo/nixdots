@@ -31,6 +31,8 @@ in {
         bars = lib.mkIf config.programs.waybar.enable [];
         menu = lib.mkIf config.programs.wofi.enable "${pkgs.wofi}/bin/wofi";
 
+        terminal = "${pkgs.kitty}/bin/kitty";
+
         gaps = {
           inner = 6;
           outer = 4;
