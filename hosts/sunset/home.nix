@@ -19,14 +19,22 @@
       zsh.enable = true;
     };
 
-    # Impermanence module
-    # persistent files
-    impermanence = {
-      enable = true;
+    external = {
+      # Impermanence module
+      # persistent files
+      impermanence = {
+        enable = true;
 
-      directories = [
-        ".mozilla"
-      ];
+        dirs = [
+          ".ssh"
+          ".mozilla"
+          ".nixdots"
+        ];
+
+	files = [
+	  ".gitconfig"
+	];
+      };
     };
   };
 }

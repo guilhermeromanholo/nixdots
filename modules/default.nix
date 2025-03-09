@@ -8,7 +8,7 @@
       hardware = ./nixos/hardware;
       sessions = ./nixos/sessions;
       services = ./nixos/services;
-      impermanence = ./impermanence/nixos;
+      external = ./nixos/external;
     };
 
     # My Home Manager custom
@@ -18,7 +18,7 @@
       desktop = ./home/desktop;
       editors = ./home/editors;
       programs = ./home/programs;
-      impermanence = ./impermanence/home;
+      external = ./home/external;
     };
   };
 }

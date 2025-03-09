@@ -42,11 +42,17 @@
       };
     };
 
-    impermanence = {
-      enable = true;
+    external = {
+      # Enable Impermanence NixOS
+      # module to persistence
+      impermanence.enable = true;
     };
 
     hardware = {
+      # Enable SSD fstrim
+      # controller
+      ssd.enable = true;
+
       # Enable pipewire audio
       # controller
       audio.enable = true;
