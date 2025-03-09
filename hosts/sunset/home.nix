@@ -10,7 +10,7 @@
 
     # Custom code editors
     editors = {
-      vim.enable = true;
+      nixvim.enable = true;
     };
 
     # Custom shell modules

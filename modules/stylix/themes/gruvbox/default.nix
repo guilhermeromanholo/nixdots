@@ -27,7 +27,7 @@
   };
 
   icon = {
-    name = "Tela-green-dark";
-    package = "tela-icon-theme";
+    name = "Gruvbox-Plus-Dark";
+    package = "gruvbox-plus-icons";
   };
 }

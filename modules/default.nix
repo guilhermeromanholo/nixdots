@@ -20,5 +20,15 @@
       programs = ./home/programs;
       external = ./home/external;
     };
+
+    # My Nixvim custom
+    # modules
+    nixvimModules = {
+      default = ./nixvim;
+      plugins = ./nixvim/plugins;
+      keybinds = ./nixvim/keybinds;
+      settings = ./nixvim/settings;
+      colorscheme = ./nixvim/colorscheme;
+    };
   };
 }

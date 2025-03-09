@@ -1,0 +1,34 @@
+{
+  imports = [
+    ./mini
+
+    ./lsp/lsp.nix
+    ./lsp/conform.nix
+    ./lsp/lspsaga.nix
+
+    ./git/gitsigns.nix
+
+    ./tree/neotree.nix
+    ./tree/treesitter.nix
+
+    ./completion/cmp.nix
+    ./completion/lspkind.nix
+
+    ./snippets/luasnip.nix
+
+    ./utils/spectre.nix
+    ./utils/harpoon.nix
+    ./utils/whichkey.nix
+    ./utils/floaterm.nix
+    ./utils/autopairs.nix
+    ./utils/guess-ident.nix
+    ./utils/todo-comments.nix
+
+    # ./ui/precognition.nix
+    ./ui/bufferline.nix
+    ./ui/toggleterm.nix
+    ./ui/lualine.nix
+    ./ui/noice.nix
+    ./ui/alpha.nix
+  ];
+}

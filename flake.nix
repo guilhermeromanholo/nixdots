@@ -9,6 +9,8 @@
         ./parts
         ./hosts
         ./modules
+	./packages
+	./overlays
       ];
     };
 
