@@ -21,10 +21,14 @@
       # and network-manager
       enable = true;
 
-      boot = {
-        uefi = true;
-        os-prober = true;
-      };
+      # Enable uefi and os-prober
+      boot.uefi = true;
+      boot.os-prober = true;
+
+      # Enable Home Manager as
+      # NixOS module
+      hm.enable = true;
+      hm.modules = [./home.nix];
 
       # Configure system users
       # settings
@@ -33,13 +37,6 @@
           shell = "zsh";
           groups = ["wheel" "networkmanager"];
         };
-      };
-
-      # Enable Home Manager as
-      # NixOS module
-      hm = {
-        enable = true;
-        modules = [./home.nix];
       };
     };
 
@@ -56,11 +53,10 @@
     services = {
       # Enable openssh service with
       # password authentication
-      ssh = {
-        enable = true;
-        passwordAuth = true;
-      };
+      ssh.enable = true;
+      ssh.passwordAuth = true;
 
+      # Enable tailscale
       tailscale.enable = true;
     };
 
@@ -78,10 +74,8 @@
     external = {
       # Enable features for
       # theming NixOS
-      stylix = {
-        enable = true;
-        theme = outputs.themes.gruvbox;
-      };
+      stylix.enable = true;
+      stylix.theme = outputs.themes.gruvbox;
 
       # Enable Impermanence NixOS
       # module to persistence
