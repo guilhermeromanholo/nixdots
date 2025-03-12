@@ -30,4 +30,9 @@
     name = "Gruvbox-Plus-Dark";
     package = "gruvbox-plus-icons";
   };
+
+  gnome-shell = {
+    name = "Gruvbox-Grey-Dark-Medium";
+    package = "gruvbox-gtk-theme";
+  };
 }

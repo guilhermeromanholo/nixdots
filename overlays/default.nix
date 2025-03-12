@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  flake.overlays = {
+  parts.overlays = {
     # This one brings our custom packages from the 'pkgs' directory
     additions = final: _prev:
       lib.mapAttrs (
@@ -15,16 +15,13 @@
     # This one contains whatever you want to overlay
     # https://nixos.wiki/wiki/Overlays
     modifications = final: prev: {
-      # Fix the issue: https://github.com/NixOS/nixpkgs/issues/388522
       gruvbox-plus-icons = prev.gruvbox-plus-icons.overrideAttrs (oldAttrs: {
         postFixup = ''
           find $out/share/icons/Gruvbox-Plus-Dark -xtype l -delete
         '';
       });
 
-      # example = prev.example.overrideAttrs (oldAttrs: rec {
-      #
-      # });
+      gruvbox-gtk-theme = import ./gruvbox-gtk-theme {inherit prev;};
     };
 
     # Accessible through 'pkgs.stable'

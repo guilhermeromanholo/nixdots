@@ -23,46 +23,25 @@ in {
   };
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
-    {
-      stylix = {
-        enable = true;
+    (import ./core.nix {
+      inherit (cfg) theme;
+      inherit pkgs;
+    })
 
-        image = cfg.theme.image;
-        polarity = cfg.theme.polarity;
-        base16Scheme = cfg.theme.colorscheme;
-
-        cursor = {
-          name = cfg.theme.cursor.name;
-          package = pkgs.${cfg.theme.cursor.package};
-          size = 15;
-        };
-
-        fonts = {
-          monospace = {
-            name = "FiraCode Nerd Font Mono";
-            package = pkgs.nerd-fonts.fira-code;
-          };
-
-          sansSerif = {
-            name = "Open Sans";
-            package = pkgs.open-sans;
-          };
-
-          serif = {
-            name = "Roboto Serif";
-            package = pkgs.roboto-serif;
-          };
-        };
-      };
-    }
     (lib.optionalAttrs (options ? home-manager) {
       home-manager.sharedModules = [
-        {
-          gtk.iconTheme = {
-            name = cfg.theme.icon.name;
-            package = pkgs.${cfg.theme.icon.package};
-          };
-        }
+        (import ./icons.nix {
+          inherit (cfg) theme;
+          inherit pkgs;
+        })
+
+        (
+          lib.mkIf config.services.xserver.desktopManager.gnome.enable
+          (import ./gnome.nix {
+            inherit (cfg) theme;
+            inherit lib pkgs;
+          })
+        )
       ];
     })
   ]);

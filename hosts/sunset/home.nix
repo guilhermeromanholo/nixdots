@@ -13,11 +13,17 @@
       nixvim.enable = true;
     };
 
-    # Custom shell modules
+    # Shell utils modules
     shell = {
       nh.enable = true;
       git.enable = true;
       zsh.enable = true;
+    };
+
+    # Desktop customization
+    # modules
+    desktop = {
+      gnome.enable = true;
     };
 
     external = {
@@ -30,6 +36,7 @@
           ".ssh"
           ".mozilla"
           ".nixdots"
+          "Documentos"
         ];
 
         files = [
