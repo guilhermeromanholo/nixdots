@@ -10,7 +10,7 @@ in {
     enable = lib.mkEnableOption "Printer";
 
     drivers = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
+      type = lib.types.listOf lib.types.package;
     };
   };
 
@@ -19,7 +19,7 @@ in {
       # Enable CUPS
       printing = {
         enable = true;
-        drivers = with pkgs; cfg.drivers;
+        drivers = cfg.drivers;
       };
       # Enable Network Discover
       avahi = {
@@ -28,7 +28,13 @@ in {
         openFirewall = true;
       };
     };
+
     # Enable Scanner
     hardware.sane.enable = true;
+
+    # Add printer GUI app
+    environment.systemPackages = [
+      pkgs.system-config-printer
+    ];
   };
 }

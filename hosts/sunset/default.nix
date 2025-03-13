@@ -48,6 +48,11 @@
       # Enable pipewire audio
       # controller
       audio.enable = true;
+
+      # Enable printer and
+      # scanner
+      printer.enable = true;
+      printer.drivers = [pkgs.gutenprint];
     };
 
     services = {
