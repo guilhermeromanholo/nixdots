@@ -6,7 +6,9 @@ prev.gruvbox-gtk-theme.overrideAttrs (oldAttrs: {
     mkdir -p $out/share/themes
     cd themes
 
-    ./install.sh -n Gruvbox -t grey --tweaks medium float -d $out/share/themes
+    ./install.sh -n Gruvbox -t default --tweaks outline -d $out/share/themes
+
+    cd $out/share/themes
 
     runHook postInstall
   '';

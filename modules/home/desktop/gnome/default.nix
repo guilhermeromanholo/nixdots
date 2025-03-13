@@ -16,6 +16,8 @@ in {
         disable-user-extensions = false;
 
         enabled-extensions = [
+          # "forge@jmmaranan.com"
+          "blur-my-shell@aunetx"
           "dash-to-dock@micxgx.gmail.com"
           "trayIconsReloaded@selfmade.pl"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
@@ -30,8 +32,10 @@ in {
     };
 
     home.packages = with pkgs; [
+      # gnomeExtensions.forge
       gnomeExtensions.user-themes
       gnomeExtensions.dash-to-dock
+      gnomeExtensions.blur-my-shell
       gnomeExtensions.tray-icons-reloaded
     ];
   };
