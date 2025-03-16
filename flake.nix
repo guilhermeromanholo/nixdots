@@ -9,6 +9,7 @@
         ./parts
         ./hosts
         ./themes
+        ./shells
         ./modules
         ./packages
         ./overlays
@@ -17,6 +18,7 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
+    devshell.url = "github:numtide/devshell";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
