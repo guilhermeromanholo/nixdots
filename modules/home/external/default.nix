@@ -1,5 +1,6 @@
 {
   imports = [
+    ./nixcord
     ./impermanence
   ];
 }

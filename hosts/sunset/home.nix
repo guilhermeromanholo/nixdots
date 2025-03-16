@@ -28,6 +28,9 @@
     };
 
     external = {
+      # Nixcord module
+      nixcord.enable = true;
+
       # Impermanence module
       # persistent files
       impermanence = {

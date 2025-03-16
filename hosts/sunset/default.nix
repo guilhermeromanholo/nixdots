@@ -14,7 +14,6 @@
   ];
 
   programs.nix-ld.enable = true;
-  environment.systemPackages = [pkgs.vesktop];
 
   modules = {
     system = {
