@@ -10,6 +10,7 @@
 
     # Custom code editors
     editors = {
+      zed.enable = true;
       nixvim.enable = true;
     };
 

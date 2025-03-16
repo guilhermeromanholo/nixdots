@@ -1,5 +1,5 @@
 {
-  image = ./anime_city.jpg;
+  image = ./bridge.png;
   polarity = "dark";
 
   colorscheme = {
