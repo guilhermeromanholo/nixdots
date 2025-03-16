@@ -13,8 +13,6 @@
     ./hardware.nix
   ];
 
-  programs.nix-ld.enable = true;
-
   modules = {
     system = {
       # Enable boot, localtime, nix
@@ -77,14 +75,14 @@
     };
 
     external = {
+      # Enable Impermanence NixOS
+      # module to persistence
+      impermanence.enable = true;
+
       # Enable features for
       # theming NixOS
       stylix.enable = true;
       stylix.theme = outputs.themes.gruvbox;
-
-      # Enable Impermanence NixOS
-      # module to persistence
-      impermanence.enable = true;
     };
   };
 }
