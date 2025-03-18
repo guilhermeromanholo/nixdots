@@ -23,6 +23,7 @@ in {
 
       extensions = [
         "nix"
+        "java"
         "pylsp"
       ];
     };
