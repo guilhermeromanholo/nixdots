@@ -72,12 +72,19 @@
       # Enable gnome desktop environment
       # without bloatware
       gnome.enable = true;
+
+      # Enable hypland desktop
+      # environment
+      hyprland.enable = true;
     };
 
     external = {
       # Enable Impermanence NixOS
       # module to persistence
       impermanence.enable = true;
+      impermanence.dirs = [
+        "/var/lib/tailscale"
+      ];
 
       # Enable features for
       # theming NixOS

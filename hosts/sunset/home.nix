@@ -2,15 +2,23 @@
   programs.firefox.enable = true;
 
   modules = {
-    # Personalized programs in the
-    # home-manager modules
     programs = {
+      # Enable wofi to run apps
+      # in Hyprland
+      wofi.enable = true;
+
+      # Enable Kitty terminal
+      # emulator
       kitty.enable = true;
     };
 
-    # Custom code editors
     editors = {
+      # Enable Zed editor with
+      # custom plugins
       zed.enable = true;
+
+      # Enable nixvim with my
+      # personal config
       nixvim.enable = true;
     };
 
@@ -21,14 +29,18 @@
       zsh.enable = true;
     };
 
-    # Desktop customization
-    # modules
     desktop = {
+      # Enable gnome extensions
+      # and customizations
       gnome.enable = true;
+
+      # Enable Hyprland keybinds
+      # and decorations
+      hyprland.enable = true;
     };
 
     external = {
-      # Nixcord module
+      # Enable nixcord
       nixcord.enable = true;
 
       # Impermanence module
