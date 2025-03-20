@@ -69,8 +69,10 @@ in {
             floating = true;
 
             menus.menu = {
-              dashboard.scaling = cfg.scaling;
+              media.scaling = cfg.scaling;
               clock.scaling = cfg.scaling;
+              dashboard.scaling = cfg.scaling;
+              notifications.scaling = cfg.scaling;
             };
           };
         };
