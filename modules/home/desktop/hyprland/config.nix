@@ -27,6 +27,7 @@ in {
       settings = {
         general = {
           "$mainMod" = cfg.modKey;
+          gaps_out = 8;
         };
 
         input = {

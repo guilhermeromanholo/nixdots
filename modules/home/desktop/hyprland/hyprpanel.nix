@@ -18,6 +18,11 @@ in {
       type = lib.types.str;
       default = "gruvbox";
     };
+
+    scaling = lib.mkOption {
+      type = lib.types.int;
+      default = 85;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -29,7 +34,7 @@ in {
       layout = {
         "bar.layouts" = {
           "*" = {
-            left = ["dashboard" "workspaces" "windowtitle" "systray"];
+            left = ["dashboard" "workspaces" "cpu" "ram" "systray"];
             middle = ["media"];
             right = ["volume" "network" "clock" "notifications"];
           };
@@ -43,13 +48,31 @@ in {
         };
 
         menus = {
-          dashboard.directories.enabled = false;
-          dashboard.shortcuts.left.shortcut4.command = "${pkgs.wofi}/bin/wofi";
+          dashboard = {
+            stats.enabled = false;
+            directories.enabled = false;
+            shortcuts.left.shortcut4.command = "${pkgs.wofi}/bin/wofi";
+          };
+
+          clock.time.military = true;
+          clock.weather.enabled = false;
         };
 
         theme = {
-          font.size = "1.0rem";
-          font.weight = 600;
+          font = {
+            size = "1.0rem";
+            weight = 600;
+          };
+
+          bar = {
+            scaling = cfg.scaling;
+            floating = true;
+
+            menus.menu = {
+              dashboard.scaling = cfg.scaling;
+              clock.scaling = cfg.scaling;
+            };
+          };
         };
       };
     };
