@@ -35,6 +35,11 @@ in {
           kb_layout = cfg.kb_layout;
         };
 
+        bindm = [
+          "$mainMod, mouse:272, movewindow"
+          "$mainMod, mouse:273, resizewindow"
+        ];
+
         bind = [
           "Ctrl+Alt, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
           "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
@@ -50,15 +55,15 @@ in {
           "$mainMod, K, movefocus, u"
           "$mainMod, J, movefocus, d"
 
-          "$mainMod+Ctrl, H, resizeactive, -30 0"
-          "$mainMod+Ctrl, L, resizeactive, 30 0"
-          "$mainMod+Ctrl, K, resizeactive, 0 -30"
-          "$mainMod+Ctrl, J, resizeactive, 0 30"
+          "$mainMod+Ctrl, H, resizeactive, -40 0"
+          "$mainMod+Ctrl, L, resizeactive, 40 0"
+          "$mainMod+Ctrl, K, resizeactive, 0 -40"
+          "$mainMod+Ctrl, J, resizeactive, 0 40"
 
-          "$mainMod+Alt, H, moveactive, -30 0"
-          "$mainMod+Alt, L, moveactive, 30 0"
-          "$mainMod+Alt, K, moveactive, 0 -30"
-          "$mainMod+Alt, J, moveactive, 0 30"
+          "$mainMod+Alt, H, moveactive, -40 0"
+          "$mainMod+Alt, L, moveactive, 40 0"
+          "$mainMod+Alt, K, moveactive, 0 -40"
+          "$mainMod+Alt, J, moveactive, 0 40"
 
           "$mainMod+Shift, H, movewindow, l"
           "$mainMod+Shift, L, movewindow, r"

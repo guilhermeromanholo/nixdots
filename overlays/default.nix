@@ -15,12 +15,6 @@
     # This one contains whatever you want to overlay
     # https://nixos.wiki/wiki/Overlays
     modifications = final: prev: {
-      gruvbox-plus-icons = prev.gruvbox-plus-icons.overrideAttrs (oldAttrs: {
-        postFixup = ''
-          find $out/share/icons/Gruvbox-Plus-Dark -xtype l -delete
-        '';
-      });
-
       gruvbox-gtk-theme = import ./gruvbox-gtk-theme {inherit prev;};
     };
 
