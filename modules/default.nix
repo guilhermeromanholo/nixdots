@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./parts
+  ];
+
   parts.modules = {
     # My system NixOS custom
     # modules
@@ -8,6 +12,16 @@
       sessions = ./nixos/sessions;
       services = ./nixos/services;
       appearance = ./nixos/appearance;
+    };
+
+    # My flake custom
+    # modules
+    flake.flakeModules = {
+      hosts = ./parts/hosts.nix;
+      default = ./parts/default.nix;
+      modules = ./parts/modules.nix;
+      overlays = ./parts/overlays.nix;
+      packages = ./parts/packages.nix;
     };
 
     # My Home Manager custom

@@ -6,9 +6,7 @@
       systems = inputs.nixpkgs.lib.systems.flakeExposed;
 
       imports = [
-        ./parts
         ./hosts
-        # ./themes
         ./shells
         ./modules
         ./packages
