@@ -16,7 +16,7 @@
 
     # My flake custom
     # modules
-    flake.flakeModules = {
+    flakeModules = {
       hosts = ./parts/hosts.nix;
       default = ./parts/default.nix;
       modules = ./parts/modules.nix;

@@ -19,7 +19,7 @@
 
 * [ ] Adicionar firefox
 * [ ] Arrumar nome do cursor
-* [ ] Colocar parts em modules
+* [X] Colocar parts em modules
 * [ ] Arrumar tema do hyprpanel
 * [X] Realocar os modulos de external
 
