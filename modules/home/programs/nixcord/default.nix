@@ -4,13 +4,13 @@
   config,
   ...
 }: let
-  cfg = config.modules.external.nixcord;
+  cfg = config.modules.programs.nixcord;
 in {
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
 
-  options.modules.external.nixcord = {
+  options.modules.programs.nixcord = {
     enable = lib.mkEnableOption "Nixcord";
   };
 

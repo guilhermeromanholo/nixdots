@@ -3,5 +3,6 @@
     ./wofi
     ./foot
     ./kitty
+    ./nixcord
   ];
 }

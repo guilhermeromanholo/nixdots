@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.modules.editors.zed;
@@ -12,6 +13,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.zed-editor = {
       enable = true;
+      package = pkgs.zed-editor-fhs;
 
       userSettings = {
         vim_mode = true;

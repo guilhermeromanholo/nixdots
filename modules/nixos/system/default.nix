@@ -12,6 +12,7 @@ in {
     ./users
     ./network
     ./localtime
+    ./impermanence
   ];
 
   options.modules.system = {

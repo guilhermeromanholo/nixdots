@@ -17,10 +17,11 @@
 
 ### :pencil: TODO:
 
-* [ ] Adicionar Nixcord
-* [ ] Adicionar Nix Helper
-* [ ] Juntar modulos de desktop
-* [ ] Fazer um módulo separado do stylix
+* [ ] Adicionar firefox
+* [ ] Arrumar nome do cursor
+* [ ] Colocar parts em modules
+* [ ] Arrumar tema do hyprpanel
+* [X] Realocar os modulos de external
 
 ### :gear: Nixvim:
 

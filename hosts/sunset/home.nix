@@ -10,6 +10,9 @@
       # Enable Kitty terminal
       # emulator
       kitty.enable = true;
+
+      # Enable nixcord
+      nixcord.enable = true;
     };
 
     editors = {
@@ -39,10 +42,7 @@
       hyprland.enable = true;
     };
 
-    external = {
-      # Enable nixcord
-      nixcord.enable = true;
-
+    misc = {
       # Impermanence module
       # persistent files
       impermanence = {

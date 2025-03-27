@@ -36,6 +36,13 @@
           groups = ["wheel" "networkmanager"];
         };
       };
+
+      # Enable Impermanence NixOS
+      # module to persistence
+      impermanence = {
+        enable = true;
+        dirs = ["/var/lib/tailscale"];
+      };
     };
 
     hardware = {
@@ -78,18 +85,11 @@
       hyprland.enable = true;
     };
 
-    external = {
-      # Enable Impermanence NixOS
-      # module to persistence
-      impermanence.enable = true;
-      impermanence.dirs = [
-        "/var/lib/tailscale"
-      ];
-
+    appearance = {
       # Enable features for
       # theming NixOS
       stylix.enable = true;
-      stylix.theme = outputs.themes.gruvbox;
+      stylix.colorscheme = "gruvbox";
     };
   };
 }

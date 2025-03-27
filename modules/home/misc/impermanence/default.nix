@@ -4,13 +4,13 @@
   config,
   ...
 }: let
-  cfg = config.modules.external.impermanence;
+  cfg = config.modules.misc.impermanence;
 in {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
-  options.modules.external.impermanence = {
+  options.modules.misc.impermanence = {
     enable = lib.mkEnableOption "Impermanence";
 
     path = lib.mkOption {

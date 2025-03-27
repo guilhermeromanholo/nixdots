@@ -7,38 +7,40 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.external.stylix;
+  cfg = config.modules.appearance.stylix;
 in {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
 
-  options.modules.external.stylix = {
+  options.modules.appearance.stylix = {
     enable = lib.mkEnableOption "Stylix";
 
-    theme = lib.mkOption {
-      type = lib.types.attrs;
-      default = outputs.themes.gruvbox;
+    colorscheme = lib.mkOption {
+      type = lib.types.str;
+      default = "gruvbox";
     };
   };
 
-  config = lib.mkIf cfg.enable (lib.mkMerge [
+  config = let
+    theme = import ../themes/${cfg.colorscheme};
+  in lib.mkIf cfg.enable (lib.mkMerge [
     (import ./core.nix {
-      inherit (cfg) theme;
+      inherit theme;
       inherit pkgs;
     })
 
     (lib.optionalAttrs (options ? home-manager) {
       home-manager.sharedModules = [
         (import ./icons.nix {
-          inherit (cfg) theme;
+          inherit theme;
           inherit pkgs;
         })
 
         (
           lib.mkIf config.services.xserver.desktopManager.gnome.enable
           (import ./gnome.nix {
-            inherit (cfg) theme;
+            inherit theme;
             inherit lib pkgs;
           })
         )

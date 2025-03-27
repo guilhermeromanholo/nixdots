@@ -8,7 +8,7 @@
       imports = [
         ./parts
         ./hosts
-        ./themes
+        # ./themes
         ./shells
         ./modules
         ./packages

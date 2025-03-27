@@ -7,17 +7,17 @@
       hardware = ./nixos/hardware;
       sessions = ./nixos/sessions;
       services = ./nixos/services;
-      external = ./nixos/external;
+      appearance = ./nixos/appearance;
     };
 
     # My Home Manager custom
     # modules
     homeManagerModules = {
+      misc = ./home/misc;
       shell = ./home/shell;
       desktop = ./home/desktop;
       editors = ./home/editors;
       programs = ./home/programs;
-      external = ./home/external;
     };
 
     # My Nixvim custom
