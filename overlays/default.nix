@@ -16,7 +16,6 @@
     # https://nixos.wiki/wiki/Overlays
     modifications = final: prev: {
       gruvbox-gtk-theme = import ./gruvbox-gtk-theme {inherit prev;};
-      capitaine-cursors-themed = import ./capitaine-cursors-themed {inherit prev;};
     };
 
     # Accessible through 'pkgs.stable'

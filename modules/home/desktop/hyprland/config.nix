@@ -21,6 +21,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.pointerCursor.hyprcursor.enable = true;
+
     wayland.windowManager.hyprland = {
       enable = true;
 
