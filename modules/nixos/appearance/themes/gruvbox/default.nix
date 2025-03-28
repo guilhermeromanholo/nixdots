@@ -22,7 +22,7 @@
   };
 
   cursor = {
-    name = "Capitaine Cursors (Gruvbox)";
+    name = "Capitaine-Cursors-Gruvbox";
     package = "capitaine-cursors-themed";
   };
 

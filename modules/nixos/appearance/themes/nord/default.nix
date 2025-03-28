@@ -22,7 +22,7 @@
   };
 
   cursor = {
-    name = "Capitaine Cursors (Nord)";
+    name = "Capitaine-Cursors-Nord";
     package = "capitaine-cursors-themed";
   };
 
