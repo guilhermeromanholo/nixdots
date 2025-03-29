@@ -14,11 +14,6 @@ in {
   options.modules.desktop.hyprland.hyprpanel = {
     enable = lib.mkEnableOption "Hyprpanel";
 
-    theme = lib.mkOption {
-      type = lib.types.str;
-      default = "gruvbox";
-    };
-
     scaling = lib.mkOption {
       type = lib.types.int;
       default = 85;
@@ -29,7 +24,6 @@ in {
     programs.hyprpanel = {
       enable = true;
       hyprland.enable = true;
-      theme = "${cfg.theme}_split";
 
       layout = {
         "bar.layouts" = {

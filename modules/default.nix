@@ -11,7 +11,7 @@
       hardware = ./nixos/hardware;
       sessions = ./nixos/sessions;
       services = ./nixos/services;
-      appearance = ./nixos/appearance;
+      style = ./style/nixos.nix;
     };
 
     # My flake custom
@@ -32,6 +32,7 @@
       desktop = ./home/desktop;
       editors = ./home/editors;
       programs = ./home/programs;
+      style = ./style/hm.nix;
     };
 
     # My Nixvim custom

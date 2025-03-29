@@ -1,4 +1,6 @@
 {
+  name = "nord";
+
   image = ./your_name.png;
   polarity = "dark";
 

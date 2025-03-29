@@ -1,4 +1,6 @@
 {
+  name = "gruvbox";
+
   image = ./bridge.png;
   polarity = "dark";
 

@@ -20,10 +20,10 @@
 * [ ] Adicionar firefox
 * [X] Arrumar nome do cursor
 * [X] Colocar parts em modules
-* [ ] Arrumar tema do hyprpanel
+* [X] Arrumar tema do hyprpanel
 * [X] Realocar os modulos de external
-* [ ] Se possível pensar em uma logica para o appearence do home
-* [ ] Deixar temas na raiz e separar appearence em gnome, stylix, hyprpanel, etc ...
+* [X] Se possível pensar em uma logica para o appearence do home
+* [X] Deixar temas na raiz e separar appearence em gnome, stylix, hyprpanel, etc ...
 
 ### :gear: Nixvim:
 

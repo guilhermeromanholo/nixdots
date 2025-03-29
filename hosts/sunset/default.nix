@@ -85,11 +85,11 @@
       hyprland.enable = true;
     };
 
-    appearance = {
+    style = {
       # Enable features for
       # theming NixOS
-      stylix.enable = true;
-      stylix.colorscheme = "gruvbox";
+      enable = true;
+      theme = outputs.themes.nord;
     };
   };
 }

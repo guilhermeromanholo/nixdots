@@ -8,6 +8,7 @@
       imports = [
         ./hosts
         ./shells
+        ./themes
         ./modules
         ./packages
         ./overlays
