@@ -1,19 +1,24 @@
 {
   parts.nixosConfigurations = {
-    # Virtual machine to test
-    # NixOS configurations
+    # Tests machine
     vm = {
       system = "x86_64-linux";
       stateVersion = "24.11";
       modules = [./vm];
     };
 
-    # Virtual machine to test
-    # NixOS configurations
+    # Personal machine
     sunset = {
       system = "x86_64-linux";
       stateVersion = "24.11";
       modules = [./sunset];
+    };
+
+    # Work machine
+    taz = {
+      system = "x86_64-linux";
+      stateVersion = "24.11";
+      modules = [./taz];
     };
   };
 }
