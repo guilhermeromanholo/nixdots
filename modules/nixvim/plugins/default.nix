@@ -23,6 +23,7 @@
     ./utils/autopairs.nix
     ./utils/guess-ident.nix
     ./utils/todo-comments.nix
+    ./utils/markdown-preview.nix
 
     # ./ui/precognition.nix
     ./ui/bufferline.nix
