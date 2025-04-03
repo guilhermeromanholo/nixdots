@@ -30,6 +30,8 @@ in {
           "org.gnome.Nautilus.desktop"
         ];
       };
+
+      "org/gnome/shell/extensions/unblank".time = 300;
     };
 
     home.packages = with pkgs; [
