@@ -32,5 +32,10 @@
       key = "<leader>t";
       action = "<cmd>FloatermNew<cr>";
     }
+    {
+      mode = "n";
+      key = "<leader>w";
+      action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+    }
   ];
 }

@@ -32,5 +32,12 @@
         package = pkgs.roboto-serif;
       };
     };
+
+    opacity = {
+      popups = 0.85;
+      desktop = 0.85;
+      terminal = 0.85;
+      applications = 0.85;
+    };
   };
 }

@@ -37,6 +37,15 @@ in {
           kb_layout = cfg.kb_layout;
         };
 
+        decoration = {
+          blur = {
+            enabled = true;
+            size = 4;
+            passes = 2;
+            vibrancy = 0.1696;
+          };
+        };
+
         bindm = [
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
