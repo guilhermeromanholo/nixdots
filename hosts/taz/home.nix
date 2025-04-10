@@ -6,6 +6,10 @@
       # Enable Kitty terminal
       # emulator
       kitty.enable = true;
+
+      # Enable Wofi program
+      # launcher
+      wofi.enable = true;
     };
 
     editors = {
@@ -26,9 +30,8 @@
     };
 
     desktop = {
-      # Enable gnome extensions
-      # and customizations
-      gnome.enable = true;
+      # Enable Sway customizations
+      sway.enable = true;
     };
   };
 }

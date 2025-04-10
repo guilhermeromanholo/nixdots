@@ -63,9 +63,8 @@
       # xserver, opengl and gdm
       enable = true;
 
-      # Enable gnome desktop environment
-      # without bloatware
-      gnome.enable = true;
+      # Enable Sway wayland compositor
+      sway.enable = true;
     };
 
     style = {

@@ -60,6 +60,9 @@ in {
             "clock#icon"
             "clock"
 
+            "clock#date-icon"
+            "clock#date"
+
             "custom/power"
           ];
 
@@ -73,15 +76,14 @@ in {
           # PULSEAUDIO
           "pulseaudio#icon" = {
             format = "{icon}";
-            format-bluetooth = "{icon}";
-            format-muted = "{icon}";
-            format-icons = "";
+            format-bluetooth = "";
+            format-muted = "󰖁";
+            format-icons = ["󰕿" "󰖀" "󰕾"];
           };
 
           "pulseaudio" = {
             format = "{volume}%";
             format-bluetooth = "{volume}%";
-            format-muted = "";
             scroll-step = 1;
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
@@ -172,13 +174,21 @@ in {
           # CLOCK
           "clock#icon" = {
             format = "";
-            format-alt = "";
           };
 
           "clock" = {
             interval = 60;
             format = "{:%H:%M}";
-            format-alt = "{:%b %d}";
+          };
+
+          # DATE
+          "clock#date-icon" = {
+            format = "";
+          };
+
+          "clock#date" = {
+            interval = 60;
+            format = "{:%b %d}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
 
