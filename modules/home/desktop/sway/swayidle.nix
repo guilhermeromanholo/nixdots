@@ -18,7 +18,7 @@ in {
       in [
         {
           timeout = 180;
-          command = "${pkgs.swaylock}/bin/swaylock";
+          command = "${pkgs.swaylock-effects}/bin/swaylock";
         }
         {
           timeout = 360;
