@@ -8,6 +8,7 @@ in {
   imports = [
     ./config.nix
     ./waybar.nix
+    ./swayidle.nix
     ./swaylock.nix
   ];
 
@@ -19,6 +20,7 @@ in {
     modules.desktop.sway = {
       config.enable = true;
       waybar.enable = true;
+      swayidle.enable = true;
       swaylock.enable = true;
     };
   };
