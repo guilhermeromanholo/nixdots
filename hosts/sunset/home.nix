@@ -1,6 +1,4 @@
 {
-  programs.firefox.enable = true;
-
   modules = {
     programs = {
       # Enable wofi to run apps
@@ -13,6 +11,10 @@
 
       # Enable nixcord
       nixcord.enable = true;
+
+      # Enable firefox web
+      # browser
+      firefox.enable = true;
     };
 
     editors = {
@@ -33,10 +35,6 @@
     };
 
     desktop = {
-      # Enable gnome extensions
-      # and customizations
-      gnome.enable = true;
-
       # Enable Hyprland keybinds
       # and decorations
       hyprland.enable = true;

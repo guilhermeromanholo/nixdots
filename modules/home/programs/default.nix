@@ -4,5 +4,6 @@
     ./foot
     ./kitty
     ./nixcord
+    ./firefox
   ];
 }

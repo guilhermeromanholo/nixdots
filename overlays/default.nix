@@ -29,5 +29,8 @@
 
     # Hyprpanel overlay
     hyprpanel = inputs.hyprpanel.overlay;
+
+    # NUR Overlay
+    nur = inputs.nur.overlays.default;
   };
 }

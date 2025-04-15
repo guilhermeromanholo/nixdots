@@ -17,7 +17,6 @@
     ./snippets/luasnip.nix
 
     ./utils/spectre.nix
-    ./utils/harpoon.nix
     ./utils/whichkey.nix
     ./utils/floaterm.nix
     ./utils/autopairs.nix

@@ -4,5 +4,5 @@
   options,
   ...
 }: lib.optionalAttrs (options.programs ? hyprpanel) {
-  programs.hyprpanel.theme = "${theme.name}_split";
+  programs.hyprpanel.settings.theme.name = "${theme.name}_split";
 }

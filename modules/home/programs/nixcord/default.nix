@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.modules.programs.nixcord;
@@ -17,6 +18,13 @@ in {
   config = lib.mkIf cfg.enable {
     programs.nixcord = {
       enable = true;
+
+      discord = {
+        enable = false;
+        vencord.enable = true;
+      };
+
+      vesktop.enable = true;
     };
   };
 }

@@ -37,5 +37,10 @@ in {
       inherit lib options;
       inherit (cfg) theme;
     })
+
+    (import ./nixvim {
+      inherit lib options;
+      inherit (cfg) theme;
+    })
   ]);
 }

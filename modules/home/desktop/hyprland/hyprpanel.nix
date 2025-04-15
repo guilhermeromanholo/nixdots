@@ -25,17 +25,17 @@ in {
       enable = true;
       hyprland.enable = true;
 
-      layout = {
-        "bar.layouts" = {
-          "*" = {
-            left = ["dashboard" "workspaces" "cpu" "ram" "systray"];
-            middle = ["media"];
-            right = ["volume" "network" "clock" "notifications"];
+      settings = {
+        layout = {
+          "bar.layouts" = {
+            "*" = {
+              left = ["dashboard" "workspaces" "cpu" "ram" "systray"];
+              middle = ["media"];
+              right = ["volume" "network" "clock" "notifications"];
+            };
           };
         };
-      };
 
-      settings = {
         bar = {
           clock.format = "%H:%M, %d %b";
           launcher.autoDetectIcon = true;

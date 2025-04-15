@@ -39,5 +39,7 @@
       terminal = 0.85;
       applications = 0.85;
     };
+
+    targets.nixvim.enable = false;
   };
 }
