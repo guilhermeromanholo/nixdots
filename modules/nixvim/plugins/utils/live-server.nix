@@ -19,7 +19,7 @@
   ];
   
   extraPackages = with pkgs; [
-    live-server
+    nodePackages.live-server
   ];
 
   extraConfigLua = ''
