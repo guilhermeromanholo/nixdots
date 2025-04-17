@@ -35,6 +35,12 @@
           enable = true;
           autostart = true;
         };
+
+        # Typescript
+        ts_ls = {
+          enable = true;
+          autostart = true;
+        };
       };
     };
   };
