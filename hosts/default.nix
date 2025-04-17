@@ -20,7 +20,7 @@
       stateVersion = "24.11";
       modules = [./taz];
     };
-    
+
     # WSL machine
     vortex = {
       system = "x86_64-linux";
