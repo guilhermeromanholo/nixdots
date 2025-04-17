@@ -21,6 +21,7 @@
     ./utils/floaterm.nix
     ./utils/autopairs.nix
     ./utils/guess-ident.nix
+    ./utils/live-server.nix
     ./utils/todo-comments.nix
     ./utils/markdown-preview.nix
 

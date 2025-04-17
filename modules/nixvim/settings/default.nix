@@ -15,4 +15,6 @@
     # Text wrap
     wrap = true;
   };
+
+  dependencies.gcc.enable = true;
 }

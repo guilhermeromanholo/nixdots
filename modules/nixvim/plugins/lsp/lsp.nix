@@ -25,7 +25,7 @@
         };
 
         # Html
-        html = {
+        superhtml = {
           enable = true;
           autostart = true;
         };
