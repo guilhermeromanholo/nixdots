@@ -1,11 +1,17 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
     # Import NixOS WSL
     inputs.nixos-wsl.nixosModules.wsl
+  ];
+
+  environment.systemPackages = with pkgs; [
+    # Wget for Remote VSCode
+    wget
   ];
 
   # NixOS WSL module
