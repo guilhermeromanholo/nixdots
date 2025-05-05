@@ -26,10 +26,11 @@
     ./utils/markdown-preview.nix
 
     # ./ui/precognition.nix
-    ./ui/bufferline.nix
-    ./ui/toggleterm.nix
-    ./ui/lualine.nix
     ./ui/noice.nix
     ./ui/alpha.nix
+    ./ui/lualine.nix
+    ./ui/bufferline.nix
+    ./ui/toggleterm.nix
+    ./ui/vim-css-color.nix
   ];
 }

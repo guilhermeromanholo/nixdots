@@ -24,12 +24,6 @@
           autostart = true;
         };
 
-        # Html
-        superhtml = {
-          enable = true;
-          autostart = true;
-        };
-
         # Tailwind
         tailwindcss = {
           enable = true;

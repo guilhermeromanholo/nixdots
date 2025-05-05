@@ -85,7 +85,7 @@
       # Enable features for
       # theming NixOS
       enable = true;
-      theme = outputs.themes.nord;
+      theme = outputs.themes.gruvbox;
     };
   };
 }
