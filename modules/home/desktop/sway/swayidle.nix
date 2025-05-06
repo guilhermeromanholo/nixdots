@@ -17,11 +17,11 @@ in {
         swayMsg = "${pkgs.sway}/bin/swaymsg";
       in [
         {
-          timeout = 360;
+          timeout = 180;
           command = "${pkgs.swaylock-effects}/bin/swaylock";
         }
         {
-          timeout = 720;
+          timeout = 300;
           command = ''${swayMsg} "output * power off"'';
           resumeCommand = ''${swayMsg} "output * power on"'';
         }

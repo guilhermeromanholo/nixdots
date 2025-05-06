@@ -22,7 +22,8 @@ in {
       profiles.default = {
         extensions = with pkgs.vscode-extensions;
           [
-            ms-python.python
+            ms-pyright.pyright
+            # ms-python.python
             vscodevim.vim
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -47,7 +48,6 @@ in {
 
         userSettings = {
           "workbench.iconTheme" = "symbols";
-          # "symbols.hidesExplorerArrows" = false;
           "editor.lineHeight" = 1.8;
           "editor.rulers" = [80 120];
           "editor.renderLineHighlight" = "gutter";

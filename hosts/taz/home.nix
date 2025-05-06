@@ -20,6 +20,10 @@
       # Enable nixvim with my
       # personal config
       nixvim.enable = true;
+
+      # Enable vscode with my
+      # plugins and configs
+      vscode.enable = true;
     };
 
     # Shell utils modules
