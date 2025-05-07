@@ -22,9 +22,9 @@ in {
       profiles.default = {
         extensions = with pkgs.vscode-extensions;
           [
-            ms-pyright.pyright
-            # ms-python.python
             vscodevim.vim
+            ms-pyright.pyright
+            bradlc.vscode-tailwindcss
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
