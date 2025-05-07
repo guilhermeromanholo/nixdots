@@ -63,6 +63,15 @@ in {
           "workbench.layoutControl.enabled" = false;
           "explorer.fileNesting.enabled" = true;
           "window.menuBarVisibility" = "hidden";
+          "files.exclude" = {
+            "**/.git" = true;
+            "**/.svn" = true;
+            "**/.hg" = true;
+            "**/.DS_Store" = true;
+            "**/Thumbs.db" = true; 
+            "**/__pycache__" = true; 
+            "**/celerybeat-schedule" = true; 
+          };
         };
       };
     };
