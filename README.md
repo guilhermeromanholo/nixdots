@@ -17,7 +17,7 @@
 
 ### :pencil: TODO:
 
-* [ ] Adicionar firefox
+* [ ] Mover nixvim para raiz do projeto
 * [X] Arrumar nome do cursor
 * [X] Colocar parts em modules
 * [X] Arrumar tema do hyprpanel
