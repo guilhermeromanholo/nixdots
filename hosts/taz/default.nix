@@ -13,6 +13,12 @@
     ./hardware.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    waypipe
+  ];
+
+  services.xserver.desktopManager.xfce.enable = true;
+
   modules = {
     system = {
       # Enable boot, localtime, nix
@@ -45,6 +51,9 @@
       # Enable pipewire audio
       # controller
       audio.enable = true;
+
+      printer.enable = true;
+      printer.drivers = [pkgs.gutenprint];
     };
 
     services = {
@@ -55,6 +64,8 @@
 
       # Enable tailscale
       tailscale.enable = true;
+
+      docker.enable = true;
     };
 
     sessions = {

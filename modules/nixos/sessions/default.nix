@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.modules.sessions;
@@ -29,6 +30,26 @@ in {
     hardware.graphics.enable = true;
 
     # Login Manager
-    services.xserver.displayManager.gdm.enable = true;
+    # services.xserver.displayManager.gdm.enable = true;
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = ''
+            ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --time \
+            --user-menu \
+            --remember \
+            --remember-user-session \
+            --asterisks \
+            --window-padding 1 \
+            --container-padding 2 \
+            --prompt-padding 2
+          '';
+          # --cmd "Hyprland > /dev/null"
+          user = "greeter";
+        };
+      };
+    };
   };
 }

@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   config,
   pkgs,
@@ -7,10 +6,6 @@
 }: let
   cfg = config.modules.desktop.hyprland.hyprpanel;
 in {
-  imports = [
-    inputs.hyprpanel.homeManagerModules.hyprpanel
-  ];
-
   options.modules.desktop.hyprland.hyprpanel = {
     enable = lib.mkEnableOption "Hyprpanel";
 
@@ -23,7 +18,6 @@ in {
   config = lib.mkIf cfg.enable {
     programs.hyprpanel = {
       enable = true;
-      hyprland.enable = true;
 
       settings = {
         layout = {
