@@ -8,7 +8,7 @@
   cfg = config.modules.editors.nixvim;
 in {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
 
   options.modules.editors.nixvim = {
