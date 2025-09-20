@@ -19,22 +19,25 @@
 
   # Modules
   modules = {
-    system = {
-      uefi = true;
-      hostname = "tesla";
-      stateVersion = "24.11";
+    system.uefi = true;
+    system.hostname = "tesla";
+    system.stateVersion = "24.11";
 
-      keymap = "br-abnt2";
-      locale = "pt_BR.UTF-8";
-      timezone = "America/Sao_Paulo";
+    system.keymap = "br-abnt2";
+    system.locale = "pt_BR.UTF-8";
+    system.timezone = "America/Sao_Paulo";
 
-      users.guilherme.groups = ["networkmanager" "wheel"];
+    system.users = {
+      guilherme = {
+        groups = [
+          "networkmanager"
+          "wheel"
+        ];
+      };
     };
 
-    gnome = {
-      xkb.layout = "br";
-      xkb.variant = "thinkpad";
-    };
+    gnome.xkb.layout = "br";
+    gnome.xkb.variant = "thinkpad";
   };
 
   # Services

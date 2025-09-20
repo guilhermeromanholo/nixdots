@@ -3,13 +3,13 @@
     # Keyboard
     xkb = {
       layout = lib.mkOption {
-	type = lib.types.str; 
-	default = "br"
+        type = lib.types.str;
+        default = "br";
       };
 
       variant = lib.mkOption {
-	type = lib.types.str; 
-	default = ""
+        type = lib.types.str;
+        default = "";
       };
     };
   };

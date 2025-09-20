@@ -12,7 +12,7 @@ in {
   boot.loader.grub = {
     enable = true;
 
-    device = cfg.device;
+    device = cfg.grubDevice;
     useOSProber = cfg.os-prober;
 
     efiSupport = cfg.uefi;
@@ -46,12 +46,17 @@ in {
   console.keyMap = cfg.keymap;
 
   # Users
-  users.users = lib.mapAttrs (n: v: { 
-    isNormalUser = true;
-    extraGroups = v.groups;
-    initialPassword = "password";
+  users.users =
+    lib.mapAttrs (name: value: {
+      isNormalUser = true;
+      extraGroups = value.groups;
+      initialPassword = "password";
 
-    shell = pkgs.${v.shell};
-    ignoreShellProgramCheck = true;
-  }) config.users;
+      shell = pkgs.${value.shell};
+      ignoreShellProgramCheck = true;
+    })
+    cfg.users;
+
+  # Version
+  system.stateVersion = cfg.stateVersion;
 }
