@@ -27,14 +27,10 @@
     system.locale = "pt_BR.UTF-8";
     system.timezone = "America/Sao_Paulo";
 
-    system.users = {
-      guilherme = {
-        groups = [
-          "networkmanager"
-          "wheel"
-        ];
-      };
-    };
+    system.users.guilherme.groups = [
+      "networkmanager"
+      "wheel"
+    ];
 
     gnome.xkb.layout = "br";
     gnome.xkb.variant = "thinkpad";
