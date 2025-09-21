@@ -2,7 +2,8 @@
   pkgs,
   perSystem,
   ...
-}: perSystem.devshell.mkShell {
+}:
+perSystem.devshell.mkShell {
   name = "poetry";
 
   commands = [
@@ -15,7 +16,7 @@
     stdlib = "${pkgs.stdenv.cc.cc.lib}/lib";
   in [
     {
-      name = "LD_LIBRARY_PATH"; 
+      name = "LD_LIBRARY_PATH";
       value = "${stdlib}:${zlib}:$LD_LIBRARY_PATH";
     }
   ];

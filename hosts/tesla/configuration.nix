@@ -1,6 +1,6 @@
 {
-  inputs,
   flake,
+  inputs,
   ...
 }: {
   imports = [
@@ -12,10 +12,12 @@
     # Desktop
     flake.nixosModules.gnome
 
-    # Hardware
+    # Disko
     ./disko.nix
-    ./hardware.nix
     inputs.disko.nixosModules.disko
+
+    # Hardware
+    ./hardware.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
   ];
 
@@ -39,8 +41,8 @@
   };
 
   # Services
-  services.tailscale.enable = true;
   services.printing.enable = true;
+  services.tailscale.enable = true;
 
   # Programs
   programs.git.enable = true;
