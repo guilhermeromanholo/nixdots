@@ -1,12 +1,14 @@
-{
+let
+  cfg = config.modules.gnome;
+in {
   imports = [./options.nix];
 
   # X11
   services.xserver = {
     enable = true;
 
-    xkb.layout = "br";
-    xkb.variant = "thinkpad";
+    xkb.layout = cfg.xkb.layout;
+    xkb.variant = cfg.xkb.variant;
   };
 
   # Gnome
