@@ -13,7 +13,9 @@
     flake.nixosModules.gnome
 
     # Hardware
+    ./disko.nix
     ./hardware.nix
+    inputs.disko.nixosModules.disko
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
   ];
 
