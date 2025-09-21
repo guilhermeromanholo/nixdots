@@ -1,4 +1,4 @@
-let
+{config, ...}: let
   cfg = config.modules.gnome;
 in {
   imports = [./options.nix];

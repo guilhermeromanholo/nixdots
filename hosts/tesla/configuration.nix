@@ -10,6 +10,7 @@
     flake.nixosModules.system
 
     # Desktop
+    flake.nixosModules.sway
     flake.nixosModules.gnome
 
     # Disko
