@@ -1,6 +1,8 @@
 {
+  pkgs,
   flake,
   inputs,
+  perSystem,
   ...
 }: {
   imports = [
@@ -46,6 +48,14 @@
 
   # Programs
   programs.git.enable = true;
-  programs.neovim.enable = true;
   programs.firefox.enable = true;
+
+  environment.systemPackages = [
+    perSystem.self.nixvim
+  ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 }
