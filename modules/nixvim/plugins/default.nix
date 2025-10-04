@@ -6,5 +6,9 @@
     ./ui/bufferline.nix
 
     ./lsp/servers.nix
+
+    ./treesitter/base.nix
+
+    ./completion/blink.nix
   ];
 }
