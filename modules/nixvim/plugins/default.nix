@@ -4,5 +4,7 @@
     ./ui/noice.nix
     ./ui/lualine.nix
     ./ui/bufferline.nix
+
+    ./lsp/servers.nix
   ];
 }

@@ -27,6 +27,7 @@
           }
           {
             __unkeyed = "filename";
+            file_status = false;
             padding = {
               right = 1;
               left = 0;
@@ -50,9 +51,18 @@
           }
         ];
 
-        lualine_x = ["diagnostics"];
-        lualine_y = ["lsp_status"];
-        lualine_z = ["progress"];
+        lualine_x = [
+	  "diagnostics"
+	  {__unkeyed = "lsp_status"; symbols = {done = "";};}
+	];
+
+        lualine_y = [
+	  {__unkeyed = "progress"; icon = "";}
+	];
+
+        lualine_z = [
+	  {__unkeyed = "datetime"; icon = ""; style = "%H:%M";}
+	];
       };
     };
   };
