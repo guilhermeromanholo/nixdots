@@ -4,6 +4,7 @@
 
     servers = {
       nixd.enable = true;
+      pyright.enable = true;
     };
   };
 }

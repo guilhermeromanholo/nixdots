@@ -52,17 +52,27 @@
         ];
 
         lualine_x = [
-	  "diagnostics"
-	  {__unkeyed = "lsp_status"; symbols = {done = "";};}
-	];
+          "diagnostics"
+          {
+            __unkeyed = "lsp_status";
+            symbols = {done = "";};
+          }
+        ];
 
         lualine_y = [
-	  {__unkeyed = "progress"; icon = "";}
-	];
+          {
+            __unkeyed = "progress";
+            icon = "";
+          }
+        ];
 
         lualine_z = [
-	  {__unkeyed = "datetime"; icon = ""; style = "%H:%M";}
-	];
+          {
+            __unkeyed = "datetime";
+            icon = "";
+            style = "%H:%M";
+          }
+        ];
       };
     };
   };
