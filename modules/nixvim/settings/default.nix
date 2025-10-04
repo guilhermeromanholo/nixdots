@@ -5,4 +5,6 @@
 
   vimAlias = true;
   waylandSupport = true;
+
+  colorschemes.gruvbox.enable = true;
 }
