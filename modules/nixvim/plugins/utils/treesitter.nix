@@ -2,7 +2,7 @@
   plugins.treesitter = {
     enable = true;
 
-    folding = true;
+    # folding = true;
 
     settings = {
       auto_install = true;

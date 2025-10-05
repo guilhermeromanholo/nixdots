@@ -10,6 +10,7 @@
     ./lsp/lspsaga.nix
 
     ./utils/autopairs.nix
+    ./utils/which-key.nix
     ./utils/treesitter.nix
 
     ./completion/blink.nix

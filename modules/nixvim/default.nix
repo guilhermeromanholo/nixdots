@@ -2,5 +2,6 @@
   imports = [
     ./plugins
     ./settings
+    ./keybinds
   ];
 }
