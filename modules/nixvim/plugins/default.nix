@@ -9,9 +9,10 @@
     ./lsp/servers.nix
     ./lsp/lspsaga.nix
 
-    ./utils/autopairs.nix
     ./utils/which-key.nix
+    ./utils/autopairs.nix
     ./utils/treesitter.nix
+    ./utils/toggleterm.nix
 
     ./completion/blink.nix
     ./completion/snippets.nix
