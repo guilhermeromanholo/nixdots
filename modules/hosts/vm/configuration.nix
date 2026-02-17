@@ -1,30 +1,25 @@
 {self, ...}: {
   flake.modules.nixos.vm = {
     imports = with self.modules.nixos; [
-      # Bundles
-      base
+      # System
+      boot
+      locale
+      network
+      settings
+
+      # Programs
+      sway
+      cosmic
 
       # Services
       audio
       openssh
+      tuigreet
+
+      # Nix
+      nixconfig
+      home-manager
     ];
-
-    settings = {
-      hostname = "vm";
-      bootDevice = "/dev/vda";
-
-      locale = "pt_BR.UTF-8";
-      timezone = "America/Sao_Paulo";
-    };
-
-    services.xserver.enable = true;
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
-
-    services.xserver.xkb = {
-      layout = "br";
-      variant = "";
-    };
 
     users.users.guilherme = {
       isNormalUser = true;
@@ -32,6 +27,12 @@
       extraGroups = ["networkmanager" "wheel"];
     };
 
-    system.stateVersion = "25.11";
+    home-manager.users.guilherme = {
+      home.username = "guilherme";
+      home.homeDirectory = "/home/guilherme";
+      home.stateVersion = "25.05";
+
+      systemd.user.startServices = "sd-switch";
+    };
   };
 }

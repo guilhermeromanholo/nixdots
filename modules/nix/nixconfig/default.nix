@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.nix = {
+  flake.modules.nixos.nixconfig = {
     lib,
     config,
     ...
