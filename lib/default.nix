@@ -1,32 +1,17 @@
 {inputs, ...}: let
   inherit (inputs.nixpkgs) lib;
 in {
-  # Import modules
+  # Import Modules
   import-tree = path:
     lib.fileset.toList (lib.fileset.fileFilter (file: file.hasExt "nix") path);
 
-  # NixOS options
-  mkOpt = type: default:
-    lib.mkOption {
-      inherit default;
-      type = lib.types.${type};
-    };
-
-  # Make NixOS configuration
-  mkNixos = name: {
-    ${name} = inputs.nixpkgs.lib.nixosSystem {
-      modules = [
-        inputs.self.modules.nixos.${name}
-      ];
-    };
+  # Make NixOS Configurations
+  import-nixos = path: {
+    flake.nixosConfigurations = lib.mapAttrs (
+      n: _:
+        lib.nixosSystem {
+          modules = [inputs.self.modules.nixos.${n}];
+        }
+    ) (lib.readDir path);
   };
-
-  # Check if home-manager is enabled
-  mkIfHomeManager = {
-    config,
-    settings,
-  }:
-    if (config ? homeManager)
-    then settings
-    else {};
 }

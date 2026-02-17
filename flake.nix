@@ -14,10 +14,9 @@
 
       imports = inputs.nixpkgs.lib.flatten [
         inputs.flake-parts.flakeModules.modules
-        (lib.import-tree ./modules)
-      ];
 
-      flake.lib = lib;
-      flake.nixosConfigurations = lib.mkNixos "vm";
+        (lib.import-tree ./modules)
+        (lib.import-nixos ./modules/hosts)
+      ];
     };
 }

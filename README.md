@@ -1,4 +1,4 @@
-###  TODO:
+### TODO:
 
-- Avaliar a possibilidade de colocar lib e nixosConfigurations dentro de modules/;
-- Ou então remover dependências como mkOpt e mkIfHomeManager;
+- [x] Remover mkOpt e mkIfHomeManager da lib;
+- [ ] Adicionar templates/ e packages/ na raíz do projeto;

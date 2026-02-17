@@ -1,17 +1,35 @@
-{self, ...}: {
-  flake.modules.nixos.constants = {config, ...}: {
+{
+  flake.modules.nixos.constants = {
+    config,
+    lib,
+    ...
+  }: {
     options.constants = {
       # Network
-      hostname = self.lib.mkOpt "str" "nixos";
+      hostname = lib.mkOption {
+        default = "nixos";
+        type = lib.types.str;
+      };
 
       # Locale
-      locale = self.lib.mkOpt "str" "pt_BR.UTF-8";
-      timezone = self.lib.mkOpt "str" "America/Sao_Paulo";
+      locale = lib.mkOption {
+        default = "pt_BR.UTF-8";
+        type = lib.types.str;
+      };
+
+      timezone = lib.mkOption {
+        default = "America/Sao_Paulo";
+        type = lib.types.str;
+      };
 
       # Boot
-      uefi = self.lib.mkOpt "bool" false;
-      osProber = self.lib.mkOpt "bool" false;
-      bootDevice = self.lib.mkOpt "str" "nodev";
+      uefi = lib.mkEnableOption "Enable uefi";
+      osProber = lib.mkEnableOption "Enable osProber";
+
+      bootDevice = lib.mkOption {
+        default = "nodev";
+        type = lib.types.str;
+      };
     };
   };
 }
