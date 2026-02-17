@@ -1,10 +1,10 @@
 {
-  flake.modules.nixos.constants = {
+  flake.modules.nixos.settings = {
     config,
     lib,
     ...
   }: {
-    options.constants = {
+    options.settings = {
       # Network
       hostname = lib.mkOption {
         default = "nixos";

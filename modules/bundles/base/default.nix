@@ -1,11 +1,11 @@
 {self, ...}: {
-  flake.modules.nixos.system = {
+  flake.modules.nixos.base = {
     imports = with self.modules.nixos; [
       nix
       boot
       locale
       network
-      constants
+      settings
     ];
   };
 }

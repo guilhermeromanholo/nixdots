@@ -1,7 +1,7 @@
 {
   flake.modules.nixos.boot = {config, ...}: {
     boot.loader.grub = let
-      cfg = config.constants;
+      cfg = config.settings;
     in {
       # Default
       enable = true;

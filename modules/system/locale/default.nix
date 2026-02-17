@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.locale = {config, ...}: let
-    cfg = config.constants;
+    cfg = config.settings;
   in {
     time.timeZone = cfg.timezone;
     i18n.defaultLocale = cfg.locale;
