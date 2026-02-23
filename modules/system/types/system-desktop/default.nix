@@ -3,7 +3,9 @@
     imports = with self.modules.nixos; [
       system-cli
 
-      # TODO: Add desktop features
+      # Desktop features
+      audio
+      printing
     ];
   };
 }
