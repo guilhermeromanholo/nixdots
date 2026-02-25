@@ -7,6 +7,7 @@
     users.users.guilherme = {
       isNormalUser = true;
       description = "guilherme";
+      initialPassword = "password";
       extraGroups = ["networkmanager" "wheel"];
     };
   };
