@@ -4,6 +4,7 @@
       system-cli
 
       # Desktop features
+      ly
       audio
       printing
     ];
