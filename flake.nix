@@ -17,7 +17,7 @@
 
       imports = inputs.nixpkgs.lib.flatten [
         (lib.import-tree ./modules)
-        # (lib.import-nixos ./modules/hosts)
+        (lib.import-nixos ./modules/hosts)
 
         inputs.flake-parts.flakeModules.modules
         inputs.home-manager.flakeModules.home-manager

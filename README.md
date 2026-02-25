@@ -8,6 +8,7 @@ modules/
 | - programs/ (programas normais: gnome, kitty, ...)
 | - services/ (servicos do sistema: ssh, printing, ...)
 | - tools/ (coisas externas: home-manager, nixvim, impermanence, ...)
+|   | disko/ (colocar partes dos layouts?)
 | - hosts/ (minhas máquinas)
 | - users/ (usuarios das máquinas)
 | - bundles/ (combinação de modulos: cli, games, x-de)

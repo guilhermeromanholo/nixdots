@@ -2,6 +2,7 @@
   flake.modules.nixos.nix = {
     lib,
     config,
+    ...
   }: {
     nix = let
       flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
