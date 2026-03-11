@@ -1,3 +1,10 @@
+### Important
+
+- Usar completamente o padrão dendritic, seguindo aspectos e linusammon para inputs;
+- Não se preocupar com home-manager, não faz sentido usar Gnome sem HM por exemplo;
+- Nix-colors: colocar no mesmo aspect para todos que precisam de temas, e depois fazer specialisations no base em tools/;
+- Utilizar factory para usuários, temas, discos, ...;
+
 ### Layout
 
 ```
