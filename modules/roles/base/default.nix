@@ -1,9 +1,9 @@
 {self, ...}: let
   stateVersion = "26.05";
 in {
-  flake.modules.nixos.system-base = {
+  flake.modules.nixos.base = {
     imports = with self.modules.nixos; [
-      # Settings
+      # System
       nix
       boot
       locale
@@ -17,11 +17,11 @@ in {
     system.stateVersion = stateVersion;
 
     home-manager.sharedModules = [
-      self.modules.homeManager.system-base
+      self.modules.homeManager.base
     ];
   };
 
-  flake.modules.homeManager.system-base = {
+  flake.modules.homeManager.base = {
     home.stateVersion = stateVersion;
   };
 }

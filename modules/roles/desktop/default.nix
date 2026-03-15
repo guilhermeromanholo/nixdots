@@ -1,7 +1,7 @@
 {self, ...}: {
-  flake.modules.nixos.system-desktop = {
+  flake.modules.nixos.desktop = {
     imports = with self.modules.nixos; [
-      system-cli
+      cli
 
       # Desktop features
       audio

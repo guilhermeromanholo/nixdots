@@ -1,7 +1,7 @@
 {self, ...}: {
-  flake.modules.nixos.system-cli = {
+  flake.modules.nixos.cli = {
     imports = with self.modules.nixos; [
-      system-base
+      base
 
       # TODO: Add cli features
     ];
