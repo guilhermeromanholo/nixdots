@@ -19,8 +19,8 @@
       systems = ["x86_64-linux"];
 
       imports = [
-	(inputs.import-tree ./modules)
-	inputs.flake-parts.flakeModules.modules
+        (inputs.import-tree ./modules)
+        inputs.flake-parts.flakeModules.modules
         inputs.home-manager.flakeModules.home-manager
       ];
     };
