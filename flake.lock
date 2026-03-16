@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "flake-file": {
-      "locked": {
-        "lastModified": 1773554778,
-        "narHash": "sha256-keH0VNsci9e0Uwt3Msp/N+pltaP8Lb6lt09Q3WvDPw4=",
-        "owner": "vic",
-        "repo": "flake-file",
-        "rev": "f4780a86bd4c756475d839b286f8a40aabdbc802",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "repo": "flake-file",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -117,7 +102,6 @@
     },
     "root": {
       "inputs": {
-        "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",

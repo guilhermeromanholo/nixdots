@@ -1,9 +1,9 @@
 {
   self,
-  lib,
+  inputs,
   ...
 }: {
-  flake.nixosConfigurations.testvm = lib.nixosSystem {
+  flake.nixosConfigurations.testvm = inputs.nixpkgs.lib.nixosSystem {
     modules = [self.modules.nixos.testvm];
   };
 }

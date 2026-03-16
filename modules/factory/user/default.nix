@@ -1,5 +1,5 @@
 {self, ...}: {
-  config.flake.factory.user = {name, ...}: {
+  config.flake.factory.user = name: {
     nixos.${name} = {
       users.users.${name} = {
         isNormalUser = true;
