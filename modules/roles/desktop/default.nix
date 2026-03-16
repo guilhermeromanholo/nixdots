@@ -4,6 +4,7 @@
       cli
 
       # Desktop features
+      sddm
       audio
       printing
     ];
