@@ -2,10 +2,8 @@
   description = "NixOS Configuration";
 
   inputs = {
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
-    flake-file.url = "github:vic/flake-file";
     import-tree.url = "github:vic/import-tree";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -21,7 +19,6 @@
       imports = [
         (inputs.import-tree ./modules)
         inputs.flake-parts.flakeModules.modules
-        inputs.home-manager.flakeModules.home-manager
       ];
     };
 }
