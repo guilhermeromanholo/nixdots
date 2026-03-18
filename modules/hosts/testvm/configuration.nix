@@ -3,5 +3,7 @@
     imports = with self.modules.nixos; [
       system-desktop
     ];
+
+    networking.hostName = "testvm";
   };
 }
