@@ -1,7 +1,7 @@
 {self, ...}: {
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos.system-desktop = {
     imports = with self.modules.nixos; [
-      cli
+      system-cli
 
       # Desktop features
       sddm

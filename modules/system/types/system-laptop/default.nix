@@ -1,7 +1,7 @@
 {self, ...}: {
-  flake.modules.nixos.laptop = {
+  flake.modules.nixos.system-laptop = {
     imports = with self.modules.nixos; [
-      desktop
+      system-desktop
 
       # Laptop features
       bluetooth
