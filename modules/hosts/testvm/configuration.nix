@@ -3,7 +3,7 @@
     imports = with self.modules.nixos; [
       system-desktop
 
-      # Services
+      sway
       openssh
     ];
 
