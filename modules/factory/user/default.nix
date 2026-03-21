@@ -12,7 +12,7 @@
       };
     };
 
-    homeManager = {
+    homeManager.${name} = {
       home = {
         username = name;
         homeDirectory = "/home/${name}";
