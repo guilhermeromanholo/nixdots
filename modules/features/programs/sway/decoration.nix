@@ -10,16 +10,10 @@
         };
       };
 
-      # SwayFX Config
+      # Window Decoration
       extraConfig = ''
         # Window
         default_border pixel
-        corner_radius 10
-
-        # Blur
-        blur enable
-        blur_passes 4
-        blur_radius 2
       '';
     };
   };

@@ -29,9 +29,6 @@
     # Enable Home-Manager config
     wayland.windowManager.sway = {
       enable = true;
-      package = pkgs.swayfx;
-
-      checkConfig = false;
       wrapperFeatures.gtk = true;
     };
   };
