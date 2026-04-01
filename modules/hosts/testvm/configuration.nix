@@ -8,7 +8,5 @@
       sway
       openssh
     ];
-
-    networking.hostName = "testvm";
   };
 }

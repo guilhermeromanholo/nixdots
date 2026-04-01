@@ -12,7 +12,10 @@
   config.flake.lib = {
     mkNixos = name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
-        modules = [self.modules.nixos.${name}];
+        modules = [
+          self.modules.nixos.${name}
+          {networking.hostName = name;}
+        ];
       };
     };
 
