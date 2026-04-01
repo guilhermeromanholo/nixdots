@@ -5,6 +5,10 @@
 - Nix-colors: colocar no mesmo aspect para todos que precisam de temas, e depois fazer specialisations no base em tools/;
 - Utilizar factory para usuários, temas, discos, ...;
 
+### Install
+
+- ```nix run github:nix-community/nixos-anywhere -- --flake <path to configuration>#<configuration name> --target-host root@<ip address>```
+
 ### Layout
 
 ```
