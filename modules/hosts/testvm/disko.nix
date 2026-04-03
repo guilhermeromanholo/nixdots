@@ -1,24 +1,12 @@
 {self, ...}: {
   flake.modules.nixos.testvm = {
     imports = [
-      self.modules.nixos.disko
-
       (self.factory.disko {
         device = "/dev/vda";
+        size = "100%";
         swap = "2G";
+        tmpfs = true;
       })
     ];
-
-    disko.devices.disk.main.content.partitions = {
-      root = {
-        name = "ROOT";
-        size = "100%";
-        content = {
-          type = "filesystem";
-          format = "ext4";
-          mountpoint = "/";
-        };
-      };
-    };
   };
 }

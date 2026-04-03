@@ -3,10 +3,13 @@
     imports = with self.modules.nixos; [
       system-cli
 
-      # Desktop features
+      # Desktop
       sddm
       audio
       printing
+
+      # Tools
+      disko
     ];
   };
 }
