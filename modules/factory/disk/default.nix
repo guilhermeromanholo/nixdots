@@ -58,34 +58,46 @@
         };
       }
 
-      (lib.mkIf (!tmpfs) {
-        disk.main.content.partitions.root.content.subvolumes."/root" = {
-          mountpoint = "/";
-          mountOptions = [
-            "compress=zstd"
-            "noatime"
-          ];
-        };
-      })
+      (
+        lib.mkIf (!tmpfs) {
+          disk.main = {
+            content.partitions = {
+              root.content.subvolumes."/root" = {
+                mountpoint = "/";
+                mountOptions = [
+                  "compress=zstd"
+                  "noatime"
+                ];
+              };
+            };
+          };
+        }
+      )
 
-      (lib.mkIf tmpfs {
-        nodev."/" = {
-          fsType = "tmpfs";
-          mountOptions = [
-            "defaults"
-            "size=20%"
-            "mode=755"
-          ];
-        };
+      (
+        lib.mkIf tmpfs {
+          nodev."/" = {
+            fsType = "tmpfs";
+            mountOptions = [
+              "defaults"
+              "size=20%"
+              "mode=755"
+            ];
+          };
 
-        disk.main.content.partitions.root.content.subvolumes."/persist" = {
-          mountpoint = "/persist";
-          mountOptions = [
-            "compress=zstd"
-            "noatime"
-          ];
-        };
-      })
+          disk.main = {
+            content.partitions = {
+              root.content.subvolumes."/persist" = {
+                mountpoint = "/persist";
+                mountOptions = [
+                  "compress=zstd"
+                  "noatime"
+                ];
+              };
+            };
+          };
+        }
+      )
     ];
   };
 }
