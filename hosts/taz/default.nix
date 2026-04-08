@@ -13,11 +13,12 @@
     ./hardware.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    waypipe
-  ];
+  services.pcscd.enable = true;
 
-  services.xserver.desktopManager.xfce.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 
   modules = {
     system = {
@@ -65,6 +66,8 @@
       # Enable tailscale
       tailscale.enable = true;
 
+      # Enable virtualization
+      qemu.enable = true;
       docker.enable = true;
     };
 
@@ -82,7 +85,7 @@
       # Enable features for
       # theming NixOS
       enable = true;
-      theme = outputs.themes.gruvbox;
+      theme = outputs.themes.nord;
     };
   };
 }

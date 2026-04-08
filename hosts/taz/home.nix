@@ -1,5 +1,13 @@
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.firefox.enable = true;
+
+  home.packages = [
+    inputs.nixvim-custom.packages.${pkgs.system}.default
+  ];
 
   modules = {
     programs = {
@@ -16,10 +24,6 @@
       # Enable Zed editor with
       # custom plugins
       zed.enable = true;
-
-      # Enable nixvim with my
-      # personal config
-      nixvim.enable = true;
 
       # Enable vscode with my
       # plugins and configs

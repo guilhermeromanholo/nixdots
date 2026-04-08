@@ -1,7 +1,7 @@
 {
   name = "nord";
 
-  image = ./your_name.png;
+  image = ./mountain.jpg;
   polarity = "dark";
 
   colorscheme = {
