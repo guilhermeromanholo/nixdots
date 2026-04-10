@@ -8,15 +8,15 @@
       hideMounts = true;
 
       files = [
-	"/etc/shadow"
-	"/etc/adjtime"
-	"/etc/machine-id"
+        "/etc/shadow"
+        "/etc/adjtime"
+        "/etc/machine-id"
       ];
 
       directories = [
-	"/var/lib/nixos"
-	"/var/lib/NetworkManager"
-	"/etc/NetworkManager/system-connections"
+        "/var/lib/nixos"
+        "/var/lib/NetworkManager"
+        "/etc/NetworkManager/system-connections"
       ];
     };
   };
