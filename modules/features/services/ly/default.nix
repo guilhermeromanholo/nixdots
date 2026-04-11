@@ -3,11 +3,10 @@
     services.displayManager.ly = {
       enable = true;
       settings = {
-	xinitrc = null;
-	bigclock = true;
-	animation = "matrix";
+        xinitrc = null;
+        bigclock = true;
+        animation = "matrix";
       };
     };
   };
 }
-
