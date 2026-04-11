@@ -6,7 +6,7 @@
       boot
       firmware
 
-      sddm
+      ly
       audio
       printing
 
