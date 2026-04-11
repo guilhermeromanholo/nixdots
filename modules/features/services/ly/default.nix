@@ -5,7 +5,7 @@
       settings = {
 	xinitrc = null;
 	bigclock = true;
-	animation = "cmatrix";
+	animation = "matrix";
       };
     };
   };
