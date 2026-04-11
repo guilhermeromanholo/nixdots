@@ -4,11 +4,10 @@
 
 ```
 modules/
-| - features/ 
-| | - cli/
-| | - dekstop/
-| | - programs/
-| | - services/
+| - cli/
+| - dekstop/
+| - programs/
+| - services/
 | - tools/
 | - hosts/
 | - users/
