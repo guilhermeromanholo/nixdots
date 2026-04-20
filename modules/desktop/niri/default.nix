@@ -4,10 +4,14 @@
   ...
 }: {
   flake.modules = {
-    nixos.niri = {
+    nixos.niri = {pkgs, ...}: {
       programs.niri = {
         enable = true;
       };
+
+      environment.systemPackages = with pkgs; [
+	xwayland-satellite
+      ];
 
       home-manager.sharedModules = [
         self.modules.homeManager.niri
