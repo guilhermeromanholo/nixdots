@@ -10,6 +10,7 @@ in {
         network
 
         # Tools
+        nur
         home-manager
       ];
 
