@@ -10,7 +10,7 @@
       };
 
       environment.systemPackages = with pkgs; [
-	xwayland-satellite
+        xwayland-satellite
       ];
 
       home-manager.sharedModules = [
