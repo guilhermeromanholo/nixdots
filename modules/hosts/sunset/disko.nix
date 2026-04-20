@@ -1,7 +1,7 @@
 {self, ...}: {
-  flake.modules.nixos.testvm = {
+  flake.modules.nixos.sunset = {
     imports = [
-      (self.lib.disko {
+      (self.lib.mkDisko {
         device = "/dev/nvme0n1";
         size = "795G";
         swap = "16G";

@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.fstrim = {
-    services.fstim = {
+    services.fstrim = {
       enable = true;
     };
   };

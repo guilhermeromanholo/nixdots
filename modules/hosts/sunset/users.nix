@@ -5,7 +5,9 @@
     ];
 
     home-manager.users.glhrm = {
-      # ...
+      imports = with self.modules.homeManager; [
+        firefox
+      ];
     };
   };
 }

@@ -4,10 +4,12 @@ in {
   flake.modules = {
     nixos.system-base = {
       imports = with self.modules.nixos; [
+        # Settings
         nix
         locale
         network
 
+        # Tools
         home-manager
       ];
 

@@ -5,9 +5,10 @@
       size,
       swap,
     }: {
-      nodev."/" = {
+      fileSystems."/" = {
+        device = "none";
         fsType = "tmpfs";
-        mountOptions = [
+        options = [
           "defaults"
           "size=20%"
           "mode=755"

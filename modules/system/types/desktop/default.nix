@@ -1,17 +1,33 @@
 {self, ...}: {
-  flake.modules.nixos.system-desktop = {
-    imports = with self.modules.nixos; [
-      system-cli
+  flake.modules = {
+    nixos.system-desktop = {
+      imports = with self.modules.nixos; [
+        # Type
+        system-cli
 
-      boot
-      firmware
+        # Settings
+        boot
+        firmware
 
-      ly
-      audio
-      printing
+        # Services
+        ly
+        audio
+        printing
 
-      disko
-      impermanence
-    ];
+        # Tools
+        disko
+        impermanence
+      ];
+
+      home-manager.sharedModules = [
+        self.modules.homeManager.system-desktop
+      ];
+    };
+
+    homeManager.system-desktop = {
+      imports = with self.modules.homeManager; [
+        impermanence
+      ];
+    };
   };
 }
