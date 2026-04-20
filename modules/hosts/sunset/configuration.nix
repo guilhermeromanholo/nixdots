@@ -11,6 +11,9 @@
       fstrim
       openssh
       tailscale
+
+      # Desktop
+      niri
     ];
   };
 }
