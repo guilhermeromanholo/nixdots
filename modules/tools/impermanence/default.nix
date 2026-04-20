@@ -1,23 +1,33 @@
 {inputs, ...}: {
-  flake.modules.nixos.impermanence = {
-    imports = [
-      inputs.impermanence.nixosModules.impermanence
-    ];
-
-    environment.persistence."/persist/system" = {
-      hideMounts = true;
-
-      files = [
-        "/etc/shadow"
-        "/etc/adjtime"
-        "/etc/machine-id"
+  flake.modules = {
+    nixos.impermanence = {
+      imports = [
+        inputs.impermanence.nixosModules.impermanence
       ];
 
-      directories = [
-        "/var/lib/nixos"
-        "/var/lib/NetworkManager"
-        "/etc/NetworkManager/system-connections"
-      ];
+      environment.persistence."/persist" = {
+        hideMounts = true;
+
+        files = [
+          "/etc/shadow"
+          "/etc/adjtime"
+          "/etc/machine-id"
+        ];
+
+        directories = [
+          "/var/lib/nixos"
+          "/var/lib/NetworkManager"
+          "/etc/NetworkManager/system-connections"
+        ];
+      };
+    };
+
+    homeManager.impermanence = {
+      home.persistence."/persist" = {
+        directories = [
+          ".nixdots"
+        ];
+      };
     };
   };
 }
