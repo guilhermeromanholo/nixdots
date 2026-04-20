@@ -1,11 +1,11 @@
 {self, ...}: {
   flake.modules.homeManager.niri = {pkgs, ...}: {
-    imports =
-      (with self.modules.homeManager; [
-        noctalia
-      ])
-      ++ (with pkgs; [
-        xwayland-satellite
-      ]);
+    imports = [
+      # Packages
+      pkgs.xwayland-satellite
+
+      # Modules
+      self.modules.homeManager.noctalia
+    ];
   };
 }
