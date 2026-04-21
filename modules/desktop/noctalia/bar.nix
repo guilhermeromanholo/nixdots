@@ -6,24 +6,31 @@
       barType = "simple";
 
       widgets = {
-	left = [
-	  {id = "ControlCenter"; useDistroLogo = true; colorizeIcons = true;}
-	  {id = "SystemMonitor";}
-	  {id = "MediaMini";}
-	];
+        left = [
+          {
+            id = "ControlCenter";
+            useDistroLogo = true;
+            enableColorization = true;
+          }
+          {id = "SystemMonitor";}
+          {id = "MediaMini";}
+        ];
 
-	center = [
-	  {id = "Workspace";}
-	];
+        center = [
+          {id = "Workspace";}
+        ];
 
-	right = [
-	  {id = "Tray";}
-	  {id = "Battery";}
-	  {id = "Network";}
-	  {id = "Volume";}
-	  {id = "Clock"; formatVertical = "HH mm";}
-	  {id = "SessionMenu";}
-	];
+        right = [
+          {id = "Tray";}
+          {id = "Battery";}
+          {id = "Network";}
+          {id = "Volume";}
+          {
+            id = "Clock";
+            formatVertical = "HH mm";
+          }
+          {id = "SessionMenu";}
+        ];
       };
     };
   };
