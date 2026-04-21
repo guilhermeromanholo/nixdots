@@ -7,7 +7,7 @@
         cursor_trail = 200;
         allow_hyperlinks = true;
         enable_audio_bell = false;
-	confirm_os_window_close = 0;
+        confirm_os_window_close = 0;
       };
     };
   };

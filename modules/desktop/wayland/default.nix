@@ -6,7 +6,7 @@
       enable = true;
 
       extraPortals = [
-	pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gnome
       ];
     };
   };

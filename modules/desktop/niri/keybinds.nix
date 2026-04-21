@@ -2,10 +2,11 @@
   flake.modules.homeManager.niri = {
     config,
     pkgs,
+    lib,
     ...
   }: let
-    noctalia = cmd: "noctalia-shell ipc call ${cmd}";
-  in  {
+    noctalia = cmd: ["noctalia-shell" "ipc" "call"] ++ (lib.splitString " " cmd);
+  in {
     programs.niri.settings.binds = with config.lib.niri.actions; {
       # Windows
       "super+q".action = close-window;

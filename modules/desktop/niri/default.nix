@@ -19,7 +19,7 @@
 
       home-manager.sharedModules = [
         self.modules.homeManager.niri
-	{imports = [inputs.niri.homeModules.niri];}
+        {imports = [inputs.niri.homeModules.niri];}
       ];
     };
 

@@ -8,7 +8,7 @@
         # Settings
         boot
         firmware
-	graphics
+        graphics
 
         # Services
         ly
