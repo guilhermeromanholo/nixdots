@@ -4,9 +4,10 @@
       enable = true;
 
       settings = {
-        enable_audio_bell = false;
-        allow_hyperlinks = true;
         cursor_trail = 200;
+        allow_hyperlinks = true;
+        enable_audio_bell = false;
+	confirm_os_window_close = 0;
       };
     };
   };
