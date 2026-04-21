@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   flake.modules.homeManager.noctalia = {
     programs.noctalia-shell.settings.bar = {
       density = "comfortable";
@@ -6,18 +6,18 @@
       barType = "simple";
 
       widgets = {
+	left = [
+	  {id = "ControlCenter"; useDistroLogo = true; colorizeIcons = true;}
+	  {id = "SystemMonitor";}
+	  {id = "MediaMini";}
+	];
+
 	center = [
 	  {id = "Workspace";}
 	];
 
-	left = [
-	  {id = "MediaMini";}
-	  {id = "SystemMonitor";}
-	  {id = "NotificationHistory";}
-	  {id = "Tray";}
-	];
-
 	right = [
+	  {id = "Tray";}
 	  {id = "Battery";}
 	  {id = "Network";}
 	  {id = "Volume";}
