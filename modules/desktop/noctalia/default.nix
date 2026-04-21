@@ -5,6 +5,6 @@
     ];
 
     programs.noctalia-shell.enable = true;
-    programs.noctalia-shell.location.autoLocate = true;
+    programs.noctalia-shell.settings.location.autoLocate = true;
   };
 }
