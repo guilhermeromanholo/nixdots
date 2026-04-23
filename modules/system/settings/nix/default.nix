@@ -33,7 +33,9 @@
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
-    nixpkgs.config.allowUnfree = true;
-    documentation.nixos.enable = false;
+    nixpkgs = {
+      config.allowUnfree = true;
+      overlays = lib.attrValues inputs.self.overlays;
+    };
   };
 }

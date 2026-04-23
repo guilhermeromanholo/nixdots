@@ -1,44 +1,38 @@
 {
-  flake.modules.homeManager.firefox = {pkgs, ...}: let
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      bitwarden
-      ublock-origin
-      owasp-penetration-testing-kit
-    ];
-  in {
-    programs.firefox = {
+  flake.modules.homeManager.firefox = {
+    pkgs,
+    lib,
+    ...
+  }: {
+    programs.firefox = let
+      profiles = {
+        Personal = {id = 0;};
+        Work = {id = 1;};
+      };
+    in {
       enable = true;
 
-      profiles = {
-        personal = {
-          id = 0;
-          isDefault = true;
-          extensions.packages = extensions;
+      profiles =
+        lib.mapAttrs (_: v: {
+          inherit (v) id;
 
           settings = {
             "browser.startup.page" = 1;
-            "browser.startup.homepage" = "https://web.whatsapp.com";
+            "sidebar.verticalTabs" = true;
+            "browser.cache.disk.enable" = false;
           };
-        };
 
-        work = {
-          id = 1;
-          extensions.packages = extensions;
+          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            bitwarden
+            ublock-origin
+            owasp-penetration-testing-kit
+          ];
 
-          settings = {
-            "browser.startup.page" = 1;
-            "browser.startup.homepage" = "https://mail.google.com|https://trello.com";
-          };
-        };
-      };
-    };
-  };
-
-  flake.modules.homeManager.impermanence = {
-    home.persistence."/persist" = {
-      directories = [
-        ".mozilla"
-      ];
+          extraConfig = ''
+            ${builtins.readFile "${pkgs.betterfox}/user.js"}
+          '';
+        })
+        profiles;
     };
   };
 }
