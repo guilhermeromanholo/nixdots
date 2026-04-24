@@ -5,7 +5,7 @@ in {
 
   flake.modules.homeManager.${name} = {
     imports = with self.modules.homeManager; [
-      # ...
+      nh
     ];
 
     home = {

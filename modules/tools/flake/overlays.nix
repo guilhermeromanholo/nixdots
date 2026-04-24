@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   perSystem = {config, ...}: {
     # Additional packages
     overlayAttrs = config.packages;

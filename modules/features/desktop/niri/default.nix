@@ -9,9 +9,13 @@
         enable = true;
       };
 
-      imports = with self.modules.nixos; [
-        wayland
-      ];
+      xdg.portal = {
+        enable = true;
+
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gnome
+        ];
+      };
 
       environment.systemPackages = with pkgs; [
         xwayland-satellite
