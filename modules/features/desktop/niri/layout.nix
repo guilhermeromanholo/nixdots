@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.niri = {
     programs.niri.settings.layout = {
-      gaps = 8;
+      gaps = 12;
 
       center-focused-column = "on-overflow";
       always-center-single-column = true;
