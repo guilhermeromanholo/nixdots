@@ -1,3 +1,4 @@
+{lib, ...}: 
 {
   options.modules.printer = {
     drivers = lib.mkOption {

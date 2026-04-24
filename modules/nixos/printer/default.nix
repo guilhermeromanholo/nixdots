@@ -1,4 +1,4 @@
-let
+{config, ...}: let
   cfg = config.modules.printer;
 in {
   imports = [./options.nix];

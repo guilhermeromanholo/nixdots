@@ -1,8 +1,8 @@
 {
   pkgs,
   flake,
+  config,
   inputs,
-  perSystem,
   ...
 }: {
   imports = [
@@ -10,6 +10,7 @@
     flake.nixosModules.nix
     flake.nixosModules.audio
     flake.nixosModules.system
+    flake.nixosModules.printer
 
     # Desktop
     flake.nixosModules.sway
@@ -23,6 +24,39 @@
     ./hardware.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
   ];
+
+  services.fprintd = {
+    enable = true;
+    tod = {
+      enable = true;
+    };
+  };
+
+  # SSH
+  services.openssh = {
+    enable = true;
+
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
+    };
+  };
+
+  networking.networkmanager.plugins = [
+    pkgs.networkmanager-openvpn
+  ];
+
+  # GNUPG
+  services.pcscd.enable = true;
+
+  programs.gnupg.agent = {
+     enable = true;
+     pinentryPackage = pkgs.pinentry-curses;
+  };
+
+  # Docker
+  programs.dconf.enable = true;
+  virtualisation.docker.enable = true;
 
   # Modules
   modules = {
@@ -41,6 +75,8 @@
 
     gnome.xkb.layout = "br";
     gnome.xkb.variant = "thinkpad";
+
+    printer.drivers = [pkgs.gutenprint];
   };
 
   # Services
@@ -48,14 +84,26 @@
 
   # Programs
   programs.git.enable = true;
+  programs.steam.enable = true;
+  programs.direnv.enable = true;
   programs.firefox.enable = true;
+  programs.virt-manager.enable = true;
 
   environment.systemPackages = [
-    perSystem.self.nixvim
+    inputs.nixvim.packages.${pkgs.system}.default
+
+    pkgs.docker
+    pkgs.docker-compose
+
+    pkgs.obsidian
+    pkgs.wireguard-tools
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Fonts
   fonts.packages = with pkgs; [
+    openvpn
     nerd-fonts.jetbrains-mono
   ];
 }

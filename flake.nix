@@ -14,7 +14,7 @@
     devshell.inputs.nixpkgs.follows = "nixpkgs";
 
     # Nixvim
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:guilhermeromanholo/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     # Blueprint
