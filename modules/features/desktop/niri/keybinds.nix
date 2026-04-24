@@ -10,16 +10,19 @@
     programs.niri.settings.binds = with config.lib.niri.actions; {
       # Windows
       "Mod+q".action = close-window;
-      "Mod+f".action = fullscreen-window;
-      "Mod+r".action = switch-preset-column-width;
-      "Mod+e".action = toggle-column-tabbed-display;
       "Mod+Space".action = toggle-window-floating;
+
+      # Resize
+      "Mod+f".action = maximize-column;
+      "Mod+Shift+f".action = fullscreen-window;
+      "Mod+r".action = switch-preset-column-width;
+      "Mod+Shift+r".action = switch-preset-window-height;
 
       # Navigation
       "Mod+h".action = focus-column-left;
       "Mod+l".action = focus-column-right;
-      "Mod+k".action = focus-workspace-up;
-      "Mod+j".action = focus-workspace-down;
+      "Mod+k".action = focus-window-up;
+      "Mod+j".action = focus-window-down;
 
       # Programs
       "Mod+d".action.spawn = noctalia "launcher toggle";
@@ -37,15 +40,15 @@
       "Mod+8".action.focus-workspace = 8;
       "Mod+9".action.focus-workspace = 9;
 
-      "Mod+Ctrl+1".action.move-column-to-workspace = 1;
-      "Mod+Ctrl+2".action.move-column-to-workspace = 2;
-      "Mod+Ctrl+3".action.move-column-to-workspace = 3;
-      "Mod+Ctrl+4".action.move-column-to-workspace = 4;
-      "Mod+Ctrl+5".action.move-column-to-workspace = 5;
-      "Mod+Ctrl+6".action.move-column-to-workspace = 6;
-      "Mod+Ctrl+7".action.move-column-to-workspace = 7;
-      "Mod+Ctrl+8".action.move-column-to-workspace = 8;
-      "Mod+Ctrl+9".action.move-column-to-workspace = 9;
+      "Mod+Shift+1".action.move-column-to-workspace = 1;
+      "Mod+Shift+2".action.move-column-to-workspace = 2;
+      "Mod+Shift+3".action.move-column-to-workspace = 3;
+      "Mod+Shift+4".action.move-column-to-workspace = 4;
+      "Mod+Shift+5".action.move-column-to-workspace = 5;
+      "Mod+Shift+6".action.move-column-to-workspace = 6;
+      "Mod+Shift+7".action.move-column-to-workspace = 7;
+      "Mod+Shift+8".action.move-column-to-workspace = 8;
+      "Mod+Shift+9".action.move-column-to-workspace = 9;
     };
   };
 }
