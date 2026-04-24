@@ -5,7 +5,7 @@
       clean.enable = true;
     };
 
-    environment.sessionVariables = {
+    home.sessionVariables = {
       NH_FLAKE = "${config.home.homeDirectory}/.nixdots";
     };
   };
