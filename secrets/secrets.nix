@@ -3,6 +3,6 @@ let
 in {
   "glhrm-pass.age" = {
     armor = true;
-    publicKeys = [ glhrm-sunset ];
+    publicKeys = [glhrm-sunset];
   };
 }

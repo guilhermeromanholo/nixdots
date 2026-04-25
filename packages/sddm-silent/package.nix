@@ -1,5 +1,8 @@
-{ fetchFromGitHub, stdenvNoCC, kdePackages }:
-
+{
+  fetchFromGitHub,
+  stdenvNoCC,
+  kdePackages,
+}:
 stdenvNoCC.mkDerivation {
   pname = "sddm-silent";
   version = "1.4.2";

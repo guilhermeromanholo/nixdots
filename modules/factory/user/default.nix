@@ -12,7 +12,7 @@
         home = "/home/${name}";
 
         shell = pkgs.${shell};
-	ignoreShellProgramCheck = true;
+        ignoreShellProgramCheck = true;
 
         extraGroups =
           if admin
