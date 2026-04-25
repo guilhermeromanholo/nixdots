@@ -3,10 +3,12 @@
     programs.git = {
       enable = true;
 
-      settings.aliases = {
+      settings.alias = {
         st = "status";
         cm = "commit";
         ck = "checkout";
+	undo = "reset HEAD~1 --mixed";
+	unstage = "reset HEAD --";
       };
     };
   };

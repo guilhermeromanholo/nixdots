@@ -3,7 +3,10 @@
     programs.nh = {
       enable = true;
       clean.enable = true;
-      flake = "${config.home.homeDirectory}/.nixdots";
+    };
+
+    home.sessionVariables = {
+      NH_FLAKE = "${config.home.homeDirectory}/.nixdots";
     };
   };
 }

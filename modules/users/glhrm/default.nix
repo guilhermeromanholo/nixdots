@@ -14,7 +14,7 @@ in {
           self.inputs.agenix.nixosModules.default
         ];
 
-        age.identityPaths = ["/home/glhrm/.ssh/id_rsa"];
+        age.identityPaths = ["/persist/home/glhrm/.ssh/id_rsa"];
         age.secrets.glhrm-pass.file = self + /secrets/glhrm-pass.age;
         users.users.${name}.hashedPasswordFile = config.age.secrets.glhrm-pass.path;
       };
