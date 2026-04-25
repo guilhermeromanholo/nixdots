@@ -8,5 +8,13 @@
 
       location.autoLocate = true;
     };
+
+    home.file.".cache/noctalia/shell-state.json".text = ''
+      {
+        "changelogState": {
+          "lastSeenVersion": "4.0.2"
+        }
+      }
+    '';
   };
 }
