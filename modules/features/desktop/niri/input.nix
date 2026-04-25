@@ -7,12 +7,12 @@
 
       mouse = {
         enable = true;
-	natural-scroll = false;
+        natural-scroll = false;
       };
 
       touchpad = {
         enable = true;
-	natural-scroll = false;
+        natural-scroll = false;
       };
     };
   };

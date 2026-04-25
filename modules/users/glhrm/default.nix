@@ -22,7 +22,7 @@ in {
       homeManager.${name} = {
         imports = with self.modules.homeManager; [
           nh
-	  git
+          git
         ];
 
         programs.git.settings.user = {

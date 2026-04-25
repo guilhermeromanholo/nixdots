@@ -6,7 +6,7 @@
       center-focused-column = "never";
       always-center-single-column = true;
 
-      default-column-width = { proportion = 0.50; };
+      default-column-width = {proportion = 0.50;};
 
       preset-column-widths = [
         {proportion = 1. / 3.;}

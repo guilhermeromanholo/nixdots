@@ -4,9 +4,9 @@
       enable = true;
 
       settings.aliases = {
-	st = "status";
-	cm = "commit";
-	ck = "checkout";
+        st = "status";
+        cm = "commit";
+        ck = "checkout";
       };
     };
   };
