@@ -3,7 +3,7 @@
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "sddm-astronaut-theme";
+      theme = "silent";
 
       extraPackages = with pkgs; [
         kdePackages.qtsvg
@@ -13,9 +13,7 @@
     };
 
     environment.systemPackages = with pkgs; [
-      (sddm-astronaut.override {
-        embeddedTheme = "astronaut";
-      })
+      sddm-silent
     ];
   };
 }

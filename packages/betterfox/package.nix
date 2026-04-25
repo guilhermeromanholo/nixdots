@@ -1,5 +1,5 @@
-{pkgs}:
-pkgs.fetchFromGitHub {
+{ fetchFromGitHub }:
+fetchFromGitHub {
   owner = "yokoffing";
   repo = "Betterfox";
   tag = "150.0";

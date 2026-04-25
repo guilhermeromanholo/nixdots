@@ -11,7 +11,7 @@
         graphics
 
         # Services
-        ly
+        sddm
         audio
         printing
 
