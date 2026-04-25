@@ -1,0 +1,8 @@
+let
+  glhrm-sunset = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCj+wOwVJ/vBa8XvvvD6axPMTgrCYiMSaPhks2eqGQ2DvBUbzaOHXSeYO6CQ25OGvZPebPC6+gWbb6u47KCNj6HcYFjWnRs2BiNdrYJUm7T2Hz6dksUeO6u1LQ/Ov9jEElXY//+5ryHnAuEis0+OkfcT5n/clJa7EBH4yYHeBH7PF6M24EvcwfUzyuku6E6ikENT21p5OLU4FPxcplXZowPhza7znYrJdK9Tl2WSMu/AQ9s5Y49LFibGPM5spTyfYWC0TK/wKTs6sZNJsdgjOfEpPZVedEDd8ShNmpRIm0pLx7ffxcEX6MYf6Qh2zL1L0GXP2zdNwvFhQCoo8T1vDZoYCY1YtajT8r9zXtT0gTrlul7wVwNyZnhgHUyrgScDRlI/UhQ37M9qv0zlRkqlJVV5tmRJlykmr2fQThesEpefuIrT+N2WheCK1rlbFmrec6pmNpJw8ldzOcxMdDTHPQoWxZskQIBrwlQzWR23U/9MSfMdQFBPvzhZTSlCrrcqa30uZHzTThJ8XL0Upm4kIIwzzMbpr3M8MqJVBMUgv6qcfmio3Lt0xLIglLkhFQURGx/SJvx9jsSaHILTpN6rp2Q0YlZRBpwuJuZe02rshYVqL+0C9DzBUKEL7SWcqwtnR/pLI+DUUk9TlA9UY1IrQGb3x2iySqJPn81mxzlWypWfw== glhrm@sunset";
+in {
+  "glhrm-pass.age" = {
+    armor = true;
+    publicKeys = [ glhrm-sunset ];
+  };
+}

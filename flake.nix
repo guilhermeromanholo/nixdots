@@ -9,6 +9,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    agenix.url = "github:ryantm/agenix";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
