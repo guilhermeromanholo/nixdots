@@ -12,6 +12,15 @@ in {
       username = name;
       homeDirectory = "/home/${name}";
     };
+
+    programs.git = {
+      enable = true;
+
+      settings = {
+        user.name = "guilhermeromanholo";
+        user.email = "guilhermeromanholo@users.noreply.github.com";
+      };
+    };
   };
 
   flake.modules.homeManager.impermanence = {
