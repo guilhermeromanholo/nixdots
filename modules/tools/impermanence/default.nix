@@ -8,7 +8,6 @@
       hideMounts = true;
 
       files = [
-        "/etc/adjtime"
         "/etc/machine-id"
       ];
 
