@@ -7,8 +7,8 @@
         st = "status";
         cm = "commit";
         ck = "checkout";
-	undo = "reset HEAD~1 --mixed";
-	unstage = "reset HEAD --";
+        undo = "reset HEAD~1 --mixed";
+        unstage = "reset HEAD --";
       };
     };
   };

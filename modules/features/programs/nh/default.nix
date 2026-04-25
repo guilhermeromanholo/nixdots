@@ -2,11 +2,12 @@
   flake.modules.homeManager.nh = {config, ...}: {
     programs.nh = {
       enable = true;
-      clean.enable = true;
-    };
+      flake = "${config.home.homeDirectory}/.nixdots";
 
-    home.sessionVariables = {
-      NH_FLAKE = "${config.home.homeDirectory}/.nixdots";
+      clean = {
+        enable = true;
+        extraArgs = "--keep 1";
+      };
     };
   };
 }

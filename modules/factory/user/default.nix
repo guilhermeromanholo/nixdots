@@ -1,11 +1,18 @@
 {self, ...}: {
-  config.flake.factory.user = name: admin: {
-    nixos.${name} = {
+  config.flake.factory.user = {
+    name,
+    admin,
+    shell,
+  }: {
+    nixos.${name} = {pkgs, ...}: {
       users.mutableUsers = false;
 
       users.users.${name} = {
         isNormalUser = true;
         home = "/home/${name}";
+
+        shell = pkgs.${shell};
+	ignoreShellProgramCheck = true;
 
         extraGroups =
           if admin

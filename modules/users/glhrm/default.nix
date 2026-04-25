@@ -6,7 +6,11 @@
   name = "glhrm";
 in {
   flake.modules = lib.mkMerge [
-    (self.factory.user name true)
+    (self.factory.user {
+      inherit name;
+      admin = true;
+      shell = "fish";
+    })
 
     {
       nixos.${name} = {config, ...}: {
@@ -23,6 +27,7 @@ in {
         imports = with self.modules.homeManager; [
           nh
           git
+          fish
         ];
 
         programs.git.settings.user = {
