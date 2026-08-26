@@ -10,6 +10,9 @@
       # Role
       desktop
 
+      # Users
+      guilherme
+
       # Tools
       impermanence
 
