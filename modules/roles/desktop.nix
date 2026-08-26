@@ -14,7 +14,7 @@
       graphics
 
       # Services
-      ssh
+      openssh
       printing
       tailscale
     ];
