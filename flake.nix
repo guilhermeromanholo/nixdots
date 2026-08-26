@@ -12,12 +12,16 @@
     # Treefmt
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
-    # Preservation
+    # Impermanence
     impermanence.url = "github:nix-community/impermanence";
 
     # Disko
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Wrappers
+    wrappers.url = "github:BirdeeHub/nix-wrapper-modules";
+    wrappers.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
