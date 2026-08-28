@@ -5,6 +5,10 @@
 
   perSystem.treefmt = {
     projectRootFile = "flake.nix";
-    programs.alejandra.enable = true; # Nix
+
+    programs = {
+      kdlfmt.enable = true; # KDL
+      alejandra.enable = true; # Nix
+    };
   };
 }

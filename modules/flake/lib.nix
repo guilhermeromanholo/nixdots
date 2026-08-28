@@ -35,5 +35,9 @@
       then settings
       else {}
     );
+
+    # Function to use dots in the dotfiles
+    # directory
+    linkDots = file: (inputs.self + "/dotfiles/${file}");
   };
 }
