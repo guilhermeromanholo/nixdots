@@ -6,6 +6,7 @@
   }: {
     imports = with self.modules.nixos; [
       fish
+      helix
     ];
 
     users.users.guilherme = {

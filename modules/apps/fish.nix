@@ -2,7 +2,7 @@
   flake.modules.nixos.fish = {pkgs, ...}: {
     programs.fish = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.buildPlatform.system}.fish;
+      package = self.wrappers.fish.wrap {inherit pkgs;};
     };
 
     environment.systemPackages = with pkgs; [
