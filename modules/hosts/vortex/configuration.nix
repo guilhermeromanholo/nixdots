@@ -12,6 +12,9 @@
 
       # Users
       guilherme
+
+      # Tools
+      wsl
     ];
   };
 }
