@@ -10,11 +10,13 @@
       # Role
       base
 
-      # Users
-      guilherme
-
       # Tools
       wsl
+
+      # Users
+      guilherme
     ];
+
+    wsl.defaultUser = "guilherme";
   };
 }
