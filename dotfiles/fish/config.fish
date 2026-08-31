@@ -8,9 +8,9 @@ if status is-interactive
 
     # Exa integration
     if command -q eza
-        alias ls="eza --icons"
-        alias ll="eza -l --icons"
-        alias la="eza -la --icons"
+        alias ls="eza --icons --group-directories-first"
+        alias ll="eza -l --icons --group-directories-first"
+        alias la="eza -la --icons --group-directories-first"
     end
 
     # Add zoxide integration

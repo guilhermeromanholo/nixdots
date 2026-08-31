@@ -21,4 +21,19 @@
       initialPassword = "password";
     };
   };
+
+  flake.modules.hjem.guilherme = {pkgs, ...}: {
+    imports = with self.modules.hjem; [
+      fish
+      helix
+    ];
+
+    packages = with pkgs; [git];
+
+    files.".gitconfig".text = ''
+      [user]
+        name = guilhermeromanholo
+        email = guilhermeromanholo@users.noreply.github.com
+    '';
+  };
 }
