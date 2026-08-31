@@ -26,6 +26,15 @@
     # WSL
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Theming
+    base16.url = "github:SenchoPens/base16.nix";
+
+    tt-schemes.url = "github:tinted-theming/schemes";
+    tt-schemes.flake = false;
+
+    tt-helix.url = "github:tinted-theming/tinted-helix";
+    tt-helix.flake = false;
   };
 
   outputs = inputs:
