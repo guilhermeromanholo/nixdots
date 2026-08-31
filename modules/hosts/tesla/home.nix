@@ -1,11 +1,9 @@
 {self, ...}: {
   flake.modules.nixos.tesla.imports = [
-    ({config, ...}:
-      self.factory.hjem {
-        inherit config;
-        host = "tesla";
-        users = ["guilherme"];
-      })
+    (self.factory.hjem {
+      host = "tesla";
+      users = ["guilherme"];
+    })
   ];
 
   flake.modules.hjem.tesla = {
