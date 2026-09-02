@@ -11,6 +11,10 @@
 
     # Treefmt
     treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    # Disko
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
