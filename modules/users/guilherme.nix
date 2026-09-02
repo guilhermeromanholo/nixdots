@@ -8,10 +8,16 @@
       })
     ];
 
-    # TODO: Migrate to nix-maid
-    users.users.guilherme.packages = with pkgs; [
-      git
-      helix
-    ];
+    users.users.guilherme = {
+      extraGroups = self.lib.mkIfGroupExists [
+        "docker"
+        "libvitd"
+      ];
+
+      packages = with pkgs; [
+        git
+        helix
+      ];
+    };
   };
 }

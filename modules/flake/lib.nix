@@ -4,8 +4,9 @@
   ...
 }: {
   flake.lib = {
-    # Function used to create a system with the
-    # host module located in modules/hosts.
+    #---------#
+    #  NixOS  #
+    #---------#
     mkNixos = {
       name,
       arch,
@@ -23,8 +24,15 @@
       };
     };
 
-    # Function to check if a group added to a
-    # user exists within the host's context.
+    #---------#
+    #  Utils  #
+    #---------#
+    mkIfPersistence = config: settings: (
+      if config.environment ? persistence
+      then {persistence."/persist" = settings;}
+      else {}
+    );
+
     ifGroupExists = config: groups:
       builtins.filter
       (g: builtins.hasAttr g config.users.groups)
