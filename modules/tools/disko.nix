@@ -1,4 +1,12 @@
-{inputs, ...}: {
+{
+  inputs,
+  den,
+  ...
+}: {
+  #--------#
+  # Aspect #
+  #--------#
+   
   den.aspects.disko = {host, ...}: {
     nixos = {
       imports = [inputs.disko.nixosModules.disko];
@@ -61,4 +69,14 @@
       };
     };
   };
+
+  #--------#
+  # Schema #
+  #--------#
+
+  den.schema.host.includes = [
+    (den.lib.policy.when ({host, ...}: host ? disko) (
+      den.lib.policy.include den.aspects.disko
+    ))
+  ];
 }
