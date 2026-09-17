@@ -11,6 +11,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    base16.url = "github:SenchoPens/base16.nix";
+
+    dots.url = "path:./dotfiles";
+    dots.flake = false;
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -19,9 +24,6 @@
 
     wrappers.url = "github:nix-community/nix-wrapper-modules";
     wrappers.inputs.nixpkgs.follows = "nixpkgs";
-
-    dots.url = "path:./dotfiles";
-    dots.flake = false;
   };
 
   outputs = inputs:

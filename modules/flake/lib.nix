@@ -8,6 +8,11 @@
   ];
 
   flake.lib = {
+    mkIfPersistence = config: settings:
+      if config.environment ? persistence
+      then {persistence."/persist" = settings;}
+      else {};
+
     mkNixos = {
       name,
       system,
@@ -29,11 +34,6 @@
         ];
       };
     };
-
-    mkIfPersistence = config: settings:
-      if config.environment ? persistence
-      then {persistence."/persist" = settings;}
-      else {};
 
     ifGroupExists = config: groups:
       builtins.filter
