@@ -39,5 +39,10 @@
       builtins.filter
       (g: builtins.hasAttr g config.users.groups)
       groups;
+
+    applyTheme = config: app:
+      config.scheme {
+        template = builtins.readFile "${inputs.dots}/${app}/base16.mustache";
+      };
   };
 }

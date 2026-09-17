@@ -1,22 +1,23 @@
 {inputs, ...}: {
-  flake.modules.nixos.fish = {
-    self',
-    pkgs,
-    ...
-  }: {
+  flake.modules.nixos.fish = {self', ...}: {
     programs.fish = {
       enable = true;
       package = self'.packages.fish;
     };
+  };
 
-    environment.systemPackages = with pkgs; [
+  flake.wrappers.fish = {
+    wlib,
+    pkgs,
+    ...
+  }: {
+    imports = [wlib.wrapperModules.fish];
+
+    runtimePkgs = with pkgs; [
       eza
       zoxide
     ];
-  };
 
-  flake.wrappers.fish = {wlib, ...}: {
-    imports = [wlib.wrapperModules.fish];
     configFile.path = "${inputs.dots}/fish/config.fish";
   };
 }
