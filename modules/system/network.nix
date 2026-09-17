@@ -9,7 +9,7 @@
       plugins = with pkgs; [networkmanager-openvpn];
     };
 
-    envrironment = self.lib.mkIfPersistence config {
+    environment = self.lib.mkIfPersistence config {
       directories = [
         "/var/lib/NetworkManager"
         "/etc/NetworkManager/system-connections"

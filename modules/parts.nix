@@ -1,13 +1,36 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     inputs.treefmt-nix.flakeModule
     inputs.flake-parts.flakeModules.modules
   ];
 
-  systems = ["x86_64-linux"];
+  options.flake.lib = lib.mkOption {
+    type = lib.types.attrsOf lib.types.unspecified;
+    default = {};
+  };
 
-  perSystem.treefmt.programs = {
-    taplo.enable = true; # TOML
-    alejandra.enable = true; # Nix
+  config = {
+    systems = [
+      "x86_64-linux"
+    ];
+
+    perSystem.treefmt.programs = {
+      taplo.enable = true; # TOML
+      alejandra.enable = true; # Nix
+    };
+
+    flake.nixosConfigurations = lib.mapAttrs (
+      name: _:
+        inputs.nixpkgs.lib.nixosSystem {
+          modules = [
+            {networking.hostName = name;}
+            inputs.self.modules.nixos.${name}
+          ];
+        }
+    ) (builtins.readDir ./hosts);
   };
 }
