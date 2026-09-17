@@ -19,6 +19,9 @@
 
     wrappers.url = "github:nix-community/nix-wrapper-modules";
     wrappers.inputs.nixpkgs.follows = "nixpkgs";
+
+    dots.url = "path:./dotfiles";
+    dots.flake = false;
   };
 
   outputs = inputs:

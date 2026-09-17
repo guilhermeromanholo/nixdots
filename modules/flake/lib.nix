@@ -1,0 +1,43 @@
+{
+  inputs,
+  withSystem,
+  ...
+}: {
+  imports = [
+    inputs.flake-parts.flakeModules.modules
+  ];
+
+  flake.lib = {
+    mkNixos = {
+      name,
+      system,
+    }: {
+      ${name} = inputs.nixpkgs.lib.nixosSystem {
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+        specialArgs = {
+          self' = withSystem system ({self', ...}: self');
+          inputs' = withSystem system ({inputs', ...}: inputs');
+        };
+
+        modules = [
+          {networking.hostName = name;}
+          inputs.self.modules.nixos.${name}
+        ];
+      };
+    };
+
+    mkIfPersistence = config: settings:
+      if config.environment ? persistence
+      then {persistence."/persist" = settings;}
+      else {};
+
+    ifGroupExists = config: groups:
+      builtins.filter
+      (g: builtins.hasAttr g config.users.groups)
+      groups;
+  };
+}

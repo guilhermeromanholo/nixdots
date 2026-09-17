@@ -9,7 +9,7 @@
         flake-registry = "";
         trusted-users = ["@wheel"];
         auto-optimise-store = true;
-        experimental-features = "nix-command flakes";
+        experimental-features = ["nix-command" "flakes"];
       };
 
       optimise.automatic = true;

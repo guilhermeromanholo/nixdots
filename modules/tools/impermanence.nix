@@ -1,9 +1,4 @@
 {inputs, ...}: {
-  flake.lib.mkIfPersistence = config: settings:
-    if config.environment ? persistence
-    then {persistence."/persist" = settings;}
-    else {};
-
   flake.modules.nixos.impermanence = {
     imports = [
       inputs.impermanence.nixosModules.impermanence

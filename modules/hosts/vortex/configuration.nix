@@ -1,4 +1,9 @@
 {self, ...}: {
+  flake.nixosConfigurations = self.lib.mkNixos {
+    name = "vortex";
+    system = "x86_64-linux";
+  };
+
   flake.modules.nixos.vortex = {
     imports = with self.modules.nixos; [
       # Role
@@ -12,8 +17,6 @@
     ];
 
     wsl.defaultUser = "guilherme";
-
     system.stateVersion = "26.11";
-    nixpkgs.hostPlatform = "x86_64-linux";
   };
 }
