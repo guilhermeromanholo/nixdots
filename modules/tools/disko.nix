@@ -1,9 +1,13 @@
-{
+{inputs, ...}: {
   flake.factory.disko = {
-    size ? "100%",
-    swap ? "4G",
-    device ? "/dev/sda",
+    size,
+    swap,
+    device,
   }: {
+    imports = [
+	inputs.disko.nixosModules.disko
+    ];
+
     fileSystems."/nix".neededForBoot = true;
     fileSystems."/persist".neededForBoot = true;
 
