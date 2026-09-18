@@ -4,11 +4,6 @@
     config,
     ...
   }: {
-    imports = with self.modules.nixos; [
-      fish
-      helix
-    ];
-
     users.users.guilherme = {
       shell = self'.packages.fish;
 

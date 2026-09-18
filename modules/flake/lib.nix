@@ -1,8 +1,4 @@
-{
-  inputs,
-  withSystem,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.flake-parts.flakeModules.modules
   ];
@@ -12,28 +8,6 @@
       if config.environment ? persistence
       then {persistence."/persist" = settings;}
       else {};
-
-    mkNixos = {
-      name,
-      system,
-    }: {
-      ${name} = inputs.nixpkgs.lib.nixosSystem {
-        pkgs = import inputs.nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
-        specialArgs = {
-          self' = withSystem system ({self', ...}: self');
-          inputs' = withSystem system ({inputs', ...}: inputs');
-        };
-
-        modules = [
-          {networking.hostName = name;}
-          inputs.self.modules.nixos.${name}
-        ];
-      };
-    };
 
     ifGroupExists = config: groups:
       builtins.filter

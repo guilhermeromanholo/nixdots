@@ -38,18 +38,6 @@
         "type": "github"
       }
     },
-    "dots": {
-      "flake": false,
-      "locked": {
-        "path": "./dotfiles",
-        "type": "path"
-      },
-      "original": {
-        "path": "./dotfiles",
-        "type": "path"
-      },
-      "parent": []
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -244,7 +232,6 @@
       "inputs": {
         "base16": "base16",
         "disko": "disko",
-        "dots": "dots",
         "flake-parts": "flake-parts",
         "impermanence": "impermanence",
         "import-tree": "import-tree",

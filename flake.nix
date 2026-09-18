@@ -13,9 +13,6 @@
 
     base16.url = "github:SenchoPens/base16.nix";
 
-    dots.url = "path:./dotfiles";
-    dots.flake = false;
-
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,5 +25,9 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;}
-    (inputs.import-tree ./modules);
+    (inputs.import-tree [
+      ./hosts
+      ./modules
+      ./packages
+    ]);
 }
