@@ -27,6 +27,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;}
     (inputs.import-tree [
       ./hosts
+      ./themes
       ./modules
       ./packages
     ]);

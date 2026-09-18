@@ -5,19 +5,20 @@
   withSystem,
   ...
 }: {
-  options.configurations.nixos = lib.mkOption {
-    type = lib.types.lazyAttrsOf (lib.types.submodule {
-      options = with lib; {
-        system = mkOption {type = types.str;};
-        version = mkOption {type = types.str;};
+  options.configurations.nixos = with lib;
+    mkOption {
+      type = types.lazyAttrsOf (types.submodule {
+        options = with lib; {
+          system = mkOption {type = types.str;};
+          version = mkOption {type = types.str;};
 
-        module = mkOption {
-          type = types.deferredModule;
-          default = {};
+          module = mkOption {
+            type = types.deferredModule;
+            default = {};
+          };
         };
-      };
-    });
-  };
+      });
+    };
 
   config.flake = {
     nixosConfigurations = lib.flip lib.mapAttrs config.configurations.nixos (

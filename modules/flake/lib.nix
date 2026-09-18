@@ -14,9 +14,14 @@
       (g: builtins.hasAttr g config.users.groups)
       groups;
 
-    applyTheme = config: app:
-      config.scheme {
-        template = builtins.readFile "${inputs.dots}/${app}/base16.mustache";
+    applyTheme = name: pkgs: let
+      base16Lib = pkgs.callPackage inputs.base16.lib {};
+      scheme = base16Lib.mkSchemeAttrs inputs.self.theme.colors;
+    in
+      scheme {
+        template =
+          builtins.readFile
+          (inputs.self + /themes/templates/${name}.mustache);
       };
   };
 }

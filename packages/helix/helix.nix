@@ -14,6 +14,7 @@
 
       settings = lib.importTOML ./config/config.toml;
       languages = lib.importTOML ./config/languages.toml;
+      themes.custom = lib.importTOML (inputs.self.lib.applyTheme "helix" pkgs);
     };
   };
 }
