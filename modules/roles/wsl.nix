@@ -7,7 +7,7 @@
       # WSL
       nixos-wsl.nixosModules.default
     ];
-        
+
     wsl.enable = true;
     wsl.usbip.Enable = true;
   };

@@ -27,7 +27,7 @@
         randomizedDelaySec = "24h";
         options = "--delete-older-than 3d";
       };
-      
+
       optimise.automatic = true;
     };
 

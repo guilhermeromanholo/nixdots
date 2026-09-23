@@ -1,4 +1,8 @@
-{inputs, withSystem, ...}: {
+{
+  inputs,
+  withSystem,
+  ...
+}: {
   flake.lib = {
     ifGroupExists = config: groups:
       builtins.filter
@@ -16,10 +20,12 @@
         };
 
         specialArgs = {
-          self' = withSystem system
+          self' =
+            withSystem system
             ({self', ...}: self');
 
-          inputs' = withSystem system
+          inputs' =
+            withSystem system
             ({inputs', ...}: inputs');
         };
 
@@ -34,6 +40,6 @@
       base16Lib = pkgs.callPackage inputs.base16.lib {};
       scheme = base16Lib.mkSchemeAttrs inputs.self.theme;
     in
-      scheme { template = builtins.readFile path; };
+      scheme {template = builtins.readFile path;};
   };
 }
