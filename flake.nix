@@ -6,6 +6,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    base16.url = "github:SenchoPens/base16.nix";
+
+    wrappers.url = "github:nix-community/nix-wrapper-modules";
+    wrappers.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
@@ -15,8 +20,7 @@
     isNixModule = file:
       file.hasExt "nix"
       && file.name != "flake.nix"
-      && file.name != "secrets.nix"
-      && !lib.hasPrefix "_" file.name;
+      && file.name != "secrets.nix";
 
     importTree = path:
       toList (fileFilter isNixModule path);
