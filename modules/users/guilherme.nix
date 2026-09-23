@@ -2,6 +2,7 @@
   flake.nixosModules.guilherme = {
     self',
     config,
+    ...
   }: {
     users.users.guilherme = {
       shell = self'.packages.fish;

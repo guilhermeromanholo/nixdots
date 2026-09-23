@@ -9,6 +9,6 @@
     ];
 
     wsl.enable = true;
-    wsl.usbip.Enable = true;
+    wsl.usbip.enable = true;
   };
 }
