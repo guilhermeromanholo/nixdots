@@ -11,7 +11,7 @@
     # and modules
     applyTheme = path: pkgs: let
       base16Lib = pkgs.callPackage inputs.base16.lib {};
-      scheme = base16Lib.mkSchemeAttrs inputs.self.theme;
+      scheme = base16Lib.mkSchemeAttrs inputs.self.theme.scheme;
     in
       scheme {template = builtins.readFile path;};
   };

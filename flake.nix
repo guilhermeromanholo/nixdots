@@ -23,6 +23,7 @@
     isNixModule = file:
       file.hasExt "nix"
       && file.name != "flake.nix"
+      && file.name != "theme.nix"
       && file.name != "secrets.nix";
 
     importTree = path:
