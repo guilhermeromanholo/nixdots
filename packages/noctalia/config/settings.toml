@@ -1,0 +1,61 @@
+config_version = 14
+
+[theme]
+mode = "dark"
+source = "custom"
+custom_palette = "custom"
+
+[bar.default]
+capsule = true
+margin_ends = 0
+center = [ "tray", "clock", "weather" ]
+end = [ "notifications", "group:g2", "volume", "session" ]
+start = [ "workspaces", "group:g1", "media" ]
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "cpu", "ram" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "network", "bluetooth", "brightness", "battery" ]
+    opacity = 1.0
+    padding = 6.0
+
+[location]
+address = "São José do Rio Preto, Brazil"
+
+[widget.clock]
+format = "  {:%H:%M}"
+
+[widget.cpu]
+show_value = false
+
+[widget.media]
+album_art_only = true
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+
+[widget.ram]
+show_value = false
+
+[widget.sysmon]
+stat = "ram_used"
+
+[widget.tray]
+drawer = true
+
+[widget.weather]
+show_condition = false

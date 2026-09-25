@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.nixosModules.desktop = {
+  flake.nixosModules.desktop = {self', ...}: {
     imports = [
       # System
       self.nixosModules.core
@@ -22,7 +22,7 @@
 
     programs.noctalia = {
       enable = true;
-      # package = self'.packages.noctalia;
+      package = self'.packages.noctalia;
     };
   };
 }
