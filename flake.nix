@@ -5,8 +5,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-
     base16.url = "github:SenchoPens/base16.nix";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";

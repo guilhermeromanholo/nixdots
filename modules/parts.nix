@@ -1,20 +1,26 @@
-{inputs, ...}: {
-  imports = [
-    inputs.treefmt-nix.flakeModule
-  ];
-
-  systems = [
-    "x86_64-linux"
-  ];
-
-  perSystem.treefmt = {
-    projectRootFile = "flake.nix";
-
-    programs = {
-      taplo.enable = true;
-      alejandra.enable = true;
+{
+  inputs,
+  lib,
+  ...
+}: {
+  options.flake = {
+    lib = lib.mkOption {
+      type = lib.types.attrsOf lib.types.unspecified;
+      default = {};
     };
   };
 
-  flake.theme = import (inputs.self + /themes/gruvbox/theme.nix);
+  config = {
+    systems = [
+      "x86_64-linux"
+    ];
+
+    perSystem = {pkgs, ...}: {
+      formatter = pkgs.alejandra;
+    };
+
+    flake.theme =
+      import
+      (inputs.self + /themes/gruvbox/theme.nix);
+  };
 }
