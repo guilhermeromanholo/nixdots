@@ -8,42 +8,51 @@ custom_palette = "custom"
 [bar.default]
 capsule = true
 margin_ends = 0
-center = [ "tray", "clock", "weather" ]
-end = [ "notifications", "group:g2", "volume", "session" ]
-start = [ "workspaces", "group:g1", "media" ]
+center = [ "tray", "clock" ]
+end = [ "bar", "group:g2", "volume", "notifications", "session" ]
+start = [ "launcher", "workspaces", "group:g1", "widget" ]
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "cpu", "ram" ]
-    opacity = 1.0
-    padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g1"
+members = [ "cpu", "ram" ]
+opacity = 1.0
+padding = 6.0
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    enabled = true
-    fill = "surface_variant"
-    id = "g2"
-    members = [ "network", "bluetooth", "brightness", "battery" ]
-    opacity = 1.0
-    padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g2"
+members = [ "network", "bluetooth", "brightness", "battery" ]
+opacity = 1.0
+padding = 6.0
 
 [location]
 address = "São José do Rio Preto, Brazil"
 
-[widget.clock]
-format = "  {:%H:%M}"
+[plugins]
+enabled = [ "rylos/tailnet", "aabidk20/yt-music" ]
+
+[widget.bar]
+type = "rylos/tailnet:bar"
 
 [widget.cpu]
 show_value = false
 
-[widget.media]
-album_art_only = true
-hide_when_no_media = true
+[widget.clock]
+format = "  {:%H:%M}    {:%b %d}"
+
+[widget.session]
+color = "tertiary"
+custom_image_colorize = true
+
+[widget.widget]
+type = "aabidk20/yt-music:widget"
 
 [widget.network]
 show_label = false

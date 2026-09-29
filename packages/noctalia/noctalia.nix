@@ -11,6 +11,9 @@
 
           [wallpaper.default]
           path = "${inputs.self.theme.wallpaper}"
+
+	  [widget.launcher]
+	  custom_image = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg"
         '';
       };
 
