@@ -11,10 +11,10 @@
     constructFiles."settings.toml" = {
       relPath = "noctalia/settings.toml";
       content = ''
-               ${builtins.readFile ./config/settings.toml}
+        ${builtins.readFile ./config/settings.toml}
 
-               [wallpaper.default]
-               path = "${inputs.self.theme.wallpaper}"
+        [wallpaper.default]
+        path = "${inputs.self.theme.wallpaper}"
 
         [widget.launcher]
         custom_image = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg"

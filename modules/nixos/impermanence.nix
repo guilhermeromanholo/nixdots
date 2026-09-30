@@ -11,6 +11,8 @@
       directories = [
         "/var/log"
         "/var/lib/nixos"
+        "/var/lib/NetworkManager"
+        "/etc/NetworkManager/system-connections"
       ];
 
       files = ["etc/machine-id"];

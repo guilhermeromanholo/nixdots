@@ -1,8 +1,10 @@
-{self, ...}: {
-  flake.nixosModules.base = {
-    imports = [
-      self.nixosModules.network
-    ];
+{
+  flake.nixosModules.base = {pkgs, ...}: {
+    # NetworkManager
+    networking.networkmanager = {
+      enable = true;
+      plugins = [pkgs.networkmanager-openvpn];
+    };
 
     # Locale
     time.timeZone = "America/Sao_Paulo";
