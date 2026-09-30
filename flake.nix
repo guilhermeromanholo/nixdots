@@ -5,6 +5,8 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
     base16.url = "github:SenchoPens/base16.nix";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
@@ -18,16 +20,12 @@
     inherit (inputs.nixpkgs) lib;
     inherit (lib.fileset) toList fileFilter;
 
-    isNixModule = file:
-      file.hasExt "nix"
-      && file.name != "flake.nix"
-      && file.name != "theme.nix"
-      && file.name != "secrets.nix";
+    isNixModule = file: file.hasExt "nix";
 
     importTree = path:
       toList (fileFilter isNixModule path);
 
     mkFlake = inputs.flake-parts.lib.mkFlake {inherit inputs;};
   in
-    mkFlake {imports = importTree ./.;};
+    mkFlake {imports = importTree ./modules;};
 }

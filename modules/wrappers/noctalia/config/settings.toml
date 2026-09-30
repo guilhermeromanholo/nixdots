@@ -8,9 +8,9 @@ custom_palette = "custom"
 [bar.default]
 capsule = true
 margin_ends = 0
-center = [ "tray", "clock" ]
-end = [ "bar", "group:g2", "volume", "notifications", "session" ]
-start = [ "launcher", "workspaces", "group:g1", "widget" ]
+center = ["tray", "clock"]
+end = ["bar", "group:g2", "volume", "notifications", "session"]
+start = ["launcher", "workspaces", "group:g1", "widget"]
 
 [[bar.default.capsule_group]]
 accordion = false
@@ -18,7 +18,7 @@ accordion_direction = "end"
 enabled = true
 fill = "surface_variant"
 id = "g1"
-members = [ "cpu", "ram" ]
+members = ["cpu", "ram"]
 opacity = 1.0
 padding = 6.0
 
@@ -28,7 +28,7 @@ accordion_direction = "end"
 enabled = true
 fill = "surface_variant"
 id = "g2"
-members = [ "network", "bluetooth", "brightness", "battery" ]
+members = ["network", "bluetooth", "brightness", "battery"]
 opacity = 1.0
 padding = 6.0
 
@@ -36,7 +36,7 @@ padding = 6.0
 address = "São José do Rio Preto, Brazil"
 
 [plugins]
-enabled = [ "rylos/tailnet", "aabidk20/yt-music" ]
+enabled = ["rylos/tailnet", "aabidk20/yt-music"]
 
 [widget.bar]
 type = "rylos/tailnet:bar"
