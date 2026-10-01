@@ -6,6 +6,7 @@
   imports = [
     inputs.treefmt-nix.flakeModule
     inputs.wrappers.flakeModules.wrappers
+    inputs.flake-parts.flakeModules.modules
   ];
 
   options.flake = {

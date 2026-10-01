@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.nixosModules.guilherme = {
+  flake.modules.nixos.guilherme = {
     self',
     config,
     ...

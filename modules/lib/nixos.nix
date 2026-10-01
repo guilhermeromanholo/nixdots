@@ -25,7 +25,7 @@
 
       modules = [
         {networking.hostName = name;}
-        inputs.self.nixosModules.${name}
+        inputs.self.modules.nixos.${name}
       ];
     };
   };

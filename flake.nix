@@ -9,6 +9,11 @@
 
     base16.url = "github:SenchoPens/base16.nix";
 
+    impermanence.url = "github:nix-community/impermanence";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
