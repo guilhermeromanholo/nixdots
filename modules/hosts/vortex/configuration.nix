@@ -14,7 +14,10 @@
       nixos-wsl.nixosModules.default
     ];
 
-    wsl.enable = true;
-    wsl.usbip.enable = true;
+    wsl = {
+      enable = true;
+      usbip.enable = true;
+      defaultUser = "guilherme";
+    };
   };
 }
