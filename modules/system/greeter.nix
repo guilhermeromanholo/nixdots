@@ -7,7 +7,7 @@
         scheme = "Synced";
         hide_logo = true;
 
-	# palette = with self.theme.scheme; {
+        # palette = with self.theme.scheme; {
         #   error = "#${base08}";
         #   hover = "#${base02}";
         #   shadow = "#${base00}";
