@@ -28,6 +28,7 @@
           ./_custom.nix
           {
             networking.hostName = name;
+	    custom.username = value.username;
             system.stateVersion = value.version;
           }
         ];

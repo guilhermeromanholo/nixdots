@@ -4,16 +4,18 @@
     type = lib.types.listOf lib.types.str;
   };
 
-  strList = lib.mkOption {
+  strOpt = lib.mkOption {
     default = "";
     type = lib.types.str;
   };
 in {
   options.custom = {
+    username = strOpt;
+
     disk = {
-      size = strList;
-      swap = strList;
-      device = strList;
+      size = strOpt;
+      swap = strOpt;
+      device = strOpt;
     };
 
     persist = {

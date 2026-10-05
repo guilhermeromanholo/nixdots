@@ -5,6 +5,7 @@
         options = {
           system = mkOption {type = types.str;};
           version = mkOption {type = types.str;};
+          username = mkOption {type = types.str;};
           module = mkOption {type = types.deferredModule;};
         };
       });
