@@ -1,0 +1,2 @@
+- Custom freeform (persist, username, ...);
+- Criar um guest também além do user normal;
