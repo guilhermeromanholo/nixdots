@@ -16,7 +16,7 @@
   language-server = {
     ty = {
       command = "ty";
-      args = "server";
+      args = ["server"];
 
       config = {
         experimental.rename = true;
