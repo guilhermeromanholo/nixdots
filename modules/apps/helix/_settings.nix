@@ -1,6 +1,4 @@
-{ theme }: {
-  theme = theme.slug;
-
+{
   editor = {
     true-color = true;
     color-modes = true;

@@ -2,6 +2,7 @@
 {
   den.default = {
     includes = [
+      den.batteries.self'
       den.batteries.hostname
       den.batteries.define-user
     ];
