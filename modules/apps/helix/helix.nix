@@ -17,7 +17,6 @@
         inherit pkgs;
         settings = import ./_settings.nix;
         languages = import ./_languages.nix;
-
         runtimePkgs = with pkgs; [
           ty
           nixd

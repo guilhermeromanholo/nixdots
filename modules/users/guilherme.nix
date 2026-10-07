@@ -1,4 +1,10 @@
 { inputs, den, ... }:
+let
+  gitconfig = {
+    name = "guilhermeromanholo";
+    email = "89668419+guilhermeromanholo@users.noreply.github.com";
+  };
+in
 {
   den.aspects.guilherme = {
     includes = [
@@ -9,17 +15,13 @@
 
     user =
       { pkgs, ... }:
-      let
-        git = inputs.wrappers.wrappers.git.wrap {
-          inherit pkgs;
-          settings.user = {
-            name = "guilhermeromanholo";
-            email = "89668419+guilhermeromanholo@users.noreply.github.com";
-          };
-        };
-      in
       {
-        packages = [ git ];
+        packages = [
+          (inputs.wrappers.wrappers.git.wrap {
+            inherit pkgs;
+            settings.user = gitconfig;
+          })
+        ];
       };
   };
 }
