@@ -1,10 +1,7 @@
 { inputs, ... }:
 {
   flake.lib.mkNixos =
-    {
-      name,
-      system,
-    }:
+    { name, system, ... }:
     {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
