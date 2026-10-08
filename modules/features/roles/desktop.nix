@@ -5,6 +5,7 @@
       base
       boot
       audio
+      mango
       greeter
       firmware
     ];
