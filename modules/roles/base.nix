@@ -6,5 +6,7 @@
       locale
       network
     ];
+
+    nixos.system.stateVersion = "26.11";
   };
 }

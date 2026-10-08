@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   imports = [
     inputs.treefmt-nix.flakeModule
@@ -9,6 +9,15 @@
 
   perSystem.treefmt.programs = {
     nixfmt.enable = true;
-    deadnix.enable = true;
   };
+
+  flake.nixosConfigurations = lib.mapAttrs (
+    host: _:
+    inputs.nixpkgs.lib.nixosSystem {
+      modules = [
+        { networking.hostName = host; }
+        inputs.self.modules.nixos.${host}
+      ];
+    }
+  ) (builtins.readDir ./hosts);
 }
