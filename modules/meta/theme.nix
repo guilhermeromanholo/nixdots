@@ -1,7 +1,8 @@
+{self, ...}:
 {
   flake.theme = {
     slug = "gruvbox";
-    wallpaper = ./astro.jpg;
+    wallpaper = ( self + /assets/astro.jpg);
 
     scheme = {
       base00 = "282828";
