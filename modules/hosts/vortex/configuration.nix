@@ -7,9 +7,7 @@
       guilherme
     ];
 
-    nixos = {
-      wsl.defaultUser = "guilherme";
-      nixpkgs.hostPlatform = "x86_64-linux";
-    };
+    nixos.wsl.defaultUser = "guilherme";
+    nixos.nixpkgs.hostPlatform = "x86_64-linux";
   };
 }

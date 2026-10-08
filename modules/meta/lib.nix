@@ -4,7 +4,7 @@ let
 in
 {
   flake.lib.forward = {
-    user = name: { class, aspect-chain }: {
+    user = name: { aspect-chain, ... }: {
       nixos = { pkgs, ... }: {
         users.users.${name} = { ... }: {
           imports = [ (flib.resolve "user" [ ] (lib.head aspect-chain)) ];

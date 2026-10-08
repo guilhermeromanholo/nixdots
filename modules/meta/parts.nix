@@ -9,6 +9,7 @@
 
   perSystem.treefmt.programs = {
     nixfmt.enable = true;
+    deadnix.enable = true;
   };
 
   flake.nixosConfigurations = lib.mapAttrs (
@@ -19,5 +20,5 @@
         inputs.self.modules.nixos.${host}
       ];
     }
-  ) (builtins.readDir ./hosts);
+  ) (builtins.readDir (inputs.self + /modules/hosts));
 }

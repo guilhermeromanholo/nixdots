@@ -1,16 +1,5 @@
-{ inputs, moduleWithSystem, ... }:
+{ inputs, ... }:
 {
-  flake.aspects.fish.nixos = moduleWithSystem (
-    { self' }: {
-      programs.fish = {
-        enable = true;
-        package = self'.packages.fish;
-      };
-
-      users.defaultUserShell = self'.packages.fish;
-    }
-  );
-
   perSystem = { pkgs, ... }: {
     packages.fish = inputs.wrappers.wrappers.fish.wrap {
       inherit pkgs;

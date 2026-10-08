@@ -7,6 +7,8 @@
 
     user = moduleWithSystem (
       { self' }: {
+        shell = self'.packages.fish;
+
         extraGroups = [
           "wheel"
           "networkmanager"
