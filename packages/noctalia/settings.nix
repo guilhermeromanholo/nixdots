@@ -77,6 +77,7 @@
   widget = {
     bar = {
       type = "rylos/tailnet:bar";
+      show_count = false;
     };
 
     cpu = {
@@ -85,6 +86,7 @@
 
     clock = {
       format = "  {:%H:%M}    {:%b %d}";
+      vertical_format = "     {: %H %M}";
     };
 
     session = {
