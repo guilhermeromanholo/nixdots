@@ -12,7 +12,14 @@
 
   bar.default = {
     capsule = true;
-    margin_ends = 0;
+
+    margin_edge = 8;
+    margin_ends = 10;
+
+    border_width = 1.0;
+    capsule_radius = 4;
+
+    concave_edge_corners = false;
 
     center = [
       "tray"
