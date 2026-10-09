@@ -7,6 +7,8 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
+    pkgs-by-name.url = "github:drupol/pkgs-by-name-for-flake-parts";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
 

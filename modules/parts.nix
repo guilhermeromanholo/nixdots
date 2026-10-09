@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.treefmt-nix.flakeModule
+    inputs.pkgs-by-name.flakeModule
     inputs.flake-aspects.flakeModule
   ];
 
@@ -13,9 +14,13 @@
   config = {
     systems = [ "x86_64-linux" ];
 
-    perSystem.treefmt.programs = {
-      nixfmt.enable = true;
-      deadnix.enable = true;
+    perSystem = {
+      treefmt.programs = {
+        nixfmt.enable = true;
+        deadnix.enable = true;
+      };
+
+      pkgsDirectory = (inputs.self + /packages);
     };
   };
 }
