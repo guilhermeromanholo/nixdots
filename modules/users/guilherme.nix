@@ -16,6 +16,11 @@
 
         packages = [
           self'.packages.helix
+
+          (self'.packages.git.wrap {
+            settings.user.name = "guilhermeromanholo";
+            settings.user.email = "89668419+guilhermeromanholo@users.noreply.github.com";
+          })
         ];
 
         isNormalUser = true;

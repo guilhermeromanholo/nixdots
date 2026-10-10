@@ -7,6 +7,8 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     pkgs-by-name.url = "github:drupol/pkgs-by-name-for-flake-parts";
 
     flake-parts.url = "github:hercules-ci/flake-parts";

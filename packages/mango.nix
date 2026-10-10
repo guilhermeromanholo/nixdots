@@ -2,11 +2,17 @@
   inputs,
   pkgs,
   lib,
+  kitty,
   noctalia,
   ...
 }:
 inputs.wrappers.wrappers.mangowc.wrap {
   inherit pkgs;
+
+  runtimePkgs = [
+    kitty
+    noctalia
+  ];
 
   settings = {
     blur = 1;
@@ -30,9 +36,20 @@ inputs.wrappers.wrappers.mangowc.wrap {
     gappiv = 8;
 
     bind = [
-      "Alt, Q, killclient"
-      "Alt, Return, spawn, ${lib.getExe pkgs.kitty}"
-      "Alt, D, spawn, ${lib.getExe noctalia} msg panel-toggle launcher"
+      "SUPER, Q, killclient"
+      "SUPER, Return, spawn, ${lib.getExe kitty}"
+      "SUPER, D, spawn, ${lib.getExe noctalia} msg panel-toggle launcher"
+
+      "SUPER,1,view,1"
+      "SUPER,2,view,2"
+      "SUPER,3,view,3"
+      "SUPER,4,view,4"
+      "SUPER,5,view,5"
+      "SUPER,6,view,6"
+      "SUPER,7,view,7"
+      "SUPER,8,view,8"
+      "SUPER,9,view,9"
+      "SUPER,0,view,0"
     ];
 
     tagrule = [
