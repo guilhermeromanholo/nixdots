@@ -34,7 +34,7 @@
 
       ".ssh"
       ".nixdots"
-      ".config/zen"
+      ".mozilla"
     ];
   };
 }
