@@ -29,10 +29,12 @@
     );
 
     persist.users.guilherme.directories = [
-      ".ssh"
-      ".nixdots"
       "Github"
       "Documents"
+
+      ".ssh"
+      ".nixdots"
+      ".config/zen"
     ];
   };
 }

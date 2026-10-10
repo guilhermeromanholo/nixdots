@@ -17,7 +17,7 @@ inputs.wrappers.wrappers.kitty.wrap {
 
   settings = with inputs.self.theme; {
     cursor_trail = 3;
-    cursor_trail_decay= "0.1 0.4";
+    cursor_trail_decay = "0.1 0.4";
     enable_audio_bell = "no";
     confirm_os_window_close = 0;
 

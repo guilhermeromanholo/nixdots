@@ -11,6 +11,9 @@
 
     pkgs-by-name.url = "github:drupol/pkgs-by-name-for-flake-parts";
 
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
 
