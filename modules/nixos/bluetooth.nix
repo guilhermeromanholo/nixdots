@@ -5,7 +5,7 @@
       hardware.bluetooth.enable = true;
     };
 
-    persist.root.directories = [
+    persist.directories = [
       "/var/lib/bluetooth"
     ];
   };

@@ -11,6 +11,7 @@ inputs.wrappers.wrappers.fish.wrap {
   runtimePkgs = with pkgs; [
     eza
     zoxide
+    ripgrep
     starship
   ];
 

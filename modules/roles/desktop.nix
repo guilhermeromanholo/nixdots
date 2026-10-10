@@ -10,11 +10,15 @@
     ];
 
     nixos = moduleWithSystem (
-      { self' }: {
+      { self', pkgs }: {
         programs.mango = {
           enable = true;
           package = self'.packages.mango;
         };
+
+        fonts.packages = with pkgs; [
+          nerd-fonts.jetbrains-mono
+        ];
       }
     );
   };

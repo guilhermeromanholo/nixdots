@@ -10,7 +10,7 @@
       };
     };
 
-    persist.root.directories = [
+    persist.directories = [
       "/var/lib/NetworkManager"
       "/etc/NetworkManager/system-connections"
     ];

@@ -22,5 +22,12 @@
         initialPassword = "password";
       }
     );
+
+    persist.users.guilherme.directories = [
+      ".ssh"
+      ".nixdots"
+      "Github"
+      "Documents"
+    ];
   };
 }

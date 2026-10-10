@@ -12,5 +12,19 @@ in
         };
       };
     };
+
+    persist =
+      { aspect-chain, ... }:
+      flib.forward {
+        each = [ true ];
+        fromClass = _: "persist";
+        intoClass = _: "nixos";
+        intoPath = _: [
+          "environment"
+          "persistence"
+          "/persist"
+        ];
+        fromAspect = _: lib.head aspect-chain;
+      };
   };
 }
