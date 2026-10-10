@@ -1,10 +1,17 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  starship,
+  ...
+}:
 inputs.wrappers.wrappers.fish.wrap {
   inherit pkgs;
 
   runtimePkgs = with pkgs; [
     eza
     zoxide
+    starship
   ];
 
   shellAliases = {
@@ -17,5 +24,6 @@ inputs.wrappers.wrappers.fish.wrap {
   configFile.content = ''
     set -g fish_greeting ""
     zoxide init fish | source
+    ${lib.getExe starship} init fish | source
   '';
 }
