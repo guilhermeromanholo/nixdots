@@ -103,35 +103,27 @@ sequenceDiagram
 
 ---
 
-## 4. Fluxo: Secretária Configura Webhook
+## 4. Fluxo: Secretária Configura Webhook (Simplificado)
 
 ```mermaid
 sequenceDiagram
     actor Sec as Secretária
-    participant Front as Frontend (área admin)
     participant Adm as TelegramAdminController
     participant TBS as TelegramBotService
     participant TG as Telegram API
 
-    Sec->>Front: Acessa painel admin Telegram
-    Front->>Adm: GET /api/secretaria/telegram/webhook Authorization: Bearer JWT
-    Adm->>Adm: Valida JWT + Role SECRETARIA
+    Sec->>Adm: GET /webhook (JWT)
     Adm->>TBS: getWebhookInfo()
     TBS->>TG: GET /getWebhookInfo
-    TG-->>TBS: {url, pending_count, last_error...}
+    TG-->>TBS: {url, pending, error...}
     TBS-->>Adm: WebhookInfo
-    Adm-->>Front: JSON com info
-    Front-->>Sec: Mostra status atual
+    Adm-->>Sec: Status atual
 
-    Sec->>Front: Digita URL ngrok + Configurar
-    Front->>Adm: POST /api/secretaria/telegram/webhook {"url": "https://abc123.ngrok.io/api/telegram/webhook"} Authorization: Bearer JWT
-    Adm->>Adm: Valida JWT + Role SECRETARIA
+    Sec->>Adm: POST /webhook {url} (JWT)
     Adm->>TBS: setWebhook(url)
     TBS->>TG: POST /setWebhook {url}
     TG-->>TBS: {ok: true}
-    TBS-->>Adm: true
-    Adm-->>Front: {sucesso: true, mensagem: "Webhook configurado"}
-    Front-->>Sec: Webhook ativo
+    Adm-->>Sec: {sucesso: true}
 ```
 
 ---
