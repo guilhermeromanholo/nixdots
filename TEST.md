@@ -2,6 +2,125 @@
 
 ---
 
+```mermaid
+classDiagram
+    %% Event
+    class AgendamentoEvent {
+        +Tipo tipo
+        +Long pacienteId
+        +String pacienteNome
+        +String pacienteTelegramChatId
+        +Long medicoId
+        +String medicoNome
+        +LocalDate data
+        +LocalTime horaInicio
+        +String motivo
+        +static agendamentoDireto()
+        +static aprovacaoSolicitacao()
+        +static cancelamento()
+        +temChatId() boolean
+    }
+
+    %% Listener
+    class AgendamentoEventListener {
+        -NotificationService notificationService
+        +onAgendamentoEvent(AgendamentoEvent) void
+    }
+
+    %% Abstração
+    class NotificationChannel {
+        <<interface>>
+        +getIdentifier() String
+        +isConfigured() boolean
+        +notificarConfirmacao()
+        +notificarAgendamentoDireto()
+        +notificarCancelamento()
+    }
+
+    %% Implementação Telegram
+    class TelegramNotificationChannel {
+        -RestClient restClient
+        -String botToken
+        -String apiUrl
+        +getIdentifier() String
+        +isConfigured() boolean
+        +notificarConfirmacao()
+        +notificarAgendamentoDireto()
+        +notificarCancelamento()
+        -enviarSeConfigurado()
+        -montarMensagemConfirmacao()
+        -montarMensagemAgendamentoDireto()
+        -montarMensagemCancelamento()
+    }
+
+    %% Service Facade
+    class NotificationService {
+        -NotificationChannel notificationChannel
+        +getChannel() NotificationChannel
+    }
+
+    %% Bot Service (baixo nível)
+    class TelegramBotService {
+        -RestClient restClient
+        -String botToken
+        -String apiUrl
+        +enviarMensagemSimples()
+        +setWebhook()
+        +deleteWebhook()
+        +getWebhookInfo()
+    }
+
+    %% Controllers
+    class TelegramWebhookController {
+        -TelegramBotService telegramBotService
+        -PacienteService pacienteService
+        +receberUpdate() ResponseEntity~Void~
+        -processarMensagem()
+        -processarComandoStart()
+    }
+
+    class TelegramPublicoController {
+        -PacienteService pacienteService
+        +status() PacienteTelegramStatusDTO
+        +linkConexao() String
+    }
+
+    class TelegramAdminController {
+        -TelegramBotService telegramBotService
+        +configurarWebhook() TelegramWebhookResponseDTO
+        +obterWebhookInfo() TelegramWebhookInfoDTO
+        +removerWebhook() TelegramWebhookResponseDTO
+    }
+
+    %% Services Publicadores
+    class AgendamentoService {
+        -ApplicationEventPublisher eventPublisher
+        +agendar()
+        +cancelar()
+        +remarcar()
+    }
+
+    class SolicitacaoService {
+        -ApplicationEventPublisher eventPublisher
+        +aprovar()
+    }
+
+    %% Relacionamentos
+    ApplicationEvent <|-- AgendamentoEvent
+    AgendamentoEventListener --> NotificationService
+    NotificationService --> NotificationChannel
+    NotificationChannel <|.. TelegramNotificationChannel
+    AgendamentoEventListener ..> AgendamentoEvent : @EventListener
+    AgendamentoService ..> AgendamentoEvent : publica
+    SolicitacaoService ..> AgendamentoEvent : publica
+    TelegramWebhookController --> TelegramBotService
+    TelegramWebhookController --> PacienteService
+    TelegramPublicoController --> PacienteService
+    TelegramAdminController --> TelegramBotService
+    TelegramNotificationChannel --> RestClient
+    TelegramBotService --> RestClient
+```
+
 ## 1. Visão Geral - Três Controllers
 
 ```mermaid
