@@ -1,0 +1,38 @@
+theme = "gruvbox"
+
+[editor]
+true-color = true
+color-modes = true
+
+bufferline = "multiple"
+line-number = "relative"
+
+auto-pairs = true
+auto-completion = true
+end-of-line-diagnostics = "hint"
+
+[editor.statusline]
+left = ["mode", "spacer", "version-control", "spacer", "diagnostics"]
+
+center = ["file-name", "file-modification-indicator"]
+
+right = ["spinner", "position", "file-type"]
+
+mode.normal = "󰚄 NORMAL"
+mode.insert = "󰚄 INSERT"
+mode.select = "󰚄 SELECT"
+
+[editor.lsp]
+snippets = true
+auto-signature-help = true
+display-inlay-hints = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+[editor.indent-guides]
+render = true
+character = "▏"
+
+[keys.normal]
+X = "extend_line_above"

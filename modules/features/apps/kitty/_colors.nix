@@ -1,21 +1,21 @@
 { colors }: {
-  cursor_trail = 3;
-  cursor_trail_decay = "0.1 0.4";
-  enable_audio_bell = "no";
-  confirm_os_window_close = 0;
-  background_opacity = "0.5";
-
   background = colors.base00;
   foreground = colors.base05;
+
   selection_background = colors.base05;
   selection_foreground = colors.base00;
+
   url_color = colors.base0D;
+
   cursor = colors.base0D;
   cursor_text_color = colors.base00;
+
   active_border_color = colors.base03;
   inactive_border_color = colors.base01;
+
   active_tab_background = colors.base00;
   active_tab_foreground = colors.base05;
+
   inactive_tab_background = colors.base01;
   inactive_tab_foreground = colors.base04;
 

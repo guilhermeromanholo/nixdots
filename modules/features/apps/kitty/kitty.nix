@@ -1,15 +1,10 @@
+{ inputs, lib, ... }:
 {
-  inputs,
-  moduleWithSystem,
-  ...
-}:
-{
-  flake.nixosModules.kitty = moduleWithSystem (
-    { self', ... }: {
-      programs.kitty = {
-        enable = true;
-        package = self'.packages.kitty;
-      };
+  flake.nixosModules.kitty = inputs.self.lib.mkModule (
+    { self', ... }:
+    {
+      programs.kitty.enable = true;
+      programs.kitty.package = self'.packages.kitty;
     }
   );
 
@@ -22,11 +17,23 @@
       ];
 
       font = {
-        name = "JetBrainsMono Nerd Font";
         size = 12;
+        name = "JetBrainsMono Nerd Font";
       };
 
-      settings = import ./_settings.nix { inherit (inputs.self.theme) colors; };
+      settings = lib.mkMerge [
+        {
+          cursor_trail = 3;
+          cursor_trail_decay = "0.1 0.4";
+
+          enable_audio_bell = "no";
+          confirm_os_window_close = 0;
+
+          background_opacity = 0.5;
+        }
+
+        (import ./_colors.nix { inherit (inputs.self.theme) colors; })
+      ];
     };
   };
 }

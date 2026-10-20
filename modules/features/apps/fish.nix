@@ -1,6 +1,14 @@
 { inputs, lib, ... }:
 {
-  perSystem = { self', pkgs, ... }: {
+  flake.nixosModules.fish = inputs.self.lib.mkModule (
+    { self', ... }:
+    {
+      programs.fish.enable = true;
+      programs.fish.package = self'.packages.fish;
+    }
+  );
+
+  perSystem = { pkgs, ... }: {
     packages.fish = inputs.wrappers.wrappers.fish.wrap {
       inherit pkgs;
 
@@ -8,8 +16,6 @@
         eza
         zoxide
         ripgrep
-
-        self'.packages.git
       ];
 
       shellAliases = {

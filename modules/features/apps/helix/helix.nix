@@ -1,10 +1,5 @@
-{ inputs, moduleWithSystem, ... }: {
-  flake.nixosModules.helix = moduleWithSystem (
-    { self', ... }: {
-      environment.systemPackages = [ self'.packages.helix ];
-    }
-  );
-
+{ inputs, lib, ... }:
+{
   perSystem = { pkgs, ... }: {
     packages.helix = inputs.wrappers.wrappers.helix.wrap {
       inherit pkgs;
@@ -14,11 +9,12 @@
         nixd
       ];
 
-      settings = import ./_settings.nix {
-        inherit (inputs.self) theme;
-      };
+      settings = lib.mkMerge [
+        { theme = inputs.self.theme.slug; }
+        (lib.importTOML ./settings.toml)
+      ];
 
-      languages = import ./_languages.nix;
+      languages = lib.importTOML ./languages.toml;
     };
   };
 }
