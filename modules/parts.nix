@@ -1,17 +1,20 @@
-{ self, inputs, ... }:
 {
-  imports = [ inputs.treefmt-nix.flakeModule ];
+  self,
+  inputs,
+  ...
+}: {
+  imports = [inputs.treefmt-nix.flakeModule];
 
-  systems = [ "x86_64-linux" ];
+  systems = ["x86_64-linux"];
 
   perSystem.treefmt.programs = {
-    nixfmt.enable = true;
     deadnix.enable = true;
+    alejandra.enable = true;
   };
 
   flake.theme = {
     slug = "gruvbox";
-    wallpaper = (self + /assets/gruvbox.jpg);
+    wallpaper = self + /assets/gruvbox.jpg;
 
     colors = {
       base00 = "#282828";

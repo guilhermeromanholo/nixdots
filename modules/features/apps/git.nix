@@ -1,6 +1,5 @@
-{ inputs, ... }:
-{
-  perSystem = { pkgs, ... }: {
+{inputs, ...}: {
+  perSystem = {pkgs, ...}: {
     packages.git = inputs.wrappers.wrappers.git.wrap {
       inherit pkgs;
 

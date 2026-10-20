@@ -1,9 +1,11 @@
-{ lib, moduleWithSystem, ... }:
 {
-  flake.lib.mkModule =
-    module:
+  lib,
+  moduleWithSystem,
+  ...
+}: {
+  flake.lib.mkModule = module:
     moduleWithSystem {
-      imports = [ module ];
+      imports = [module];
 
       options.my = lib.mkOption {
         type = lib.types.submodule {

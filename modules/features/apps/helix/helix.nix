@@ -1,6 +1,9 @@
-{ inputs, lib, ... }:
 {
-  perSystem = { pkgs, ... }: {
+  inputs,
+  lib,
+  ...
+}: {
+  perSystem = {pkgs, ...}: {
     packages.helix = inputs.wrappers.wrappers.helix.wrap {
       inherit pkgs;
 
@@ -10,8 +13,8 @@
       ];
 
       settings = lib.mkMerge [
-        { theme = inputs.self.theme.slug; }
         (lib.importTOML ./settings.toml)
+        {theme = inputs.self.theme.slug;}
       ];
 
       languages = lib.importTOML ./languages.toml;

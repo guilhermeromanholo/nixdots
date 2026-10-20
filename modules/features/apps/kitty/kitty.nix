@@ -1,14 +1,12 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   flake.nixosModules.kitty = inputs.self.lib.mkModule (
-    { self', ... }:
-    {
+    {self', ...}: {
       programs.kitty.enable = true;
       programs.kitty.package = self'.packages.kitty;
     }
   );
 
-  perSystem = { pkgs, ... }: {
+  perSystem = {pkgs, ...}: {
     packages.kitty = inputs.wrappers.wrappers.kitty.wrap {
       inherit pkgs;
 
@@ -21,7 +19,7 @@
         name = "JetBrainsMono Nerd Font";
       };
 
-      settings = import ./_settings.nix { inherit (inputs.self.theme) colors; };
+      settings = import ./_settings.nix {inherit (inputs.self.theme) colors;};
     };
   };
 }
