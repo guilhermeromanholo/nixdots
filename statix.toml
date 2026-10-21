@@ -1,0 +1,3 @@
+# Flat output paths keep the contributions of each dendritic feature visible.
+# This is a style choice; Nix itself merges these attribute paths.
+disabled = ["repeated_keys"]

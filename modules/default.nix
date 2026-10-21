@@ -1,0 +1,26 @@
+{
+  imports = [
+    ./contracts/theme.nix
+    ./contracts/user.nix
+    ./contracts/persistence.nix
+    ./themes
+    ./core/packages.nix
+    ./core/system.nix
+    ./core/persistence.nix
+    ./programs/fish.nix
+    ./programs/starship.nix
+    ./programs/helix.nix
+    ./programs/kitty.nix
+    ./programs/git.nix
+    ./programs/nh.nix
+    ./programs/browser.nix
+    ./programs/vesktop.nix
+    ./desktop/mango.nix
+    ./desktop/noctalia.nix
+    ./desktop/session.nix
+    ./profiles
+    ./hosts
+    ./development.nix
+    ./checks.nix
+  ];
+}
