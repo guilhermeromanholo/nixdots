@@ -1,5 +1,9 @@
-{self, ...}: {
-  flake.modules.nixos.core = {
+{
+  self,
+  lib,
+  ...
+}: {
+  flake.modules.nixos.core = {host, ...}: {
     imports = with self.modules.nixos; [
       nix
       user
@@ -7,5 +11,8 @@
       network
       contracts
     ];
+
+    system.stateVersion = host.version;
+    nixpkgs.hostPlatform = lib.mkDefault host.arch;
   };
 }

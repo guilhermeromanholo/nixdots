@@ -3,7 +3,7 @@
     services.blueman.enable = true;
     hardware.bluetooth.enable = true;
 
-    persist.root.directories = [
+    persist.root.dirs = [
       "/var/lib/bluetooth"
     ];
   };

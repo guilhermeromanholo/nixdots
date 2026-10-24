@@ -4,31 +4,52 @@
   config,
   ...
 }: {
-  options.hosts.nixos = with lib;
-    mkOption {
-      type = types.lazyAttrsOf (types.submodule {
-        options = {
-          arch = mkOption {type = types.str;};
-          version = mkOption {type = types.str;};
-
-          username = mkOption {
-            type = types.str;
-            default = "guilherme";
-          };
-
-          module = mkOption {
-            type = types.deferredModule;
-            default = {};
-          };
-        };
-      });
-    };
-
   config.flake.nixosConfigurations = lib.flip lib.mapAttrs config.hosts.nixos (
     name: host:
       inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {host = host // name;};
-        modules = [inputs.self.modules.${name}];
+        modules = [host.module];
+        specialArgs = {host = host // {inherit name;};};
       }
   );
+
+  options.hosts.nixos = lib.mkOption {
+    type = lib.types.lazyAttrsOf (lib.types.submodule {
+      options = {
+        arch = lib.mkOption {
+          type = lib.types.str;
+        };
+
+        version = lib.mkOption {
+          type = lib.types.str;
+        };
+
+        disk = {
+          size = lib.mkOption {
+            type = lib.types.str;
+            default = "";
+          };
+
+          swap = lib.mkOption {
+            type = lib.types.str;
+            default = "";
+          };
+
+          device = lib.mkOption {
+            type = lib.types.str;
+            default = "";
+          };
+        };
+
+        username = lib.mkOption {
+          type = lib.types.str;
+          default = "guilherme";
+        };
+
+        module = lib.mkOption {
+          type = lib.types.deferredModule;
+          default = {};
+        };
+      };
+    });
+  };
 }

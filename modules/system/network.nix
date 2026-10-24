@@ -1,5 +1,11 @@
 {
-  flake.modules.nixos.network = {pkgs, ...}: {
+  flake.modules.nixos.network = {
+    host,
+    pkgs,
+    ...
+  }: {
+    networking.hostName = host.name;
+
     networking.networkmanager = {
       enable = true;
       plugins = [pkgs.networkmanager-openvpn];
@@ -10,7 +16,7 @@
       extraSetFlags = ["--accept-routes"];
     };
 
-    persist.root.directories = [
+    persist.root.dirs = [
       "/var/lib/tailscale"
       "/var/lib/NetworkManager"
       "/etc/NetworkManager/system-connections"
