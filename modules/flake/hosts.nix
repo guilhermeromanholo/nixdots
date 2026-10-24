@@ -7,7 +7,7 @@
   config.flake.nixosConfigurations = lib.flip lib.mapAttrs config.hosts.nixos (
     name: host:
       inputs.nixpkgs.lib.nixosSystem {
-        modules = [host.module];
+        modules = [inputs.self.modules.nixos.${name}];
         specialArgs = {host = host // {inherit name;};};
       }
   );
@@ -15,7 +15,7 @@
   options.hosts.nixos = lib.mkOption {
     type = lib.types.lazyAttrsOf (lib.types.submodule {
       options = {
-        arch = lib.mkOption {
+        system = lib.mkOption {
           type = lib.types.str;
         };
 
@@ -43,11 +43,6 @@
         username = lib.mkOption {
           type = lib.types.str;
           default = "guilherme";
-        };
-
-        module = lib.mkOption {
-          type = lib.types.deferredModule;
-          default = {};
         };
       };
     });

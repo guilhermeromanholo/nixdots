@@ -1,10 +1,17 @@
 {self, ...}: {
   hosts.nixos.tesla = {
     version = "26.11";
-    arch = "x86_64-linux";
+    system = "x86_64-linux";
 
-    module.imports = with self.modules.nixos; [
+    disk.size = "100%";
+    disk.swap = "8G";
+    disk.device = "/dev/nvme0n1";
+  };
+
+  flake.modules.nixos.tesla = {
+    imports = with self.modules.nixos; [
       laptop
+      disko
     ];
   };
 }

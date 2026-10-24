@@ -13,6 +13,6 @@
     ];
 
     system.stateVersion = host.version;
-    nixpkgs.hostPlatform = lib.mkDefault host.arch;
+    nixpkgs.hostPlatform = lib.mkDefault host.system;
   };
 }
