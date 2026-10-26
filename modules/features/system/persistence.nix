@@ -1,14 +1,19 @@
-{ self, inputs, ... }: {
+{ inputs, ... }: {
   flake.modules.nixos.persistence =
     { config, lib, ... }:
     let
       cfg = config.nixdots.persistence;
     in
     {
-      imports = [
-        inputs.impermanence.nixosModules.impermanence
-        self.modules.nixos.persistence-contract
-      ];
+      imports = [ inputs.impermanence.nixosModules.impermanence ];
+      options.nixdots.persistence = {
+        enable = lib.mkEnableOption "persistência do sistema e usuário";
+        root = lib.mkOption {
+          type = lib.types.strMatching "/.*";
+          default = "/persist";
+          description = "Raiz já existente da persistência.";
+        };
+      };
       config = lib.mkIf cfg.enable {
         fileSystems.${cfg.root}.neededForBoot = true;
         fileSystems."/home".neededForBoot = true;
@@ -27,18 +32,13 @@
               group = "colord";
               mode = "u=rwx,g=rx,o=";
             }
-          ]
-          ++ cfg.systemDirectories;
+          ];
           files = [
             "/etc/machine-id"
             "/etc/shadow"
           ];
         };
         environment.etc.shadow.source = "${cfg.root}/system/etc/shadow";
-        environment.persistence.${cfg.root}.users.${config.nixdots.user.name} = {
-          directories = cfg.userDirectories;
-          files = cfg.userFiles;
-        };
       };
     };
 }

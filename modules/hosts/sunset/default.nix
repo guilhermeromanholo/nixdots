@@ -1,30 +1,31 @@
 { self, inputs, ... }: {
-  flake.modules.nixos.sunset = {
+  flake.modules.nixos.sunset = { config, lib, ... }: {
     imports = with self.modules.nixos; [
       workstation
       uefi
       printing
-      persistence
       vesktop
       inputs.disko.nixosModules.disko
-      ./hardware.nix
-      ./disko.nix
+      ./_hardware.nix
+      ./_disko.nix
     ];
     networking.hostName = "sunset";
     system.stateVersion = "24.11";
     nixdots.theme = self.themes.gruvbox;
     boot.loader.grub.useOSProber = true;
-    nixdots.persistence = {
-      enable = true;
-      systemDirectories = [ "/var/lib/tailscale" ];
-      userDirectories = [
+    nixdots.persistence.enable = true;
+    environment.persistence."${config.nixdots.persistence.root}/system".directories = lib.mkAfter [
+      "/var/lib/tailscale"
+    ];
+    environment.persistence.${config.nixdots.persistence.root}.users.${config.nixdots.user.name} = {
+      directories = [
         ".ssh"
         ".mozilla"
         ".nixdots"
         "Documentos"
         ".config/vesktop"
       ];
-      userFiles = [ ".gitconfig" ];
+      files = [ ".gitconfig" ];
     };
   };
 }

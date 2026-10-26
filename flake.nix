@@ -7,6 +7,7 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    import-tree.url = "github:denful/import-tree";
     nix-wrapper-modules = {
       url = "github:nix-community/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +34,7 @@
       imports = [
         inputs.flake-parts.flakeModules.modules
         inputs.nix-wrapper-modules.flakeModules.wrappers
-        ./modules
+        (inputs.import-tree ./modules)
       ];
     };
 }

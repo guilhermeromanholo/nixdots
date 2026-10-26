@@ -1,10 +1,4 @@
 { self, inputs, ... }: {
-  imports = [
-    ../hosts/sunset
-    ../hosts/taz
-    ../hosts/vortex
-    ../hosts/tesla
-  ];
   flake.nixosConfigurations = builtins.listToAttrs (
     map
       (name: {

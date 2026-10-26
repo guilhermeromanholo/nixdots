@@ -1,6 +1,6 @@
 { self, lib, ... }:
 let
-  themeType = import ./_theme-type.nix { inherit lib; };
+  themeType = import ./_type.nix { inherit lib; };
 in
 {
   options.flake = lib.mkOption {
@@ -17,15 +17,15 @@ in
     };
   };
   config.flake.modules.generic.wrapper-theme = { lib, ... }: {
-    key = "nixdots:wrapper-theme-contract";
+    key = "nixdots:wrapper-theme";
     options.theme = lib.mkOption {
       type = themeType;
       default = self.themes.gruvbox;
       description = "Tema deste pacote; pode ser substituído ao chamar .wrap.";
     };
   };
-  config.flake.modules.nixos.theme-contract = { lib, ... }: {
-    key = "nixdots:theme-contract";
+  config.flake.modules.nixos.theme-options = { lib, ... }: {
+    key = "nixdots:theme-options";
     options.nixdots.theme = lib.mkOption {
       type = themeType;
       default = self.themes.gruvbox;

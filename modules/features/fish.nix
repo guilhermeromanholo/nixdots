@@ -49,6 +49,7 @@
     {
       config,
       pkgs,
+      lib,
       ...
     }:
     {
@@ -68,9 +69,11 @@
       environment.etc."direnv/direnvrc".text = ''
         source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc
       '';
-      nixdots.persistence.userDirectories = [
-        ".local/share/fish"
-        ".config/fish"
-      ];
+      environment.persistence = lib.mkIf config.nixdots.persistence.enable {
+        ${config.nixdots.persistence.root}.users.${config.nixdots.user.name}.directories = [
+          ".local/share/fish"
+          ".config/fish"
+        ];
+      };
     };
 }

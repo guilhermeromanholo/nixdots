@@ -21,7 +21,7 @@
         system = pkgs.stdenv.hostPlatform.system;
         overlays = [ self.overlays.nord ];
       };
-      hostContracts = lib.all (
+      hostSettings = lib.all (
         name:
         let
           c = hosts.${name}.config;
@@ -35,14 +35,16 @@
       checks = {
         # The upstream wrapper runs Mango's native parser during installation.
         mango-config = pkgs.nixdots.mango;
-        host-contracts =
-          assert hostContracts;
+        host-settings =
+          assert hostSettings;
           assert hosts.vortex.config.wsl.defaultUser == "guilherme";
           assert hosts.sunset.config.system.stateVersion == "24.11";
           assert hosts.taz.config.system.stateVersion == "24.11";
           assert hosts.vortex.config.system.stateVersion == "24.11";
           assert !(hosts.vortex.config.programs ? mango && hosts.vortex.config.programs.mango.enable);
-          pkgs.runCommand "host-contracts" { } "touch $out";
+          assert hosts.taz.config.environment.persistence == { };
+          assert hosts.vortex.config.environment.persistence == { };
+          pkgs.runCommand "host-settings" { } "touch $out";
 
         shell-editor =
           pkgs.runCommand "shell-editor-smoke"

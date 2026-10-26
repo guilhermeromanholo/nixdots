@@ -1,16 +1,15 @@
 { self, inputs, ... }: {
   flake.modules.nixos.base =
     {
-      config,
       lib,
       pkgs,
       ...
     }:
     {
       imports = [
-        self.modules.nixos.user-contract
-        self.modules.nixos.theme-contract
-        self.modules.nixos.persistence-contract
+        self.modules.nixos.user
+        self.modules.nixos.theme-options
+        self.modules.nixos.persistence
         self.modules.nixos.packages
       ];
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
@@ -41,14 +40,6 @@
         };
       };
       programs.nix-ld.enable = true;
-      users.users.${config.nixdots.user.name} = {
-        isNormalUser = true;
-        home = config.nixdots.user.home;
-        createHome = true;
-        extraGroups = [ "wheel" ];
-        # Existing account credentials are retained through mutableUsers/persistence.
-        # New machines must provision a password or authorized key before activation.
-      };
       environment.systemPackages = with pkgs; [
         wget
         curl

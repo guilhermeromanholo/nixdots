@@ -1,9 +1,4 @@
 { self, ... }: {
-  imports = [
-    ./gruvbox.nix
-    ./nord.nix
-  ];
-
   flake.modules.nixos.theme =
     {
       config,
@@ -24,7 +19,7 @@
       '';
     in
     {
-      imports = [ self.modules.nixos.theme-contract ];
+      imports = [ self.modules.nixos.theme-options ];
       fonts = {
         packages = with pkgs; [
           nerd-fonts.fira-code

@@ -108,10 +108,12 @@
       security.pam.services.noctalia = { };
       services.upower.enable = true;
       services.power-profiles-daemon.enable = true;
-      nixdots.persistence.userDirectories = [
-        ".local/state/nixdots/noctalia"
-        ".local/share/noctalia"
-        ".local/share/keyrings"
-      ];
+      environment.persistence = lib.mkIf config.nixdots.persistence.enable {
+        ${config.nixdots.persistence.root}.users.${config.nixdots.user.name}.directories = [
+          ".local/state/nixdots/noctalia"
+          ".local/share/noctalia"
+          ".local/share/keyrings"
+        ];
+      };
     };
 }

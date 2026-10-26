@@ -77,6 +77,21 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "nix-wrapper-modules": {
       "inputs": {
         "nixpkgs": [
@@ -136,6 +151,7 @@
         "disko": "disko",
         "flake-parts": "flake-parts",
         "impermanence": "impermanence",
+        "import-tree": "import-tree",
         "nix-wrapper-modules": "nix-wrapper-modules",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs"

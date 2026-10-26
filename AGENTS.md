@@ -35,27 +35,29 @@ Usar identificadores de hosts em minúsculas na configuração.
 - Organizar por funcionalidades. Cada módulo de flake-parts reúne as contribuições pertinentes de uma funcionalidade: módulos NixOS, wrappers, pacotes e verificações.
 - Usar `flake.modules.nixos.*`, com o módulo nativo correspondente do flake-parts, e `flake.nixosConfigurations.*` para montar os hosts.
 - Compor perfis e hosts explicitamente. Registrar uma funcionalidade não deve ativá-la em todas as máquinas.
-- Começar com imports explícitos. Não adicionar uma dependência de descoberta automática de arquivos.
+- Usar `import-tree` para descobrir os módulos de flake-parts em `modules/`, conforme autorização posterior do usuário. Essa dependência cuida apenas da descoberta; a arquitetura continua baseada no flake-parts.
 - Substituir a camada antiga `parts.*` pelos recursos nativos disponíveis. Não recriar um framework próprio para funcionalidades já atendidas pelo flake-parts.
 - Separar o escopo de avaliação do flake, dos módulos NixOS e dos wrappers, evitando recursão ao compartilhar configurações.
 
 ## Organização dos diretórios
 
-- Usar a organização aprovada inspirada no Goxore: `modules/contracts/`, `modules/features/`, `modules/hosts/` e `modules/meta/`.
-- `contracts/` contém as interfaces tipadas compartilhadas; `features/` reúne a configuração de cada funcionalidade, incluindo wrappers e integração NixOS.
+- Usar `modules/features/`, `modules/hosts/` e `modules/meta/`. A camada separada `contracts/` foi removida por decisão posterior do usuário para simplificar a manutenção pessoal.
+- `features/` reúne a configuração de cada funcionalidade, incluindo opções compartilhadas, wrappers e integração NixOS.
 - Agrupar funcionalidades relacionadas em `features/desktop/`, `features/theme/` e `features/system/`. Manter funcionalidades pequenas em arquivos, criando diretórios quando houver vários arquivos relacionados.
-- Manter cada host em `modules/hosts/<nome>/default.nix`, junto de seus arquivos reais de hardware e disko. Não separar esses arquivos em uma árvore `hardware/` na raiz.
+- Manter cada host em `modules/hosts/<nome>/default.nix`, junto de seus arquivos reais `_hardware.nix` e `_disko.nix`. Não separar esses arquivos em uma árvore `hardware/` na raiz.
 - `meta/` contém a composição de hosts e perfis, o overlay/exportação de pacotes, checks e ambientes de desenvolvimento; não é um framework próprio.
-- Registrar os módulos por imports explícitos em `modules/default.nix` e os hosts em `modules/meta/hosts.nix`.
+- Todo arquivo `.nix` descoberto em `modules/` deve ser um módulo de flake-parts. Usar prefixo `_` em arquivos ou diretórios auxiliares e em módulos NixOS puros, excluindo-os da descoberta padrão do import-tree; importá-los explicitamente no escopo apropriado.
+- Não manter listas manuais redundantes de descoberta. Compor perfis e funcionalidades por imports explícitos e selecionar as saídas de hosts prontos em `modules/meta/hosts.nix`.
 
-## Contratos compartilhados
+## Opções compartilhadas
 
-- Adotar a ideia de contratos do repositório Goxore: interfaces pequenas e explícitas entre funcionalidades, declaradas como opções tipadas do sistema de módulos.
-- Concentrar em `modules/contracts/` as interfaces que realmente são compartilhadas, como tema, usuário principal, persistência e, quando necessário, atalhos de sessão.
-- Os consumidores dependem do contrato, não de detalhes internos de outra funcionalidade. Hosts e perfis fornecem os valores apropriados.
+- Manter pequenas interfaces tipadas junto da funcionalidade responsável, sem módulos separados chamados `*-contract`.
+- Declarar o tema e seu tipo compartilhado em `features/theme/`, o usuário principal em `features/system/user.nix` e a ativação/raiz de persistência em `features/system/persistence.nix`.
+- Preferir opções nativas quando já representarem os dados: usar `users.users.<nome>.home` e `environment.persistence`, sem duplicar home ou listas de arquivos/diretórios em opções próprias.
+- Os consumidores usam as opções compartilhadas; hosts e perfis fornecem os valores apropriados.
 - Declarar tipos, valores padrão quando fizerem sentido e descrições. Validar invariantes relevantes; evitar grandes conjuntos de atributos sem estrutura para configurações conhecidas.
 - Não criar contratos especulativos nem copiar o mecanismo de avaliação próprio do Goxore. A implementação deve continuar baseada em flake-parts.
-- Não usar um contrato global com valores de um host para configurar silenciosamente todos os outros hosts.
+- Não usar valores globais de um host para configurar silenciosamente todos os outros hosts. Preservar o tema tipado por host e sua passagem explícita aos wrappers.
 
 ## Wrappers, pacotes e overlay
 
@@ -78,7 +80,7 @@ Usar identificadores de hosts em minúsculas na configuração.
 - Remover Stylix da nova configuração.
 - Tema fixo e declarativo por host, aplicado por rebuild. Não implementar troca dinâmica de paleta ou geração de cores a partir de wallpaper nesta migração.
 - Reaproveitar Gruvbox e Nord de `old/themes/` como ponto de partida.
-- Definir contrato central para paleta Base16, cores semânticas, fontes, tamanhos, cursor, ícones, wallpaper e parâmetros visuais compartilhados.
+- Manter um tipo central para paleta Base16, cores semânticas, fontes, tamanhos, cursor, ícones, wallpaper e parâmetros visuais compartilhados, dentro da funcionalidade de tema.
 - Cada aplicativo terá um adaptador para seu formato. Compartilhar valores entre Fish, Starship, Helix, terminal, Mango, Noctalia e integrações GTK/Qt.
 - Passar o tema explicitamente à composição dos wrappers para permitir temas diferentes entre hosts.
 - Verificar a precedência das configurações e alterações persistidas pela interface do Noctalia para preservar o tema escolhido em Nix.
@@ -114,12 +116,13 @@ Usar identificadores de hosts em minúsculas na configuração.
 - Migrar a persistência atualmente configurada via Home Manager para o módulo NixOS de impermanence.
 - Preservar os caminhos reais dos dados existentes. Não alterar a disposição de `/persist` sem uma migração explícita.
 - Distinguir configuração reproduzível de estado mutável; evitar persistir arquivos gerados apenas por inércia da configuração antiga.
+- Contribuições de aplicativos para `environment.persistence` devem ser condicionadas à ativação da persistência, sem criar montagens nos demais hosts.
 - Manter serviços necessários de cada host, como virtualização e Tailscale, conforme inventário. A simplificação acordada de editores e shell não autoriza remover serviços independentes.
 
 ## Sequência e critérios de validação
 
 1. Inventariar funcionalidades ainda relevantes de `old/` e fixar as dependências da nova configuração.
-2. Implementar a base flake-parts, os contratos e a composição dos hosts.
+2. Implementar a base flake-parts, as opções compartilhadas e a composição dos hosts.
 3. Implementar o tema, os wrappers de Fish, Starship e Helix e o overlay compartilhado.
 4. Integrar Mango, Noctalia e a sessão gráfica; validar em ambiente de teste.
 5. Migrar os demais aplicativos necessários, serviços e persistência.
@@ -136,5 +139,6 @@ Usar identificadores de hosts em minúsculas na configuração.
 
 - https://github.com/Goxore/nixconf/ — inspiração para contratos, organização por funcionalidades, wrappers e exposição de pacotes. Os arquivos consultados usam uma estrutura própria com tack; não copiar essa infraestrutura.
 - https://github.com/linusammon/nixos-config/ — exemplos de Helix, Noctalia e tema central. Sua composição por combinação de atributos, configuração NixOS de Fish/Starship e serviço próprio de symlinks não são decisões adotadas por este projeto.
-- https://git.voidarc.co.uk/voidarc/nixos — referência fornecida pelo usuário, ainda não analisada devido a HTTP 403. Não atribuir decisões técnicas a ela sem consultar o código.
+- https://git.voidarc.co.uk/voidarc/nixos — código consultado pela API na revisão `548b3d15792a16d4057aab776f3282f60b68ae10`; inspiração para funcionalidades com wrapper e integração NixOS juntos, agrupamentos simples e descoberta com import-tree. Não adotar seus temas fixados por aplicativo, hardware externo impuro ou infraestrutura específica do autor.
+- https://github.com/denful/import-tree — descoberta de arquivos; respeitar o filtro padrão que exclui caminhos contendo `/_` e conferir a API da revisão fixada.
 - Consultar a documentação e o código das revisões efetivamente fixadas antes de depender de APIs, nomes de módulos ou opções. As referências externas podem mudar.

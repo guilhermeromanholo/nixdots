@@ -13,18 +13,16 @@ nix-wrapper-modules. A configuração anterior permanece em `old/`.
 
 ## Organização
 
-- `modules/contracts/`: interfaces tipadas para tema, usuário e persistência.
 - `modules/features/`: configuração de cada funcionalidade, com wrappers e integração NixOS no mesmo módulo.
 - `modules/features/desktop/`: compositor, shell gráfica e sessão de login.
-- `modules/features/theme/`: paletas e integração com fontes, GTK, Qt e cursor.
-- `modules/features/system/`: configuração básica do sistema e persistência.
+- `modules/features/theme/`: opções tipadas, paletas e integração com fontes, GTK, Qt e cursor.
+- `modules/features/system/`: configuração básica do sistema, usuário e persistência.
 - `modules/hosts/<nome>/`: seleção de funcionalidades e diferenças da máquina em `default.nix`, junto dos arquivos reais de hardware e disko.
 - `modules/meta/`: composição de hosts e perfis, overlay/exportação de pacotes, checks e ambientes de desenvolvimento.
 - `tests/`: verificação de inicialização dos servidores LSP.
 
 ```text
 modules/
-├── contracts/
 ├── features/
 │   ├── fish.nix
 │   ├── starship.nix
@@ -32,12 +30,20 @@ modules/
 │   ├── kitty.nix
 │   ├── desktop/
 │   ├── theme/
+│   │   ├── options.nix
+│   │   ├── _type.nix
+│   │   ├── gruvbox.nix
+│   │   ├── nord.nix
+│   │   └── default.nix
 │   └── system/
+│       ├── default.nix
+│       ├── user.nix
+│       └── persistence.nix
 ├── hosts/
 │   ├── sunset/
 │   │   ├── default.nix
-│   │   ├── hardware.nix
-│   │   └── disko.nix
+│   │   ├── _hardware.nix
+│   │   └── _disko.nix
 │   ├── taz/
 │   ├── vortex/
 │   └── tesla/
@@ -49,14 +55,32 @@ modules/
     └── development.nix
 ```
 
-Os módulos são registrados por imports explícitos. A composição usa o sistema
-de módulos do flake-parts e `flake.modules.nixos`, sem den, flake-aspects ou um
-carregador próprio que combine configurações por `recursiveUpdate`.
+O [import-tree](https://github.com/denful/import-tree) descobre os arquivos
+`.nix` dentro de `modules/`. Arquivos ou diretórios com prefixo `_` ficam fora
+da descoberta: `_type.nix` e `_noctalia-palette.nix` são auxiliares, enquanto
+`_hardware.nix` e `_disko.nix` são módulos NixOS importados explicitamente pelo
+host. Os demais arquivos devem ser módulos de flake-parts, inclusive `default.nix`.
+Ao adicionar uma funcionalidade, basta criar seu módulo; não há lista central
+de arquivos a atualizar.
 
-Contratos descrevem dados que outras funcionalidades podem consumir. Por
-exemplo, o host seleciona `nixdots.theme`, o overlay fornece os wrappers com
-esse tema, e os aplicativos convertem a mesma paleta para seus formatos.
-Registrar um módulo não o ativa: os perfis selecionam os módulos NixOS usados.
+A composição usa flake-parts e `flake.modules.nixos`. Descobrir um arquivo
+registra suas definições; os imports dos perfis e hosts continuam explícitos
+e determinam quais funcionalidades são ativadas. As saídas dos hosts prontos
+para rebuild ficam em `modules/meta/hosts.nix`; descobrir o módulo do Tesla
+não o publica como um sistema pronto.
+
+As opções compartilhadas ficam junto da funcionalidade responsável, sem uma
+camada separada de contratos. `system/user.nix` declara `nixdots.user.name`;
+o home usa a opção nativa `users.users.<nome>.home`. `theme/options.nix` declara
+o catálogo de temas, a opção NixOS `nixdots.theme` e a opção `theme` dos wrappers,
+usando o mesmo tipo. O host seleciona seu tema, o overlay o passa aos wrappers,
+e os aplicativos convertem a paleta para seus formatos.
+
+A persistência mantém somente `nixdots.persistence.enable` e `root` como opções
+próprias. Hosts e funcionalidades contribuem diretamente para
+`environment.persistence`, do impermanence. Contribuições de aplicativos são
+condicionadas a `enable`, de modo que WSL e hosts sem persistência não ganhem
+montagens. Os caminhos físicos existentes continuam os mesmos.
 
 ## Pacotes e wrappers
 
@@ -99,7 +123,7 @@ wrapper. Firefox mantém perfis graváveis e Vesktop usa o Vencord do nixpkgs.
 
 O tema é fixo por host e muda por rebuild. As paletas antigas de Gruvbox/Nord e
 seus wallpapers foram reaproveitados. Fish, Starship, Helix, Kitty, Mango e
-Noctalia recebem o contrato compartilhado. GTK usa o tema correspondente; a
+Noctalia recebem o mesmo tema tipado. GTK usa o tema correspondente; a
 integração Qt usa inicialmente Adwaita escuro e as preferências de interface
 compartilhadas via GNOME. A paleta exata de GTK não é reproduzida em todos os
 widgets Qt.
@@ -135,7 +159,8 @@ nix build .#nixosConfigurations.taz.config.system.build.toplevel
 nix build .#nixosConfigurations.vortex.config.system.build.toplevel
 ```
 
-Os checks incluem os contratos dos quatro hosts, shell interativo e de login,
+Os checks incluem temas e usuários dos quatro hosts, persistência desativada
+em Taz/Vortex, shell interativo e de login,
 configuração do Helix, handshake LSP de nixd/ty e validação nativa do TOML do
 Noctalia. O wrapper pronto de Mango valida sua configuração durante o build.
 Uma avaliação não equivale a um build; um build não equivale a um teste da

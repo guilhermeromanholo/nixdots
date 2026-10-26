@@ -5,8 +5,8 @@
       uefi
       printing
       inputs.disko.nixosModules.disko
-      ./hardware.nix
-      ./disko.nix
+      ./_hardware.nix
+      ./_disko.nix
     ];
     networking.hostName = "taz";
     system.stateVersion = "24.11";
