@@ -7,8 +7,8 @@
       persistence
       vesktop
       inputs.disko.nixosModules.disko
-      ../../hardware/sunset/hardware.nix
-      ../../hardware/sunset/disko.nix
+      ./hardware.nix
+      ./disko.nix
     ];
     networking.hostName = "sunset";
     system.stateVersion = "24.11";

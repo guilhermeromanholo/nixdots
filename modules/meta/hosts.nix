@@ -1,9 +1,9 @@
 { self, inputs, ... }: {
   imports = [
-    ./sunset.nix
-    ./taz.nix
-    ./vortex.nix
-    ./tesla.nix
+    ../hosts/sunset
+    ../hosts/taz
+    ../hosts/vortex
+    ../hosts/tesla
   ];
   flake.nixosConfigurations = builtins.listToAttrs (
     map

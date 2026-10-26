@@ -39,6 +39,15 @@ Usar identificadores de hosts em minúsculas na configuração.
 - Substituir a camada antiga `parts.*` pelos recursos nativos disponíveis. Não recriar um framework próprio para funcionalidades já atendidas pelo flake-parts.
 - Separar o escopo de avaliação do flake, dos módulos NixOS e dos wrappers, evitando recursão ao compartilhar configurações.
 
+## Organização dos diretórios
+
+- Usar a organização aprovada inspirada no Goxore: `modules/contracts/`, `modules/features/`, `modules/hosts/` e `modules/meta/`.
+- `contracts/` contém as interfaces tipadas compartilhadas; `features/` reúne a configuração de cada funcionalidade, incluindo wrappers e integração NixOS.
+- Agrupar funcionalidades relacionadas em `features/desktop/`, `features/theme/` e `features/system/`. Manter funcionalidades pequenas em arquivos, criando diretórios quando houver vários arquivos relacionados.
+- Manter cada host em `modules/hosts/<nome>/default.nix`, junto de seus arquivos reais de hardware e disko. Não separar esses arquivos em uma árvore `hardware/` na raiz.
+- `meta/` contém a composição de hosts e perfis, o overlay/exportação de pacotes, checks e ambientes de desenvolvimento; não é um framework próprio.
+- Registrar os módulos por imports explícitos em `modules/default.nix` e os hosts em `modules/meta/hosts.nix`.
+
 ## Contratos compartilhados
 
 - Adotar a ideia de contratos do repositório Goxore: interfaces pequenas e explícitas entre funcionalidades, declaradas como opções tipadas do sistema de módulos.

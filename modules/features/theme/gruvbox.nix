@@ -31,6 +31,6 @@
       name = "Gruvbox-Dark";
       package = "gruvbox-gtk-theme";
     };
-    wallpaper = ../../assets/wallpapers/gruvbox.png;
+    wallpaper = ../../../assets/wallpapers/gruvbox.png;
   };
 }

@@ -31,6 +31,6 @@
       name = "Nordic";
       package = "nordic";
     };
-    wallpaper = ../../assets/wallpapers/nord.jpg;
+    wallpaper = ../../../assets/wallpapers/nord.jpg;
   };
 }

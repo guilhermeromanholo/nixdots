@@ -3,24 +3,24 @@
     ./contracts/theme.nix
     ./contracts/user.nix
     ./contracts/persistence.nix
-    ./themes
-    ./core/packages.nix
-    ./core/system.nix
-    ./core/persistence.nix
-    ./programs/fish.nix
-    ./programs/starship.nix
-    ./programs/helix.nix
-    ./programs/kitty.nix
-    ./programs/git.nix
-    ./programs/nh.nix
-    ./programs/browser.nix
-    ./programs/vesktop.nix
-    ./desktop/mango.nix
-    ./desktop/noctalia.nix
-    ./desktop/session.nix
-    ./profiles
-    ./hosts
-    ./development.nix
-    ./checks.nix
+    ./features/theme
+    ./features/system
+    ./features/system/persistence.nix
+    ./features/fish.nix
+    ./features/starship.nix
+    ./features/helix.nix
+    ./features/kitty.nix
+    ./features/git.nix
+    ./features/nh.nix
+    ./features/browser.nix
+    ./features/vesktop.nix
+    ./features/desktop/mango.nix
+    ./features/desktop/noctalia.nix
+    ./features/desktop/session.nix
+    ./meta/packages.nix
+    ./meta/profiles.nix
+    ./meta/hosts.nix
+    ./meta/development.nix
+    ./meta/checks.nix
   ];
 }

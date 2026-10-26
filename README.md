@@ -14,13 +14,40 @@ nix-wrapper-modules. A configuração anterior permanece em `old/`.
 ## Organização
 
 - `modules/contracts/`: interfaces tipadas para tema, usuário e persistência.
-- `modules/programs/`: wrappers e a integração NixOS de cada aplicativo.
-- `modules/desktop/`: compositor, shell gráfica e sessão de login.
-- `modules/profiles/`: composição explícita de terminal, workstation e laptop.
-- `modules/hosts/`: seleção de funcionalidades e diferenças de cada máquina.
-- `modules/themes/`: paletas e integração com fontes, GTK, Qt e cursor.
-- `hardware/`: arquivos de hardware e disko preservados dos hosts existentes.
+- `modules/features/`: configuração de cada funcionalidade, com wrappers e integração NixOS no mesmo módulo.
+- `modules/features/desktop/`: compositor, shell gráfica e sessão de login.
+- `modules/features/theme/`: paletas e integração com fontes, GTK, Qt e cursor.
+- `modules/features/system/`: configuração básica do sistema e persistência.
+- `modules/hosts/<nome>/`: seleção de funcionalidades e diferenças da máquina em `default.nix`, junto dos arquivos reais de hardware e disko.
+- `modules/meta/`: composição de hosts e perfis, overlay/exportação de pacotes, checks e ambientes de desenvolvimento.
 - `tests/`: verificação de inicialização dos servidores LSP.
+
+```text
+modules/
+├── contracts/
+├── features/
+│   ├── fish.nix
+│   ├── starship.nix
+│   ├── helix.nix
+│   ├── kitty.nix
+│   ├── desktop/
+│   ├── theme/
+│   └── system/
+├── hosts/
+│   ├── sunset/
+│   │   ├── default.nix
+│   │   ├── hardware.nix
+│   │   └── disko.nix
+│   ├── taz/
+│   ├── vortex/
+│   └── tesla/
+└── meta/
+    ├── hosts.nix
+    ├── profiles.nix
+    ├── packages.nix
+    ├── checks.nix
+    └── development.nix
+```
 
 Os módulos são registrados por imports explícitos. A composição usa o sistema
 de módulos do flake-parts e `flake.modules.nixos`, sem den, flake-aspects ou um
@@ -176,7 +203,7 @@ confirmar o `system.stateVersion` instalado. Por isso não há uma saída
 
 Quando os arquivos reais forem fornecidos, importe-os no módulo, defina o
 `stateVersion` correto, remova a assertion de pendência e acrescente `tesla` à
-lista de configurações em `modules/hosts/default.nix`. Valide também tampa,
+lista de configurações em `modules/meta/hosts.nix`. Valide também tampa,
 bateria, suspensão, teclado, TrackPoint/touchpad e monitores externos.
 
 ## Alterações em relação a old/

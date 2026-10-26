@@ -65,8 +65,8 @@
               hx --health python > python-health.txt
               grep -F '${lib.getExe pkgs.nixd}' nix-health.txt
               grep -F '${lib.getExe pkgs.ty}' python-health.txt
-              python ${../tests/lsp-smoke.py} ${lib.getExe pkgs.nixd}
-              python ${../tests/lsp-smoke.py} ${lib.getExe pkgs.ty} server
+              python ${../../tests/lsp-smoke.py} ${lib.getExe pkgs.nixd}
+              python ${../../tests/lsp-smoke.py} ${lib.getExe pkgs.ty} server
               touch "$out"
             '';
 
