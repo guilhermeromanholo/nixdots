@@ -1,0 +1,17 @@
+[[language]]
+name = "nix"
+comment-token = "#"
+language-servers = ["nixd"]
+
+[[language]]
+name = "python"
+comment-token = "#"
+language-servers = ["ty"]
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+[language-server.ty.config]
+experimental.rename = true
+completions.completeFunctionParentheses = true
