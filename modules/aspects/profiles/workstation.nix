@@ -9,6 +9,11 @@
       den.aspects.ssd
       den.aspects.graphics
       den.aspects.firmware
+
+      # Services
+      den.aspects.openssh
+      den.aspects.printing
+      den.aspects.tailscale
     ];
   };
 }

@@ -8,6 +8,9 @@
       # Hardware
       den.aspects.battery
       den.aspects.bluetooth
+
+      # Services
+      den.aspects.avahi
     ];
   };
 }
