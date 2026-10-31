@@ -1,10 +1,5 @@
 {
   den.aspects.sunset.nixos = {
-    fileSystems."/" = {
-      device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
     boot.initrd.availableKernelModules = [
       "ahci"
       "nvme"
