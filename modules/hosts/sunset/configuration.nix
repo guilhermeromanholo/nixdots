@@ -1,15 +1,15 @@
 { den, ... }:
 {
-  den.hosts.x86_64-linux.sunset = {
-    users.guilherme = { };
-  };
-
-  den.aspects.sunset = { pkgs, ... }: {
-    includes = with den.aspects; [
-      # Host roles
-      roles.default
+  den.aspects.sunset = {
+    includes = [
+      # Profile
+      den.aspects.core
     ];
 
-    nixos.environment.systemPackages = [ pkgs.neovim ];
+    # ...
+  };
+
+  den.hosts.x86_64-linux.sunset = {
+    users.guilherme = { };
   };
 }

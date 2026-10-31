@@ -1,6 +1,6 @@
 {
-  den.aspects.system.security = {
-    nixos.security = {
+  den.aspects.security.nixos = {
+    security = {
       rtkit.enable = true;
       polkit.enable = true;
       sudo-rs.enable = true;

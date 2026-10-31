@@ -1,6 +1,6 @@
 {
-  den.aspects.system.nix = {
-    nixos.nix = {
+  den.aspects.nix.nixos = {
+    nix = {
       settings = {
         auto-optimise-store = true;
 
