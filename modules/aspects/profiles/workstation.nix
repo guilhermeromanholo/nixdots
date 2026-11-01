@@ -14,6 +14,11 @@
       den.aspects.openssh
       den.aspects.printing
       den.aspects.tailscale
+
+      # Desktop
+      den.aspects.gtk
+      den.aspects.mango
+      den.aspects.greeter
     ];
   };
 }

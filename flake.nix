@@ -9,6 +9,8 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 

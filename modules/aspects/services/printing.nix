@@ -1,10 +1,16 @@
 {
-  den.aspects.printing.nixos = { pkgs, ... }: {
-    services.printing = {
-      enable = true;
-      drivers = [ pkgs.gutenprint ];
+  den.aspects.printing = {
+    nixos = { pkgs, ... }: {
+      services.printing = {
+        enable = true;
+        drivers = [ pkgs.gutenprint ];
+      };
+
+      hardware.sane.enable = true;
     };
 
-    hardware.sane.enable = true;
+    persist.root.directories = [
+      "/etc/cups"
+    ];
   };
 }
