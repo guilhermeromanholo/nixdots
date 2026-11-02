@@ -1,10 +1,9 @@
-{inputs, ...}: {
-  imports = [
-    inputs.treefmt-nix.flakeModule
-  ];
+{ inputs, ... }:
+{
+  imports = [ inputs.treefmt-nix.flakeModule ];
 
   perSystem.treefmt.programs = {
+    nixfmt.enable = true;
     deadnix.enable = true;
-    alejandra.enable = true;
   };
 }

@@ -1,6 +1,6 @@
 { self, ... }:
 {
-  flake.modules.nixos.network = {
+  flake.modules.nixos.network = { config, ... }: {
     networking = {
       # Enable NetworkManager
       networkmanager = {
@@ -18,10 +18,11 @@
 
     # Directories to persist
     environment = self.lib.mkIfPersistence {
+      inherit config;
       directories = [
         "/var/lib/NetworkManager"
         "/etc/NetworkManager/system-connections"
       ];
-    }; 
+    };
   };
 }
