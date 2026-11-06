@@ -1,15 +1,8 @@
-{ self, ... }:
 {
-  flake.modules.nixos.tailscale = { config, ... }: {
-    # Enable tailscale and allow subnet
-    # routes
+  flake.modules.nixos.tailscale = {
     services.tailscale.enable = true;
     services.tailscale.extraUpFlags = [ "--accept-routes" ];
 
-    # Persist tailscale configuration
-    environment = self.lib.mkIfPersistence {
-      inherit config;
-      directories = [ "/var/lib/tailscale" ];
-    };
+    persist.root.directories = [ "/var/lib/tailscale" ];
   };
 }

@@ -2,12 +2,17 @@
 {
   flake.modules.nixos.base = {
     imports = with self.modules.nixos; [
+      # System
       nix
       boot
       locale
-      nixpkgs
       network
+      nixpkgs
       security
+
+      # Contracts
+      persist
+      settings
     ];
   };
 }
