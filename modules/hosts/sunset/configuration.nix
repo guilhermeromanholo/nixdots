@@ -3,6 +3,7 @@
   flake.modules.nixos.sunset = {
     imports = with self.modules.nixos; [
       workstation
+      glhrm
       impermanence
     ];
 
