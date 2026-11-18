@@ -2,10 +2,8 @@
 {
   flake.nixosModules.desktop = {
     imports = with self.nixosModules; [
-      # Roles
-      core
-
       # System
+      core
       audio
       theme
       network

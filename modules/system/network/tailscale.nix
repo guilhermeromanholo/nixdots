@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.tailscale = { config, ... }: {
+  flake.nixosModules.network = { config, ... }: {
     services.tailscale = {
       enable = true;
       extraUpFlags = [ "--accept-routes" ];

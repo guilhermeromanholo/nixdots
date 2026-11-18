@@ -7,10 +7,9 @@
 
       # System
       battery
-      bluetooth
 
       # Features
-      # ...
+      blueman
     ];
   };
 }
