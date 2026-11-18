@@ -1,19 +1,19 @@
 {
-  flake.nixosModules.sunset-hardware = {
+  flake.nixosModules.taz = {
     fileSystems."/".fsType = "tmpfs";
     fileSystems."/".device = "/dev/null";
 
     boot.initrd.availableKernelModules = [
       "ahci"
-      "nvme"
+      "sd_mod"
       "usbhid"
       "xhci_pci"
     ];
 
     boot.kernelModules = [
-      "kvm-amd"
+      "kvm-intel"
     ];
 
-    hardware.cpu.amd.updateMicrocode = true;
+    hardware.cpu.intel.updateMicrocode = true;
   };
 }
