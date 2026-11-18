@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.nixosModules.settings = {
+  flake.nixosModules.options = {
     options.settings = {
       user = {
         # User name
@@ -8,12 +8,6 @@
           default = "glhrm";
           type = lib.types.str;
         };
-
-        # ...
-      };
-
-      disk = {
-        # ...
       };
     };
   };

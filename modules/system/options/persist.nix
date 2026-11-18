@@ -6,7 +6,7 @@ let
   };
 in
 {
-  flake.nixosModules.persist = {
+  flake.nixosModules.options = {
     options.persist = {
       root.files = strList;
       root.directories = strList;
