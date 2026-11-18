@@ -3,8 +3,8 @@
   flake.nixosModules.core = {
     imports = with self.nixosModules; [
       nix
-      user
       boot
+      users
       locale
       nixpkgs
     ];

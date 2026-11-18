@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.user = { config, pkgs, ... }: {
+  flake.nixosModules.users = { config, pkgs, ... }: {
     programs.fish.enable = true;
 
     users.users.${config.settings.user.name} = {

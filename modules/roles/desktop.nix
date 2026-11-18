@@ -2,12 +2,14 @@
 {
   flake.nixosModules.desktop = {
     imports = with self.nixosModules; [
-      # System
+      # Roles
       core
+
+      # System
       audio
+      theme
       network
       options
-      theming
 
       # Features
       # ...

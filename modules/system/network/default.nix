@@ -1,11 +1,5 @@
-{ self, ... }:
 {
   flake.nixosModules.network = {
-    imports = with self.nixosModules; [
-      openssh
-      tailscale
-    ];
-
     networking = {
       networkmanager = {
         enable = true;

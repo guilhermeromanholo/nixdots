@@ -1,6 +1,6 @@
 { self, ... }:
 {
-  flake.nixosModules.theming = {
+  flake.nixosModules.theme = {
     imports = with self.nixosModules; [
       gtk
     ];
