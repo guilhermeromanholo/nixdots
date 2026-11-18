@@ -4,10 +4,10 @@
     imports = with self.nixosModules; [
       # System
       core
-      boot
       audio
       network
       options
+      theming
 
       # Features
       # ...
