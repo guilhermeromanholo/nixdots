@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.core = {
+  flake.nixosModules.default = {
     nix = {
       settings = {
         # Optimise store creating hard
