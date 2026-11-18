@@ -1,9 +1,6 @@
 {
   flake.nixosModules.security = {
-    security = {
-      rtkit.enable = true;
-      polkit.enable = true;
-      sudo-rs.enable = true;
-    };
+    security.polkit.enable = true;
+    security.sudo-rs.enable = true;
   };
 }

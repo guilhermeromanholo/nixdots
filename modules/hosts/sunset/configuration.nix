@@ -2,7 +2,10 @@
 {
   flake.nixosModules.sunset = {
     imports = with self.nixosModules; [
+      # Roles
       desktop
+
+      # Hardware
       sunset-hardware
     ];
   };
