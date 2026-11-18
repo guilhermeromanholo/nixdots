@@ -11,7 +11,9 @@
       theming
 
       # Features
-      # ...
+      mango
+      kitty
+      greeter
     ];
   };
 }

@@ -1,14 +1,15 @@
 { inputs, ... }:
 {
-  imports = [
-    inputs.treefmt-nix.flakeModule
-    inputs.wrappers.flakeModules.default
-  ];
+  imports = [ inputs.wrappers.flakeModules.default ];
 
   systems = [ "x86_64-linux" ];
 
-  perSystem.treefmt.programs = {
-    nixfmt.enable = true;
-    deadnix.enable = true;
+  perSystem = { system, pkgs, ... }: {
+    formatter = pkgs.nixfmt-tree;
+
+    # _module.args.pkgs = import inputs.nixpkgs {
+    #   inherit system;
+    #   overlays = [ inputs.self.lib.mkOverlays ];
+    #  };
   };
 }
