@@ -1,17 +1,11 @@
-{ inputs, lib, ... }:
-let
-  mkOverlay = final: _prev: {
-    # Local packages
-    my = lib.mapAttrs (_: w: w.wrap { pkgs = final; }) inputs.self.wrappers;
-  };
-in
+{ inputs, self, ... }:
 {
-  flake.overlays.default = mkOverlay;
+  flake.overlays.default = self.lib.mkOverlay;
 
   perSystem = { system, ... }: {
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
-      overlays = [ mkOverlay ];
+      overlays = [ self.lib.mkOverlay ];
     };
   };
 }

@@ -21,5 +21,14 @@
         ]
         ++ modules;
       };
+
+    mkOverlay = final: _prev: {
+      my = lib.mapAttrs (
+        _: w:
+        w.wrap {
+          pkgs = final;
+        }
+      ) inputs.self.wrappers;
+    };
   };
 }

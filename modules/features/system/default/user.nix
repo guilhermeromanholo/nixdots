@@ -1,9 +1,12 @@
+{ self, ... }:
 {
   flake.nixosModules.default = { config, pkgs, ... }: {
-    programs.fish.enable = true;
+    imports = with self.nixosModules; [
+      zsh
+    ];
 
     users.users.${config.settings.user.name} = {
-      shell = pkgs.fish;
+      shell = pkgs.my.zsh;
       isNormalUser = true;
 
       extraGroups = [
