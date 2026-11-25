@@ -4,6 +4,8 @@
     networking.hostName = "tesla";
     system.stateVersion = "26.05";
 
+    settings.user.name = "guilherme";
+
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/bca7dfec-2b73-4aad-acff-17b704d5db43";
       fsType = "ext4";
