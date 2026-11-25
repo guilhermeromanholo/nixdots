@@ -1,7 +1,7 @@
 { self, ... }:
 {
-  flake.nixosModules.default = {
+  flake.nixosModules.default = { config, ... }: {
     nixpkgs.config.allowUnfree = true;
-    nixpkgs.overlays = [ self.overlays.default ];
+    nixpkgs.overlays = [ self.overlays.${config.settings.theme.name} ];
   };
 }

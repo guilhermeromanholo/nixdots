@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.nixosModules.options = {
     options.settings = {
@@ -8,6 +8,12 @@
           default = "glhrm";
           type = lib.types.str;
         };
+      };
+
+      # System theme
+      theme = lib.mkOption {
+        type = self.lib.types.themeType;
+        default = self.themes.gruvbox;
       };
     };
   };

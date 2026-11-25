@@ -5,10 +5,10 @@
       # System
       boot
       audio
+      theme
       default
       network
       options
-      theming
 
       # Features
       mango

@@ -1,7 +1,10 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.wrappers.mango = { wlib, pkgs, ... }: {
-    imports = [ wlib.wrapperModules.mangowc ];
+    imports = [
+      wlib.wrapperModules.mangowc
+      self.lib.mkThemeOption
+    ];
 
     package = pkgs.mango;
 

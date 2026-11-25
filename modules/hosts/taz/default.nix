@@ -1,9 +1,7 @@
-{ self, ... }:
+{ inputs, ... }:
 {
-  flake.nixosConfigurations.taz = self.lib.mkNixos {
-    name = "taz";
-
-    modules = with self.nixosModules; [
+  flake.nixosConfigurations.taz = inputs.nixpkgs.lib.nixosSystem {
+    modules = with inputs.self.nixosModules; [
       taz
       desktop
     ];

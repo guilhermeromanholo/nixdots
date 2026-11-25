@@ -1,9 +1,7 @@
-{ self, ... }:
+{ inputs, ... }:
 {
-  flake.nixosConfigurations.sunset = self.lib.mkNixos {
-    name = "sunset";
-
-    modules = with self.nixosModules; [
+  flake.nixosConfigurations.sunset = inputs.nixpkgs.lib.nixosSystem {
+    modules = with inputs.self.nixosModules; [
       sunset
       desktop
     ];
