@@ -7,6 +7,7 @@
     ];
 
     package = pkgs.mango;
+
     settings = {
       blur = 1;
       blur_optimized = 1;
@@ -20,13 +21,13 @@
       shadows_blur = 15;
       shadows_position_x = 0;
       shadows_position_y = 0;
-      shadowscolor = "0x000000ff";
+      shadows_color = "0x000000ff";
 
-      borderpx = 1;
+      border_px = 1;
       border_radius = 6;
 
-      gappih = 8;
-      gappiv = 8;
+      gap_inner_vertical = 8;
+      gap_inner_horizontal = 8;
 
       xkb_rules_layout = "br";
 
@@ -69,7 +70,7 @@
         "SUPER+SHIFT,0,tag,0"
       ];
 
-      tagrule = [
+      tag_rule = [
         "id:1,layout_name:tile"
         "id:2,layout_name:scroller"
       ];
