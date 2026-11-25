@@ -3,7 +3,7 @@
   theme = {
     mode = "dark";
     source = "custom";
-    custom_palette = "palette";
+    custom_palette = "custom";
   };
 
   wallpaper = {

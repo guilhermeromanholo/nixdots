@@ -17,7 +17,7 @@
       lib.recursiveUpdate (readTheme themes file) {
         inherit name;
         wallpaper = {
-          default = wallpapers + "/${name}/default.png";
+          default = wallpapers + "/${name}/default.jpg";
           directory = wallpapers + "/${name}";
         };
       };
