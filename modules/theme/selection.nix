@@ -12,7 +12,8 @@
       config = lib.mapAttrsRecursive (_: lib.mkDefault) self.defaultTheme;
     };
 
-    lib.mkThemeOption = {
+    lib.wrapperModules.theme = {
+      key = "nixdots:wrapperModules:theme";
       options.theme = lib.mkOption {
         type = self.lib.types.effectiveThemeType;
         default = { };

@@ -14,7 +14,7 @@ let
     themeValue:
     (lib.evalModules {
       modules = [
-        self.lib.mkThemeOption
+        self.lib.wrapperModules.theme
         { theme = themeValue; }
       ];
     }).config.theme;

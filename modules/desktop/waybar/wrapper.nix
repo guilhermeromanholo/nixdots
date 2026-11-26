@@ -10,7 +10,7 @@
     {
       imports = [
         wlib.wrapperModules.waybar
-        self.lib.mkThemeOption
+        self.lib.wrapperModules.theme
       ];
       settings = builtins.fromJSON (builtins.readFile ./_config/config.json);
       "style.css".path = pkgs.writeText "waybar.css" (

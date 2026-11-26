@@ -3,7 +3,7 @@
   flake.wrappers.starship = { wlib, config, ... }: {
     imports = [
       wlib.wrapperModules.starship
-      self.lib.mkThemeOption
+      self.lib.wrapperModules.theme
     ];
     preset = [ "gruvbox-rainbow" ];
     settings = {

@@ -3,7 +3,7 @@
   flake.wrappers.zsh = { wlib, pkgs, ... }: {
     imports = [
       wlib.wrapperModules.zsh
-      self.lib.mkThemeOption
+      self.lib.wrapperModules.theme
     ];
     runtimePkgs = with pkgs; [
       bat

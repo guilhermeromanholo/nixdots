@@ -10,8 +10,8 @@
     {
       imports = [
         wlib.wrapperModules.mangowc
-        self.lib.mkThemeOption
-        self.lib.mkSessionOption
+        self.lib.wrapperModules.theme
+        self.lib.wrapperModules.session
       ];
       package = pkgs.mango;
       settings =

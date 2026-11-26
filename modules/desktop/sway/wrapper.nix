@@ -10,8 +10,8 @@
     {
       imports = [
         wlib.modules.default
-        self.lib.mkThemeOption
-        self.lib.mkSessionOption
+        self.lib.wrapperModules.theme
+        self.lib.wrapperModules.session
       ];
       package = pkgs.sway;
       flags."--config" = config.constructFiles.swayConfig.path;

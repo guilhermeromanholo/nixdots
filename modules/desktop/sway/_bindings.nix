@@ -24,7 +24,7 @@ let
   renderMode =
     name: bindings:
     let
-      body = lib.concatMapStringsSep "\n" render (session.commonBindings ++ bindings);
+      body = lib.concatMapStringsSep "\n" render (session.common ++ bindings);
     in
     if name == "default" then body else "mode \"${name}\" {\n${body}\n}";
 in

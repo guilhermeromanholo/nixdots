@@ -18,7 +18,7 @@ in
 sessionLib.assertValid "mango" session {
   key_mode =
     lib.mapAttrs (_: renderMode) session.bindings
-    // lib.optionalAttrs (session.commonBindings != [ ]) {
-      common = renderMode session.commonBindings;
+    // lib.optionalAttrs (session.common != [ ]) {
+      common = renderMode session.common;
     };
 }

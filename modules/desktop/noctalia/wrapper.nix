@@ -10,7 +10,7 @@
     {
       imports = [
         wlib.modules.default
-        self.lib.mkThemeOption
+        self.lib.wrapperModules.theme
       ];
 
       options = {

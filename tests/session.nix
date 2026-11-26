@@ -4,7 +4,7 @@ let
     session:
     (lib.evalModules {
       modules = [
-        self.lib.mkSessionOption
+        self.lib.wrapperModules.session
         { inherit session; }
       ];
     }).config.session;
@@ -15,7 +15,7 @@ let
       "--title"
       "two words"
     ];
-    commonBindings = [
+    common = [
       {
         modifiers = [ "SUPER" ];
         key = "r";
@@ -56,7 +56,7 @@ let
   aliasSession =
     (lib.evalModules {
       modules = [
-        self.lib.mkSessionOption
+        self.lib.wrapperModules.session
         ({ config, ... }: {
           session.actions."terminal.open" = config.session.actions."kitty.open";
         })
@@ -154,7 +154,7 @@ lib.runTests {
   };
   testCommonBindingCollision = {
     expr = invalid {
-      commonBindings = [
+      common = [
         {
           key = "Escape";
           switchTo = "default";

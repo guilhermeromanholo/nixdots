@@ -1,6 +1,6 @@
 {
   flake.nixosModules.firefox = { pkgs, ... }: {
-    key = "nixdots:modules/programs/firefox.nix:firefox";
+    key = "nixdots:modules/apps/firefox.nix:firefox";
     environment.systemPackages = [ pkgs.firefox ];
   };
 }

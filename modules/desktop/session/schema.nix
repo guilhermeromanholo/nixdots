@@ -80,7 +80,7 @@ in
         default = { };
         description = "Bindings grouped by named mode. The default mode always exists.";
       };
-      commonBindings = mkOption {
+      common = mkOption {
         type = types.listOf bindingType;
         default = [ ];
         description = "Bindings available in every mode; conflicts with local bindings are rejected.";
@@ -94,7 +94,8 @@ in
     config.bindings.default = [ ];
   };
 
-  flake.lib.mkSessionOption = {
+  flake.lib.wrapperModules.session = {
+    key = "nixdots:wrapperModules:session";
     options.session = mkOption {
       type = self.lib.types.sessionType;
       default = { };
@@ -105,7 +106,7 @@ in
   flake.nixosModules.session-options = { config, ... }: {
 
     key = "nixdots:modules/desktop/session/schema.nix:session-options";
-    imports = [ self.lib.mkSessionOption ];
+    imports = [ self.lib.wrapperModules.session ];
     assertions = lib.optionals (config.session.compositor != null) (
       map (message: {
         assertion = false;

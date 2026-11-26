@@ -10,7 +10,7 @@
     {
       imports = [
         wlib.wrapperModules.helix
-        self.lib.mkThemeOption
+        self.lib.wrapperModules.theme
       ];
       runtimePkgs = with pkgs; [
         ty

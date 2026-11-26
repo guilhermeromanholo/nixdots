@@ -11,7 +11,7 @@ let
     backend: session:
     let
       modes = builtins.attrNames session.bindings;
-      bindings = lib.concatLists (builtins.attrValues session.bindings) ++ session.commonBindings;
+      bindings = lib.concatLists (builtins.attrValues session.bindings) ++ session.common;
       bindingErrors =
         binding:
         lib.optional (
@@ -34,12 +34,12 @@ let
       modeErrors =
         mode:
         let
-          grouped = lib.groupBy bindingKey (session.commonBindings ++ session.bindings.${mode});
+          grouped = lib.groupBy bindingKey (session.common ++ session.bindings.${mode});
           duplicates = builtins.attrNames (lib.filterAttrs (_: values: builtins.length values > 1) grouped);
         in
         lib.optional (
           mode == "common" || builtins.match "[a-zA-Z][a-zA-Z0-9_-]*" mode == null
-        ) "Invalid session mode name: ${mode}; common is reserved for commonBindings."
+        ) "Invalid session mode name: ${mode}; common is reserved for session.common."
         ++ map (key: "Duplicate binding in mode ${mode}: ${key}.") duplicates;
     in
     lib.concatMap bindingErrors bindings

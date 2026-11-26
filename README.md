@@ -11,7 +11,7 @@ import-tree e nix-wrapper-modules.
 | `modules/system/` | Nix, usuários, rede, boot e contrato de persistência |
 | `modules/theme/` | Esquema Base16, catálogo e integração com fontes, GTK e Qt |
 | `modules/desktop/` | Contrato da sessão, compositores, painéis e greeter |
-| `modules/programs/` | Aplicativos que podem ser usados independentemente da sessão |
+| `modules/apps/` | Aplicativos que podem ser usados independentemente da sessão |
 | `modules/hardware/` | Políticas reutilizáveis de áudio, Bluetooth e energia |
 | `modules/roles/` | Combinações de funcionalidades |
 | `modules/hosts/` | Identidade, seleção de roles e hardware de cada máquina |
@@ -117,7 +117,7 @@ contribuir com seus próprios bindings; a sessão mantém as convenções gerais
 - `key` recebe um keysym XKB, como `Return`, `Escape` ou `comma`.
 - `release = true` executa o binding ao soltar a tecla.
 - Cada binding define exatamente um dos campos `action` e `switchTo`.
-- `session.commonBindings` disponibiliza atalhos em todos os modos.
+- `session.common` disponibiliza atalhos em todos os modos.
 - `default` sempre existe; `common` é reservado ao adaptador.
 - Retornos entre modos são explícitos; não existe uma pilha automática de modos.
 
@@ -170,6 +170,20 @@ Nenhum host existente passou a usar Impermanence automaticamente.
 ## Wrappers e arquivos nativos
 
 O módulo de instalação de um programa fica junto de seu wrapper.
+Os contratos compartilhados ficam em `self.lib.wrapperModules`, como módulos
+importáveis com a mesma convenção usada pelo wlib:
+
+```nix
+imports = [
+  wlib.wrapperModules.kitty
+  self.lib.wrapperModules.theme
+];
+```
+
+Compositores também importam `self.lib.wrapperModules.session`.
+Esse registro fica separado de `self.wrapperModules`, que a dependência gera
+automaticamente a partir dos wrappers dos aplicativos.
+
 Configuração estruturada permanece em Nix quando recebe valores derivados;
 código Zsh e arquivos próprios de Sway e Waybar ficam em `_config/`.
 

@@ -10,7 +10,7 @@
     {
       imports = [
         wlib.wrapperModules.kitty
-        self.lib.mkThemeOption
+        self.lib.wrapperModules.theme
       ];
 
       options.shellPackage = lib.mkOption {

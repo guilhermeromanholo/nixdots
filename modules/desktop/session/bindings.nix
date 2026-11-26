@@ -11,7 +11,7 @@ in
 {
   flake.nixosModules.session-bindings.key = "nixdots:modules/desktop/session/bindings.nix:session-bindings";
   flake.nixosModules.session-bindings.session = {
-    commonBindings = [ (bind [ "SUPER" ] "r" "config.reload") ];
+    common = [ (bind [ "SUPER" ] "r" "config.reload") ];
 
     bindings.default = [
       (bind [ "SUPER" ] "q" "window.close")
