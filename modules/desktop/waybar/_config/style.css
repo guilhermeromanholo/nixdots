@@ -1,0 +1,16 @@
+window#waybar {
+    background: @background;
+    color: @foreground;
+}
+#workspaces button {
+    color: @foreground;
+    border-radius: 4px;
+}
+#workspaces button.focused,
+#mode {
+    background: @accent;
+    color: @background;
+}
+#clock, #pulseaudio, #network, #battery, #tray {
+    padding: 0 8px;
+}

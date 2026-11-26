@@ -1,0 +1,32 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 8,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "battery",
+    "tray"
+  ],
+  "clock": {
+    "format": "{:%H:%M  %d/%m}"
+  },
+  "network": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "Ethernet",
+    "format-disconnected": "Offline"
+  },
+  "pulseaudio": {
+    "format": "{volume}%"
+  },
+  "battery": {
+    "format": "{capacity}%"
+  }
+}
