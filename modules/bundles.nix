@@ -22,6 +22,9 @@
       openssh
       printing
       tailscale
+
+      # Desktop
+      greeter
     ];
 
     laptop.imports = [
