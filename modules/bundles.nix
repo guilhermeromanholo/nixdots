@@ -5,8 +5,8 @@
       nix
       users
       locale
+      network
       options
-      networking
     ];
 
     desktop.imports = [
