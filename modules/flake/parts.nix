@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     inputs.wrappers.flakeModules.default
     inputs.flake-parts.flakeModules.modules

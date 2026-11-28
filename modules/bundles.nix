@@ -1,9 +1,11 @@
-{self, ...}: {
+{ self, ... }:
+{
   flake.modules.nixos = with self.modules.nixos; {
     base.imports = [
       nix
       users
       locale
+      options
       networking
     ];
 

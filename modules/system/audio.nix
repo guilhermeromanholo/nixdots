@@ -1,5 +1,5 @@
-{self, ...}: {
-  flake.modules.nixos.audio = self.lib.mkModule {
+{
+  flake.modules.nixos.audio = {
     services.pipewire = {
       enable = true;
       pulse.enable = true;

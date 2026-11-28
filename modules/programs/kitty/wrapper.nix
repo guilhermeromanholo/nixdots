@@ -1,10 +1,7 @@
+{ lib, self, ... }:
 {
-  lib,
-  self,
-  ...
-}: {
   flake.wrappers.kitty = self.lib.mkWrapper "kitty" (
-    {pkgs, ...}: {
+    { pkgs, ... }: {
       settings = {
         shell = lib.getExe pkgs.fish;
         cursor_trail = 3;

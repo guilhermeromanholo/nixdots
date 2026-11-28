@@ -1,5 +1,5 @@
-{self, ...}: {
-  flake.modules.nixos.nix = self.lib.mkModule {
+{
+  flake.modules.nixos.nix = {
     nix.settings = {
       # Optimise store creating hard
       # links for identical contents
@@ -7,7 +7,7 @@
 
       # Allow wheel users to access
       # nix daemon
-      trusted-users = ["@wheel"];
+      trusted-users = [ "@wheel" ];
 
       # Enable flakes
       # Enable nix-command for nix run, ...
