@@ -3,8 +3,8 @@
   flake.lib.mkNixos =
     {
       name,
-      system,
       version,
+      system ? "x86_64-linux",
     }:
     inputs.nixpkgs.lib.nixosSystem {
       modules = [

@@ -9,12 +9,15 @@
       options
     ];
 
-    desktop.imports = [
+    workstation.imports = [
       base
 
+      # System
       boot
       audio
+      firmware
 
+      # Service
       podman
       openssh
       printing
@@ -22,8 +25,9 @@
     ];
 
     laptop.imports = [
-      desktop
+      workstation
 
+      # Service
       power
       bluetooth
     ];
