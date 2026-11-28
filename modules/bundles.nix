@@ -11,12 +11,21 @@
 
     desktop.imports = [
       base
+
       boot
       audio
+
+      podman
+      openssh
+      printing
+      tailscale
     ];
 
     laptop.imports = [
       desktop
+
+      power
+      bluetooth
     ];
   };
 }
